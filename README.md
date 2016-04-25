@@ -4,15 +4,15 @@
 
 ##Minimum Viable Product
 
-Dream is a web application inspired by Flickr that will be built using Ruby on Rails and React.js. By the end of Week 9, this will satisfy the following criteria:
+Dream is a web application inspired by Flickr that will be built using Ruby on Rails and React.js. It contains photo hosting capabilities; however, it is more geared towards showcasing artwork and possesses the capacity to filter by specific art styles, including photography, traditional, and digital. By the end of Week 9, this will satisfy the following criteria:
 
 - [ ] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data (photos and artwork) to demonstrate the site's features
-- [ ] the Minimally necessary features for a Flickr-inspired site: photo and artwork uploading/showing/editing/deleting, an explore page that shows all photos, a user page that shows their photos and their profile
-- [ ] Hosting with Heroku
+- [ ] the Minimally necessary features for a Flickr-inspired site
+  - [ ] photos and artwork uploading, displaying, editing, and deleting capabilities
+  - [ ] an explore feed that has the options to display all artwork, or organize by specific art-styles (photography, traditional, and digital)
+  - [ ] contains a user page that contains their profile information and all of their photos
 - [ ] CSS styling that is aesthetically appealing
-- [ ] A production README that replaces this one
+
 
 ##Product Goals and Priorities
 
