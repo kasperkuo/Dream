@@ -9,7 +9,7 @@ Dream is a web application inspired by Flickr that will be built using Ruby on R
 - [ ] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data (photos and artwork) to demonstrate the site's features
-- [ ]the Minimally necessary features for a Flickr-inspired site: photo and artwork uploading/showing/editing/deleting, an explore page that shows all photos, a user page that shows their photos and their profile
+- [ ] the Minimally necessary features for a Flickr-inspired site: photo and artwork uploading/showing/editing/deleting, an explore page that shows all photos, a user page that shows their photos and their profile
 - [ ] Hosting with Heroku
 - [ ] CSS styling that is aesthetically appealing
 - [ ] A production README that replaces this one
