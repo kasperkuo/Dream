@@ -1,6 +1,6 @@
 [Heroku link][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://dream-capstone.herokuapp.com/
 
 ##Minimum Viable Product
 
