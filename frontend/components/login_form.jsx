@@ -53,30 +53,36 @@ var LoginForm = React.createClass({
 	render: function(){
 		return (
 			<div id="login-form">
-				<button id="nav-session" onClick={this.openModal}>Sign In</button>
+				<a id="nav-session" onClick={this.openModal}>Sign In</a>
 				<Modal
 				isOpen={this.state.modalOpen}
-				onRequestClose={this.closeModal}>
-					<h1>HI SIGN IN</h1>
+				onRequestClose={this.closeModal}
+				className="modal">
+					<h1 className="signup-header">Log In</h1>
 	        <form onSubmit={this.handleSubmit}>
 	          <section>
-	            <label> Username:
 	              <input
+									className="signup-input"
 									type="text"
 									value={this.state.username}
-									onChange={this.changeUsername}/>
-	            </label>
-
-	            <label> Password:
-	              <input
+									onChange={this.changeUsername}
+									placeholder="username"/>
+								<br></br>
+								<input
+									className="signup-input"
 									type="password"
 									value={this.state.password}
-									onChange={this.changePassword}/>
-	            </label>
+									onChange={this.changePassword}
+									placeholder="password"/>
+								<br></br>
 	          </section>
 
-	          <input type="submit" value="Log In"/>
-						<button
+	          <input
+							className="signup-button"
+							type="submit" value="Log In"/>
+						<br></br>
+						<br></br>
+						<button className="guest-button"
 							onClick={this.guestLogin}
 							type="Reset">Guest Login
 						</button>

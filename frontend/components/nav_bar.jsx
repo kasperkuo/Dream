@@ -29,14 +29,14 @@ var NavBar = React.createClass({
   render: function() {
     var button;
     if (this.state.loggedUser) {
-      button = <button className="navbar-logout"
-        onClick={this.logoutUser}>Logout</button>;
+      button = <a className="navbar-logout"
+        onClick={this.logoutUser}>Logout</a>;
     } else {
       button = <LoginForm />;
     }
 
     return (
-      <div className="navbar">
+      <div className="nav">
         <ul>
           <li id="nav-session">{button}</li>
           <li id="nav-session"><SignUpForm /></li>

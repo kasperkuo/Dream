@@ -59,39 +59,44 @@ var SignUpForm = React.createClass({
 
 	render: function(){
 		return (
-			<div id="signup-form">
-        <button onClick={this.openModal}>Sign Up</button>
+			<div className="signup-form">
+        <a onClick={this.openModal}>Sign Up</a>
         <Modal
         isOpen={this.state.modalOpen}
-        onRequestClose={this.closeModal}>
+        onRequestClose={this.closeModal}
+        className="modal">
 
-  				<h1>HI SIGN UP</h1>
-          <form onSubmit={this.handleSubmit}>
+  				<h1 className="signup-header">HI SIGN UP</h1>
+          <form className="form" onSubmit={this.handleSubmit}>
             <section>
-              <label> Username:
                 <input
+                  className="signup-input"
   								type="text"
   								value={this.state.username}
-  								onChange={this.changeUsername}/>
-              </label>
+  								onChange={this.changeUsername}
+                  placeholder="username"/>
+              <br></br>
 
-              <label> E-mail:
                 <input
+                  className="signup-input"
                   type="text"
                   value={this.state.email}
-                  onChange={this.changeEmail}/>
-              </label>
+                  onChange={this.changeEmail}
+                  placeholder="email"/>
+              <br></br>
 
-              <label> Password:
                 <input
+                  className="signup-input"
   								type="password"
   								value={this.state.password}
-  								onChange={this.changePassword}/>
-              </label>
+  								onChange={this.changePassword}
+                  placeholder="password"/>
+
+              <br></br>
 
             </section>
 
-            <input type="submit" value="Sign Up"/>
+            <input className="signup-button" type="submit" value="Sign Up"/>
           </form>
         </Modal>
 			</div>

@@ -25170,7 +25170,7 @@
 				'div',
 				{ id: 'login-form' },
 				React.createElement(
-					'button',
+					'a',
 					{ id: 'nav-session', onClick: this.openModal },
 					'Sign In'
 				),
@@ -25178,11 +25178,12 @@
 					Modal,
 					{
 						isOpen: this.state.modalOpen,
-						onRequestClose: this.closeModal },
+						onRequestClose: this.closeModal,
+						className: 'modal' },
 					React.createElement(
 						'h1',
-						null,
-						'HI SIGN IN'
+						{ className: 'signup-header' },
+						'Log In'
 					),
 					React.createElement(
 						'form',
@@ -25190,29 +25191,29 @@
 						React.createElement(
 							'section',
 							null,
-							React.createElement(
-								'label',
-								null,
-								' Username:',
-								React.createElement('input', {
-									type: 'text',
-									value: this.state.username,
-									onChange: this.changeUsername })
-							),
-							React.createElement(
-								'label',
-								null,
-								' Password:',
-								React.createElement('input', {
-									type: 'password',
-									value: this.state.password,
-									onChange: this.changePassword })
-							)
+							React.createElement('input', {
+								className: 'signup-input',
+								type: 'text',
+								value: this.state.username,
+								onChange: this.changeUsername,
+								placeholder: 'username' }),
+							React.createElement('br', null),
+							React.createElement('input', {
+								className: 'signup-input',
+								type: 'password',
+								value: this.state.password,
+								onChange: this.changePassword,
+								placeholder: 'password' }),
+							React.createElement('br', null)
 						),
-						React.createElement('input', { type: 'submit', value: 'Log In' }),
+						React.createElement('input', {
+							className: 'signup-button',
+							type: 'submit', value: 'Log In' }),
+						React.createElement('br', null),
+						React.createElement('br', null),
 						React.createElement(
 							'button',
-							{
+							{ className: 'guest-button',
 								onClick: this.guestLogin,
 								type: 'Reset' },
 							'Guest Login'
@@ -34222,9 +34223,9 @@
 	  render: function () {
 	    return React.createElement(
 	      'div',
-	      { id: 'signup-form' },
+	      { className: 'signup-form' },
 	      React.createElement(
-	        'button',
+	        'a',
 	        { onClick: this.openModal },
 	        'Sign Up'
 	      ),
@@ -34232,47 +34233,42 @@
 	        Modal,
 	        {
 	          isOpen: this.state.modalOpen,
-	          onRequestClose: this.closeModal },
+	          onRequestClose: this.closeModal,
+	          className: 'modal' },
 	        React.createElement(
 	          'h1',
-	          null,
+	          { className: 'signup-header' },
 	          'HI SIGN UP'
 	        ),
 	        React.createElement(
 	          'form',
-	          { onSubmit: this.handleSubmit },
+	          { className: 'form', onSubmit: this.handleSubmit },
 	          React.createElement(
 	            'section',
 	            null,
-	            React.createElement(
-	              'label',
-	              null,
-	              ' Username:',
-	              React.createElement('input', {
-	                type: 'text',
-	                value: this.state.username,
-	                onChange: this.changeUsername })
-	            ),
-	            React.createElement(
-	              'label',
-	              null,
-	              ' E-mail:',
-	              React.createElement('input', {
-	                type: 'text',
-	                value: this.state.email,
-	                onChange: this.changeEmail })
-	            ),
-	            React.createElement(
-	              'label',
-	              null,
-	              ' Password:',
-	              React.createElement('input', {
-	                type: 'password',
-	                value: this.state.password,
-	                onChange: this.changePassword })
-	            )
+	            React.createElement('input', {
+	              className: 'signup-input',
+	              type: 'text',
+	              value: this.state.username,
+	              onChange: this.changeUsername,
+	              placeholder: 'username' }),
+	            React.createElement('br', null),
+	            React.createElement('input', {
+	              className: 'signup-input',
+	              type: 'text',
+	              value: this.state.email,
+	              onChange: this.changeEmail,
+	              placeholder: 'email' }),
+	            React.createElement('br', null),
+	            React.createElement('input', {
+	              className: 'signup-input',
+	              type: 'password',
+	              value: this.state.password,
+	              onChange: this.changePassword,
+	              placeholder: 'password' }),
+	            React.createElement('br', null)
 	          ),
-	          React.createElement('input', { type: 'submit', value: 'Sign Up' })
+	          React.createElement('input', { className: 'signup-button', type: 'submit', value: 'Sign Up' })
 	        )
 	      )
 	    );
@@ -34346,7 +34342,7 @@
 	    var button;
 	    if (this.state.loggedUser) {
 	      button = React.createElement(
-	        'button',
+	        'a',
 	        { className: 'navbar-logout',
 	          onClick: this.logoutUser },
 	        'Logout'
@@ -34357,7 +34353,7 @@
 	
 	    return React.createElement(
 	      'div',
-	      { className: 'navbar' },
+	      { className: 'nav' },
 	      React.createElement(
 	        'ul',
 	        null,
