@@ -62,7 +62,6 @@
 	  displayName: 'App',
 	
 	  componentDidMount: function () {
-	    // this.errorlisteners = ErrorStore.addListener(this._onChange);
 	    UserClientActions.fetchCurrentUser();
 	  },
 	
@@ -33866,34 +33865,18 @@
 
 /***/ },
 /* 261 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var UserConstants = {
+	var UserConstants = {
 	  LOGIN: "LOGIN",
 	  LOGOUT: "LOGOUT",
 	  ERROR: "ERROR"
 	};
 	
-	module.export = UserConstants;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(262)(module)))
+	module.exports = UserConstants;
 
 /***/ },
-/* 262 */
-/***/ function(module, exports) {
-
-	module.exports = function(module) {
-		if(!module.webpackPolyfill) {
-			module.deprecate = function() {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	}
-
-
-/***/ },
+/* 262 */,
 /* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -34084,18 +34067,16 @@
 	    if (this.state.isLogged === true) {
 	      console.log("entering logged state in explore");
 	      var loginMessage = "You are currently logged in!";
+	      var feed = React.createElement(ImageIndex, null);
+	    } else {
+	      feed = React.createElement(Splash, null);
 	    }
 	
 	    return React.createElement(
 	      'div',
 	      { className: 'explore' },
-	      React.createElement(
-	        'h3',
-	        null,
-	        'explore'
-	      ),
 	      loginMessage,
-	      React.createElement(Splash, null)
+	      feed
 	    );
 	  }
 	});
@@ -34513,18 +34494,182 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ImageStore = __webpack_require__(276);
+	var ImageClientActions = __webpack_require__(277);
+	
+	var ImageIndexItem = __webpack_require__(281);
 	
 	var ImageIndex = React.createClass({
 	  displayName: 'ImageIndex',
 	
 	
+	  getInitialState: function () {
+	    return { images: ImageStore.all() };
+	  },
+	
+	  componentDidMount: function () {
+	    this.imageListener = ImageStore.addListener(this._onChange);
+	    ImageClientActions.fetchAllImages();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.imageListener.remove();
+	  },
+	
+	  _onChange: function () {
+	    this.setState({ images: ImageStore.all() });
+	  },
+	
 	  render: function () {
-	    return React.createElement('div', null);
+	    var photos;
+	    if (this.state.images.length !== 0) {
+	      photos = this.state.images.map(function (photo) {
+	        return React.createElement(ImageIndexItem, { key: photo.id, photo: photo });
+	      });
+	    } else {
+	      photos = React.createElement(
+	        'p',
+	        null,
+	        'hi'
+	      );
+	    }
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'ul',
+	        null,
+	        photos
+	      )
+	    );
 	  }
 	
 	});
 	
 	module.exports = ImageIndex;
+
+/***/ },
+/* 275 */,
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(240);
+	var Store = __webpack_require__(244).Store;
+	var ImageConstants = __webpack_require__(280);
+	
+	var ImageStore = new Store(Dispatcher);
+	
+	var _images = {};
+	
+	ImageStore.all = function () {
+	  var images = [];
+	  for (var id in _images) {
+	    images.push(_images[id]);
+	  }
+	  return images;
+	};
+	
+	var resetImages = function (images) {
+	  _images = {};
+	  images.forEach(function (image) {
+	    _images[image.id] = image;
+	  });
+	  ImageStore.__emitChange();
+	};
+	
+	ImageStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case ImageConstants.IMAGES_RECEIVED:
+	      resetImages(payload.images);
+	  }
+	};
+	
+	module.exports = ImageStore;
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ImageApiUtil = __webpack_require__(278);
+	
+	var ImageClientActions = {
+	  fetchAllImages: function () {
+	    ImageApiUtil.fetchAllImages();
+	  }
+	};
+	
+	module.exports = ImageClientActions;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ImageServerActions = __webpack_require__(279);
+	
+	var ImageApiUtil = {
+	  fetchAllImages: function () {
+	    $.ajax({
+	      url: '/api/images',
+	      success: function (images) {
+	        ImageServerActions.receiveImages(images);
+	      }
+	    });
+	  }
+	};
+	
+	module.exports = ImageApiUtil;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(240);
+	var ImageConstants = __webpack_require__(280);
+	
+	var ImageServerActions = {
+	  receiveImages: function (images) {
+	    Dispatcher.dispatch({
+	      actionType: ImageConstants.IMAGES_RECEIVED,
+	      images: images
+	    });
+	  }
+	};
+	
+	module.exports = ImageServerActions;
+
+/***/ },
+/* 280 */
+/***/ function(module, exports) {
+
+	var ImageConstants = {
+	  IMAGES_RECEIVED: "IMAGES_RECEIVED"
+	};
+	
+	module.exports = ImageConstants;
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ImageIndexItem = React.createClass({
+	  displayName: "ImageIndexItem",
+	
+	
+	  render: function () {
+	    debugger;
+	    return React.createElement(
+	      "li",
+	      { className: "image" },
+	      React.createElement("img", { src: this.props.photo.image_url })
+	    );
+	  }
+	
+	});
+	
+	module.exports = ImageIndexItem;
 
 /***/ }
 /******/ ]);

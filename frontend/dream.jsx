@@ -14,7 +14,6 @@ var ErrorStore = require('./stores/error_store');
 
 var App = React.createClass({
   componentDidMount: function() {
-    // this.errorlisteners = ErrorStore.addListener(this._onChange);
     UserClientActions.fetchCurrentUser();
   },
 

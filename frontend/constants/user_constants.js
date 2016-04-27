@@ -4,4 +4,4 @@ var UserConstants = {
   ERROR: "ERROR"
 };
 
-module.export = UserConstants;
+module.exports = UserConstants;
