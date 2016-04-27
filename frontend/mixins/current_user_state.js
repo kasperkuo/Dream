@@ -1,25 +1,25 @@
-var UserStore = require('../stores/user_store');
+var SessionStore = require('../stores/session_store');
 var UserClientActions = require('../actions/user_client_actions');
 
 var CurrentUserState = {
   getInitialState: function () {
     return ({
-      currentUser: UserStore.currentUser(),
-      userErrors: UserStore.errors()
+      currentUser: SessionStore.currentUser(),
+      userErrors: SessionStore.errors()
     });
   },
 
   componentDidMount: function() {
-    this.listener = UserStore.addListener(this.updateUser);
-    if (typeof UserStore.currentUser() === undefined) {
+    this.listener = SessionStore.addListener(this.updateUser);
+    if (typeof SessionStore.currentUser() === undefined) {
       UserClientActions.fetchCurrentUser();
     }
   },
 
   updateUser: function() {
     this.setState({
-      currentUser: UserStore.currentUser(),
-      userErrors: UserStore.errors()
+      currentUser: SessionStore.currentUser(),
+      userErrors: SessionStore.errors()
     });
   }
 };

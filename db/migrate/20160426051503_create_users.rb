@@ -5,10 +5,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :session_token, null: false
       t.string :email, null: false
-      t.string :first_name, null: false
-      t.string :last_name, null: false
-      t.string :profile_pic, null: false
-      t.text :bio, null: false
+      t.string :first_name
+      t.string :last_name
+      t.string :avatar
+      t.text :bio
 
       t.timestamps null: false
     end

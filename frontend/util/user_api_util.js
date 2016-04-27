@@ -1,4 +1,4 @@
-var UserServerActions = require('user_server_actions');
+var UserServerActions = require('../actions/user_server_actions');
 
 var UserApiUtil = {
   fetchCurrentUser: function() {
@@ -14,17 +14,18 @@ var UserApiUtil = {
     });
   },
 
-  login: function(user) {
+  login: function(loginData) {
     $.ajax({
       url: "/api/session",
-      user: user,
-      success: function(currentUser){
-        UserServerActions.receiveCurrentUser(currentUser);
+      method: "POST",
+      data: { user: loginData },
+      success: function(user){
+        UserServerActions.receiveCurrentUser(user);
       },
       error: function(){
         UserServerActions.handleError();
       }
-    })
+    });
   },
 
   logout: function() {
@@ -40,12 +41,18 @@ var UserApiUtil = {
     });
   },
 
-  create: function() {
-
-  },
-
-  destroy: function() {
-
+  create: function(userData) {
+    $.ajax({
+      url: "/api/users",
+      method: "POST",
+			data: { user: userData },
+			success: function(user) {
+        UserServerActions.receiveCurrentUser(user);
+      },
+			error: function() {
+        UserServerActions.handleError();
+      }
+    });
   },
 };
 

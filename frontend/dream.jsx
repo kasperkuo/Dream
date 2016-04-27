@@ -1,31 +1,16 @@
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
-
 var React = require('react'),
-    ReactDOM = require('react-dom'),
+    ReactDOM = require('react-dom');
 
-
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <h1>Dream</h1>
-        // {this.props.children}
-      </div>
-    );
-  }
-});
-
-// add your routes here
-var routes = (
-  <Route path="/" component={App}>
-
-  </Route>
-);
+var LoginForm = require('./components/login_form');
+var SignUpForm = require('./components/signup_form.jsx');
+var Modal = require("react-modal");
 
 document.addEventListener("DOMContentLoaded", function() {
-  ReactDOM.render(routes, document.getElementById("root"))
-})
-
-
-// do not remove or rename routes, for testing purposes
-window.routes = routes;
+  Modal.setAppElement(document.body);
+  ReactDOM.render(
+    <div>
+      <SignUpForm /><LoginForm />
+    </div>,
+    document.getElementById("root")
+  );
+});
