@@ -2,20 +2,24 @@ var UserApiUtil = require('../util/user_api_util');
 
 
 var UserClientActions = {
-	fetchCurrentUser: function(){
+	fetchCurrentUser: function() {
     UserApiUtil.fetchCurrentUser();
 	},
 
-	signup: function(loginData){
+	signup: function(loginData) {
 		UserApiUtil.create(loginData);
 	},
 
-	login: function(loginData){
+	login: function(loginData) {
 		UserApiUtil.login(loginData);
 	},
 
-	logout: function(){
+	logout: function() {
 		UserApiUtil.logout();
+	},
+
+	guestLogin: function() {
+		UserClientActions.login({ username: "guest", password: "password"});
 	}
 };
 

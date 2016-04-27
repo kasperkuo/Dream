@@ -7,9 +7,6 @@ var UserApiUtil = {
       method: 'GET',
       success: function(){
         UserServerActions.receiveCurrentUser();
-      },
-      error: function(){
-        UserServerActions.handleError();
       }
     });
   },
@@ -22,8 +19,8 @@ var UserApiUtil = {
       success: function(user){
         UserServerActions.receiveCurrentUser(user);
       },
-      error: function(){
-        UserServerActions.handleError();
+      error: function(errors){
+        UserServerActions.handleError(errors);
       }
     });
   },
@@ -35,8 +32,8 @@ var UserApiUtil = {
       success: function(){
         UserServerActions.removeCurrentUser();
       },
-      error: function(){
-        UserServerActions.handleError();
+      error: function(errors){
+        UserServerActions.handleError(errors);
       }
     });
   },
@@ -49,8 +46,8 @@ var UserApiUtil = {
 			success: function(user) {
         UserServerActions.receiveCurrentUser(user);
       },
-			error: function() {
-        UserServerActions.handleError();
+			error: function(errors) {
+        UserServerActions.handleError(errors);
       }
     });
   },

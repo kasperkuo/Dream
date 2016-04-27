@@ -8,6 +8,8 @@ var Router = require('react-router').Router,
 
 var LoginForm = require('./components/login_form');
 var SignUpForm = require('./components/signup_form');
+var Explore = require('./components/explore');
+var NavBar = require('./components/nav_bar');
 var Modal = require("react-modal");
 
 var CurrentUserState = require('./mixins/current_user_state');
@@ -17,9 +19,9 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <header><h1>Dream</h1></header>
+        <NavBar />
         <SignUpForm />
-        <LoginForm />
+        {this.props.children}
       </div>
     );
   }
@@ -28,6 +30,7 @@ var App = React.createClass({
 var routes = (
   <Router history={HashHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={Explore} />
 
     </Route>
   </Router>

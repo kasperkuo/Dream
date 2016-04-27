@@ -1,7 +1,7 @@
 var React = require('react');
 var Modal = require("react-modal");
 
-var SessionStore = require('../stores/session_store');
+var SessionStore = require('../stores/session_store.js');
 var UserClientActions = require('../actions/user_client_actions');
 var CurrentUserState = require('../mixins/current_user_state');
 
@@ -30,6 +30,11 @@ var LoginForm = React.createClass({
 		this.setState({ modalOpen: false });
 	},
 
+	guestLogin: function(e) {
+		this.setState({ username: "guest", password: "password"});
+		UserClientActions.guestLogin();
+	},
+
 	logout: function(e){
 		e.preventDefault();
 		UserClientActions.logout();
@@ -48,7 +53,7 @@ var LoginForm = React.createClass({
 	render: function(){
 		return (
 			<div id="login-form">
-				<button onClick={this.openModal}>Sign In</button>
+				<button id="nav-session" onClick={this.openModal}>Sign In</button>
 				<Modal
 				isOpen={this.state.modalOpen}
 				onRequestClose={this.closeModal}>
@@ -71,6 +76,10 @@ var LoginForm = React.createClass({
 	          </section>
 
 	          <input type="submit" value="Log In"/>
+						<button
+							onClick={this.guestLogin}
+							type="Reset">Guest Login
+						</button>
 	        </form>
 				</Modal>
 			</div>

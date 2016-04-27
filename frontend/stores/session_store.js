@@ -5,18 +5,12 @@ var UserConstants = require('../constants/user_constants');
 var SessionStore = new Store(Dispatcher);
 
 var _currentUser = {};
-var _authErrors;
 
 //double check this currentUser function
 SessionStore.currentUser = function(){
   return _currentUser;
 };
 
-SessionStore.errors = function(){
-  if (_authErrors){
-    return [].slice.call(_authErrors);
-  }
-};
 
 var addCurrentUser = function(user) {
   _currentUser = user;
@@ -36,9 +30,6 @@ SessionStore.__onDispatch = function(payload){
       removeCurrentUser();
       this.__emitChange();
       break;
-    case UserConstants.ERROR:
-      break;
-
   }
 };
 

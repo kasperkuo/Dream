@@ -1,11 +1,12 @@
-var SessionStore = require('../stores/session_store');
+var SessionStore = require('../stores/session_store'),
+    ErrorStore = require('../stores/error_store');
 var UserClientActions = require('../actions/user_client_actions');
 
 var CurrentUserState = {
   getInitialState: function () {
     return ({
       currentUser: SessionStore.currentUser(),
-      userErrors: SessionStore.errors()
+      userErrors: ErrorStore.all()
     });
   },
 
@@ -19,7 +20,7 @@ var CurrentUserState = {
   updateUser: function() {
     this.setState({
       currentUser: SessionStore.currentUser(),
-      userErrors: SessionStore.errors()
+      userErrors: ErrorStore.all()
     });
   }
 };
