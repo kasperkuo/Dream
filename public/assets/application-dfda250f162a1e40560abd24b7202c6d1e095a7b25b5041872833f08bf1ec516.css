@@ -1,0 +1,165 @@
+.nav {
+  background-color: #444;
+  width: 100%;
+  height: 44px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  color: black;
+  padding: 0 20px;
+  margin-right: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+  cursor: pointer;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.navbar-logout {
+
+}
+
+.explore {
+  position: relative;
+  top: 40px;
+}
+
+.home-button {
+  float: left;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  color: black;
+  padding: 0 40px;
+  margin-right: 30px;
+}
+.signup-header {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+
+.signup-input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.signup-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #666;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.guest-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #006080;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.signup-button:hover,.signup-button:active,.signup-button:focus {
+  background: #005f5f;
+}
+
+.guest-button:hover,.guest-button:active,.guest-button:focus {
+  background: #005f5f;
+}
+.splash {
+    width: 100%;
+    display: block!important;
+    background-color: #000000;
+    background:url("https://images.unsplash.com/photo-1433878455169-4698e60005b1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=32ef9fdba73b09a4062eacb00bbfacb5");
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    min-height: 360px;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1;
+}
+
+
+  .dreamheader {
+    width:100%;
+    font-size: 200px;
+    text-align: center;
+    margin-top:100px;
+    font-family: 'Oswald', sans-serif;
+    z-index: 3;
+    color: white;
+
+  }
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+
+}
