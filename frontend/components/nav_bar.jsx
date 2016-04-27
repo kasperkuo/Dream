@@ -2,6 +2,7 @@ var React = require('react');
 var UserClientActions = require('../actions/user_client_actions');
 var SessionStore = require("../stores/session_store");
 var LoginForm = require('./login_form');
+var SignUpForm = require('./signup_form');
 
 var NavBar = React.createClass({
   getInitialState: function() {
@@ -28,7 +29,7 @@ var NavBar = React.createClass({
   render: function() {
     var button;
     if (this.state.loggedUser) {
-      button = <button id="nav-session" className="navbar-logout"
+      button = <button className="navbar-logout"
         onClick={this.logoutUser}>Logout</button>;
     } else {
       button = <LoginForm />;
@@ -36,7 +37,10 @@ var NavBar = React.createClass({
 
     return (
       <div className="navbar">
-        {button}
+        <ul>
+          <li id="nav-session">{button}</li>
+          <li id="nav-session"><SignUpForm /></li>
+        </ul>
       </div>
     );
   }

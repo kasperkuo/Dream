@@ -34316,6 +34316,7 @@
 	var UserClientActions = __webpack_require__(263);
 	var SessionStore = __webpack_require__(239);
 	var LoginForm = __webpack_require__(218);
+	var SignUpForm = __webpack_require__(267);
 	
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -34346,7 +34347,7 @@
 	    if (this.state.loggedUser) {
 	      button = React.createElement(
 	        'button',
-	        { id: 'nav-session', className: 'navbar-logout',
+	        { className: 'navbar-logout',
 	          onClick: this.logoutUser },
 	        'Logout'
 	      );
@@ -34357,7 +34358,20 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'navbar' },
-	      button
+	      React.createElement(
+	        'ul',
+	        null,
+	        React.createElement(
+	          'li',
+	          { id: 'nav-session' },
+	          button
+	        ),
+	        React.createElement(
+	          'li',
+	          { id: 'nav-session' },
+	          React.createElement(SignUpForm, null)
+	        )
+	      )
 	    );
 	  }
 	
