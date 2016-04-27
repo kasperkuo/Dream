@@ -24,8 +24,6 @@ var Explore = React.createClass({
   },
 
   render: function(){
-    // console.log(this.state.currentUser);
-    console.log(this.state.isLogged);
     if (this.state.isLogged === true) {
       console.log("entering logged state in explore");
       var loginMessage = "You are currently logged in!";

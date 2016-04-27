@@ -12,7 +12,6 @@ SessionStore.currentUser = function(){
 };
 
 SessionStore.isLogged = function(){
-  console.log("hi");
   if (_currentUser) {
     return true;
   } else {
