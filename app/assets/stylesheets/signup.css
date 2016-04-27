@@ -15,18 +15,6 @@
   font-size: 14px;
 }
 
-.modal {
-  position: relative;
-  top: 125px;
-  z-index: 800;
-  background: #DFDFDF;
-  max-width: 30%;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center
-
-}
-
 .signup-button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;

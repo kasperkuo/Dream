@@ -69,7 +69,7 @@ var LoginForm = React.createClass({
 		    border          : '1px solid #ccc',
 		    padding         : '20px',
 		    zIndex          : 1001,
-				maxWidth        : '30%'
+				maxWidth        : '30%',
 		  }
 		};
 
