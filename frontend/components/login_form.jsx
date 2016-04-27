@@ -1,8 +1,9 @@
 var React = require('react');
+var Modal = require("react-modal");
+
 var SessionStore = require('../stores/session_store');
 var UserClientActions = require('../actions/user_client_actions');
 var CurrentUserState = require('../mixins/current_user_state');
-var Modal = require("react-modal");
 
 var LoginForm = React.createClass({
 	mixins: [CurrentUserState],
@@ -51,7 +52,7 @@ var LoginForm = React.createClass({
 				<Modal
 				isOpen={this.state.modalOpen}
 				onRequestClose={this.closeModal}>
-					<h1>HI</h1>
+					<h1>HI SIGN IN</h1>
 	        <form onSubmit={this.handleSubmit}>
 	          <section>
 	            <label> Username:

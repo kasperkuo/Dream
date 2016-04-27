@@ -65,7 +65,7 @@ var SignUpForm = React.createClass({
         isOpen={this.state.modalOpen}
         onRequestClose={this.closeModal}>
 
-  				<h1>HI SIGN IN</h1>
+  				<h1>HI SIGN UP</h1>
           <form onSubmit={this.handleSubmit}>
             <section>
               <label> Username:
