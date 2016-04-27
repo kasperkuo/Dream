@@ -12,7 +12,7 @@ ErrorStore.all = function() {
 
 var addErrors = function(errors) {
   _errors = [];
-  _errors = errors.responseJSON.errors;
+  _errors = errors;
   ErrorStore.__emitChange();
 };
 

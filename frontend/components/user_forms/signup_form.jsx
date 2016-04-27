@@ -1,11 +1,9 @@
 var React = require('react');
-var SessionStore = require('../stores/session_store');
-var UserClientActions = require('../actions/user_client_actions');
-var CurrentUserState = require('../mixins/current_user_state');
+var SessionStore = require('../../stores/session_store');
+var UserClientActions = require('../../actions/user_client_actions');
 var Modal = require("react-modal");
 
 var SignUpForm = React.createClass({
-	mixins: [CurrentUserState],
 
 	getInitialState: function(){
 		return { modalOpen: false, username: "", email: "", password: ""};
@@ -58,13 +56,37 @@ var SignUpForm = React.createClass({
 	},
 
 	render: function(){
+
+		var style = {
+			overlay : {
+				position        : 'fixed',
+				top             : 0,
+				left            : 0,
+				right           : 0,
+				bottom          : 0,
+				backgroundColor : 'rgba(255, 255, 255, 0.30)',
+				zIndex          : 1000,
+
+
+			},
+			content : {
+				position        : 'fixed',
+				top             : '125px',
+				left            : '33%',
+				border          : '1px solid #ccc',
+				padding         : '20px',
+				zIndex          : 1001,
+				maxWidth        : '30%'
+			}
+		};
+
 		return (
 			<div className="signup-form">
         <a onClick={this.openModal}>Sign Up</a>
         <Modal
         isOpen={this.state.modalOpen}
         onRequestClose={this.closeModal}
-        className="modal">
+        style={style}>
 
   				<h1 className="signup-header">HI SIGN UP</h1>
           <form className="form" onSubmit={this.handleSubmit}>

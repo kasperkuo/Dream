@@ -1,5 +1,6 @@
 .signup-header {
   font-family: 'Oswald', sans-serif;
+  text-align: center;
 }
 
 .signup-input {
@@ -16,7 +17,8 @@
 
 .modal {
   position: relative;
-  z-index: 1;
+  top: 125px;
+  z-index: 800;
   background: #DFDFDF;
   max-width: 30%;
   margin: 0 auto 100px;

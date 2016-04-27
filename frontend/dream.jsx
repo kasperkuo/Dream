@@ -6,21 +6,23 @@ var Router = require('react-router').Router,
     IndexRoute = require('react-router').IndexRoute,
     HashHistory = require('react-router').hashHistory;
 
-var LoginForm = require('./components/login_form');
-var SignUpForm = require('./components/signup_form');
 var Explore = require('./components/explore');
 var NavBar = require('./components/nav_bar');
 var Modal = require("react-modal");
-
-var CurrentUserState = require('./mixins/current_user_state');
+var UserClientActions = require('./actions/user_client_actions');
+var ErrorStore = require('./stores/error_store');
 
 var App = React.createClass({
-  mixins: [CurrentUserState],
+  componentDidMount: function() {
+    // this.errorlisteners = ErrorStore.addListener(this._onChange);
+    UserClientActions.fetchCurrentUser();
+  },
+
+
   render: function() {
     return (
       <div>
         <NavBar />
-        <SignUpForm />
         {this.props.children}
       </div>
     );

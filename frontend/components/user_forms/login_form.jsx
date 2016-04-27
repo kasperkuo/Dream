@@ -1,15 +1,13 @@
 var React = require('react');
 var Modal = require("react-modal");
 
-var SessionStore = require('../stores/session_store.js');
-var UserClientActions = require('../actions/user_client_actions');
-var CurrentUserState = require('../mixins/current_user_state');
+var SessionStore = require('../../stores/session_store.js');
+var UserClientActions = require('../../actions/user_client_actions');
 
 var LoginForm = React.createClass({
-	mixins: [CurrentUserState],
 
 	getInitialState: function(){
-		return {username: "", password: ""};
+		return { modalOpen: false, username: "", password: ""};
 	},
 
 	closeModal: function(){
@@ -51,13 +49,37 @@ var LoginForm = React.createClass({
 	},
 
 	render: function(){
+
+		var style = {
+		  overlay : {
+		    position        : 'fixed',
+		    top             : 0,
+		    left            : 0,
+		    right           : 0,
+		    bottom          : 0,
+		    backgroundColor : 'rgba(255, 255, 255, 0.30)',
+		    zIndex          : 1000,
+
+
+		  },
+		  content : {
+		    position        : 'fixed',
+		    top             : '125px',
+		    left            : '33%',
+		    border          : '1px solid #ccc',
+		    padding         : '20px',
+		    zIndex          : 1001,
+				maxWidth        : '30%'
+		  }
+		};
+
 		return (
 			<div id="login-form">
 				<a id="nav-session" onClick={this.openModal}>Sign In</a>
 				<Modal
+				style={style}
 				isOpen={this.state.modalOpen}
-				onRequestClose={this.closeModal}
-				className="modal">
+				onRequestClose={this.closeModal}>
 					<h1 className="signup-header">Log In</h1>
 	        <form onSubmit={this.handleSubmit}>
 	          <section>

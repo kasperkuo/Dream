@@ -4,13 +4,21 @@ var UserConstants = require('../constants/user_constants');
 
 var SessionStore = new Store(Dispatcher);
 
-var _currentUser = {};
+var _currentUser;
 
 //double check this currentUser function
 SessionStore.currentUser = function(){
   return _currentUser;
 };
 
+SessionStore.isLogged = function(){
+  console.log("hi");
+  if (_currentUser) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 var addCurrentUser = function(user) {
   _currentUser = user;

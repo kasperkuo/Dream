@@ -1,0 +1,46 @@
+.splash {
+    width: 100%;
+    display: block!important;
+    background-color: #000000;
+    background:url("https://images.unsplash.com/photo-1433878455169-4698e60005b1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=32ef9fdba73b09a4062eacb00bbfacb5");
+
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    min-height: 360px;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1;
+}
+
+.fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:0.3s;
+    -moz-animation-duration:0.3s;
+    animation-duration:0.3s;
+
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+
+
+  .dreamheader {
+    width:100%;
+    font-size: 200px;
+    text-align: center;
+    margin-top:100px;
+    font-family: 'Oswald', sans-serif;
+    z-index: 3;
+    color: white
+
+  }
