@@ -82,7 +82,7 @@ var SignUpForm = React.createClass({
 
 		return (
 			<div className="signup-form">
-        <a onClick={this.openModal}>Sign Up</a>
+        <a onClick={this.openModal}>SIGN UP</a>
         <Modal
         isOpen={this.state.modalOpen}
         onRequestClose={this.closeModal}

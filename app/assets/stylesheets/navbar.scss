@@ -1,0 +1,101 @@
+.nav {
+  background-color: #000;
+  width: 100%;
+  height: 44px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: #000;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  color: black;
+  margin-right: 30px;
+  font-weight: 100;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+  cursor: pointer;
+  padding: 0 20px;
+  height: 44px;
+
+}
+
+.nav a {
+    letter-spacing: 0;
+}
+
+.nav a:hover,
+.nav a:active {
+  letter-spacing: 5px;
+}
+
+.nav a:after,
+.nav a:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.nav a:hover:after,
+.nav a:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.nav a:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+
+/*.nav a:hover {
+  background-color: #005f5f;
+}*/
+
+.explore {
+  position: relative;
+  top: 40px;
+}
+
+.home-button {
+  float: left;
+  font-family: 'Lobster', cursive;
+  font-weight: 100;
+  font-size: 1.7em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  color: black;
+  padding: 0 40px;
+  margin-left: 30px;
+}

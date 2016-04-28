@@ -75,7 +75,7 @@ var LoginForm = React.createClass({
 
 		return (
 			<div id="login-form">
-				<a id="nav-session" onClick={this.openModal}>Sign In</a>
+				<a id="nav-session" onClick={this.openModal}>SIGN IN</a>
 				<Modal
 				style={style}
 				isOpen={this.state.modalOpen}
