@@ -24,9 +24,9 @@ var Explore = React.createClass({
   },
 
   render: function(){
+    var feed;
     if (this.state.isLogged === true) {
-      console.log("entering logged state in explore");
-      var feed = <ImageIndex />;
+      feed = <ImageIndex />;
     } else {
       feed = <Splash />;
     }

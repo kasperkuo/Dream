@@ -5,11 +5,14 @@ var UserApiUtil = {
     $.ajax({
       url: '/api/session',
       method: 'GET',
+      statusCode: {
+        299: function(errors) {
+          alert( "page not found" );
+          UserServerActions.handleErrors(errors.responseJSON);
+        }
+      },
       success: function(object){
         UserServerActions.receiveCurrentUser(object);
-      },
-        error: function (errors) {
-        UserServerActions.handleErrors(errors.responseJSON);
       }
     });
   },
@@ -33,9 +36,11 @@ var UserApiUtil = {
       url: '/api/session',
       method: 'DELETE',
       success: function(){
+        alert("successfully logged out");
         UserServerActions.removeCurrentUser();
       },
       error: function(errors){
+        alert("what the fuck help pls");
         UserServerActions.handleError(errors);
       }
     });

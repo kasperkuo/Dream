@@ -6,14 +6,11 @@ var SignUpForm = require('./user_forms/signup_form');
 var HashHistory = require('react-router').hashHistory;
 
 var NavBar = React.createClass({
-  // TODO change state to boolean value laggedIn? --> add loggedIn method to session store
-  //TODO modal open state & modal content state
   getInitialState: function() {
     return { isLogged: false };
   },
 
   logoutUser: function(e) {
-    e.preventDefault();
     UserClientActions.logout();
     this.setState({ isLogged: false });
     HashHistory.push("/");
@@ -54,7 +51,7 @@ var NavBar = React.createClass({
     }
 
     return (
-      // TODO move modal definition here and toggle content based on button click
+
       <div className="nav">
         <a className="home-button" onClick={this.redirectHome}>Home</a>
         <ul>

@@ -20,22 +20,23 @@ SessionStore.isLogged = function(){
 };
 
 var addCurrentUser = function(user) {
+  _currentUser = undefined;
   _currentUser = user;
+  SessionStore.__emitChange();
 };
 
 var removeCurrentUser = function() {
-  _currentUser = {};
+  _currentUser = undefined;
+  SessionStore.__emitChange();
 };
 
 SessionStore.__onDispatch = function(payload){
   switch(payload.actionType){
     case UserConstants.LOGIN:
       addCurrentUser(payload.user);
-      this.__emitChange();
       break;
     case UserConstants.LOGOUT:
       removeCurrentUser();
-      this.__emitChange();
       break;
   }
 };
