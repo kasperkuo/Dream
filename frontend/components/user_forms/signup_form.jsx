@@ -86,6 +86,7 @@ var SignUpForm = React.createClass({
         <Modal
         isOpen={this.state.modalOpen}
         onRequestClose={this.closeModal}
+				onAfterOpen={this.openModal}
         style={style}>
 
   				<h1 className="signup-header">HI SIGN UP</h1>

@@ -11,7 +11,6 @@ var UploadButton = React.createClass({
             this.successfulUpload(payload);
           }
         }.bind(this));
-    widget.open();
   },
 
   successfulUpload: function(payload) {

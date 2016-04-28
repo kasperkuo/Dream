@@ -39521,6 +39521,7 @@
 					{
 						isOpen: this.state.modalOpen,
 						onRequestClose: this.closeModal,
+						onAfterOpen: this.openModal,
 						style: style },
 					React.createElement(
 						'h1',
@@ -39613,7 +39614,6 @@
 	        this.successfulUpload(payload);
 	      }
 	    }.bind(this));
-	    widget.open();
 	  },
 	
 	  successfulUpload: function (payload) {},
