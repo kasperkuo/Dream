@@ -31998,10 +31998,6 @@
 	
 		logout: function () {
 			UserApiUtil.logout();
-		},
-	
-		guestLogin: function () {
-			UserClientActions.login({ username: "guest", password: "password" });
 		}
 	};
 	
@@ -32137,7 +32133,7 @@
 	
 		guestLogin: function (e) {
 			this.setState({ username: "guest", password: "password" });
-			UserClientActions.guestLogin();
+			UserClientActions.login({ username: "guest", password: "password" });
 		},
 	
 		logout: function (e) {

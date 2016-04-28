@@ -16,10 +16,6 @@ var UserClientActions = {
 
 	logout: function() {
 		UserApiUtil.logout();
-	},
-
-	guestLogin: function() {
-		UserClientActions.login({ username: "guest", password: "password"});
 	}
 };
 

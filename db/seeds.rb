@@ -29,3 +29,15 @@ IMAGE_URLS.length.times do |i|
     image_url: IMAGE_URLS[i],
     image_type: "digital")
 end
+
+User.create!(
+  username: "guest",
+  email: "guest@example.com",
+  password: "password"
+)
+
+User.create!(
+  username: "hi",
+  email: "hi@example.com",
+  password: "password"
+)
