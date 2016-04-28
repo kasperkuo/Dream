@@ -64,7 +64,6 @@
 	
 	  componentDidMount: function () {
 	    UserClientActions.fetchCurrentUser();
-	    console.log("entry fetched user");
 	  },
 	
 	  render: function () {
@@ -32019,12 +32018,6 @@
 	    $.ajax({
 	      url: '/api/session',
 	      method: 'GET',
-	      statusCode: {
-	        299: function (errors) {
-	          alert("page not found");
-	          UserServerActions.handleErrors(errors.responseJSON);
-	        }
-	      },
 	      success: function (object) {
 	        UserServerActions.receiveCurrentUser(object);
 	      }
@@ -32050,11 +32043,9 @@
 	      url: '/api/session',
 	      method: 'DELETE',
 	      success: function () {
-	        alert("successfully logged out");
 	        UserServerActions.removeCurrentUser();
 	      },
 	      error: function (errors) {
-	        alert("what the fuck help pls");
 	        UserServerActions.handleError(errors);
 	      }
 	    });
@@ -39363,14 +39354,6 @@
 	    this.setState({ isLogged: false });
 	    HashHistory.push("/");
 	  },
-	
-	  // closeModal: function(){
-	  //   this.setState({ modalOpen: false });
-	  // },
-	  //
-	  // openModal: function(){
-	  //   this.setState({ modalOpen: true });
-	  // },
 	
 	  componentDidMount: function () {
 	    this.sessionListener = SessionStore.addListener(this._onChange);

@@ -17,7 +17,6 @@ window.SessionStore = require('./stores/session_store');
 var App = React.createClass({
   componentDidMount: function() {
     UserClientActions.fetchCurrentUser();
-    console.log("entry fetched user");
   },
 
 

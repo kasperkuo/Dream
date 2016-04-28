@@ -16,14 +16,6 @@ var NavBar = React.createClass({
     HashHistory.push("/");
   },
 
-  // closeModal: function(){
-  //   this.setState({ modalOpen: false });
-  // },
-  //
-  // openModal: function(){
-  //   this.setState({ modalOpen: true });
-  // },
-
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._onChange);
   },
