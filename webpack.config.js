@@ -18,7 +18,12 @@ module.exports = {
         query: {
           presets: ['react']
         }
-      }
+      },
+
+      {
+        test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+        loader: 'imports?define=>false&this=>window'
+      }       
     ]
   },
   devtool: 'source-maps',

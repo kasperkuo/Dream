@@ -5,8 +5,11 @@ var UserApiUtil = {
     $.ajax({
       url: '/api/session',
       method: 'GET',
-      success: function(){
-        UserServerActions.receiveCurrentUser();
+      success: function(object){
+        UserServerActions.receiveCurrentUser(object);
+      },
+        error: function (errors) {
+        UserServerActions.handleErrors(errors.responseJSON);
       }
     });
   },

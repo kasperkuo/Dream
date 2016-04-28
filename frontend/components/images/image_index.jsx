@@ -3,6 +3,11 @@ var ImageStore = require('../../stores/image_store');
 var ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageIndexItem = require('./image_index_item.jsx');
+var Packery = require('react-packery-component')(React);
+
+var packeryOptions = {
+  transitionDuration: 0
+};
 
 var ImageIndex = React.createClass({
 
@@ -23,6 +28,7 @@ var ImageIndex = React.createClass({
     this.setState({ images: ImageStore.all() });
   },
 
+
   render: function() {
     var photos;
     if (this.state.images.length !== 0){
@@ -33,11 +39,19 @@ var ImageIndex = React.createClass({
       photos = <p>hi</p>;
     }
 
+    var masonryOptions = {
+      transitionDuration: 0
+    };
+
     return (
-      <div>
-        <ul>
-          {photos}
-        </ul>
+      <div className="wrapper">
+        <Packery
+                className="imageList"
+                elementType={'ul'}
+                options={packeryOptions}
+                disableImagesLoaded={false}>
+            {photos}
+        </Packery>
       </div>
     );
   }

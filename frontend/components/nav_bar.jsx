@@ -12,9 +12,11 @@ var NavBar = React.createClass({
     return { isLogged: false };
   },
 
-  logoutUser: function() {
+  logoutUser: function(e) {
+    e.preventDefault();
     UserClientActions.logout();
     this.setState({ isLogged: false });
+    HashHistory.push("/");
   },
 
   // closeModal: function(){

@@ -1,0 +1,47 @@
+.wrapper {
+
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: row;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  display: -webkit-box;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: block;
+  clear: both;
+}
+
+.wrapper::after{
+  content: "",
+
+}
+
+.image {
+  margin: 10px auto;
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 3px 10px 15px 10px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: opacity 200ms; /* Safari */
+  transition: opacity 200ms;
+  transition-timing-function: linear;
+
+}
+
+.imageList {
+  list-style-type: none;
+  padding: 45px 20px 40px 20px;
+  min-width: 560px;
+
+}
+
+img {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+  width: 270px;
+  vertical-align: text-top;
+}

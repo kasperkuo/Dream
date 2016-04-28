@@ -26,7 +26,6 @@ var Explore = React.createClass({
   render: function(){
     if (this.state.isLogged === true) {
       console.log("entering logged state in explore");
-      var loginMessage = "You are currently logged in!";
       var feed = <ImageIndex />;
     } else {
       feed = <Splash />;
@@ -34,7 +33,6 @@ var Explore = React.createClass({
 
     return (
       <div className="explore">
-        {loginMessage}
         {feed}
       </div>
     );

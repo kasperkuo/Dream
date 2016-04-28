@@ -11,6 +11,8 @@ var NavBar = require('./components/nav_bar');
 var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
 var ErrorStore = require('./stores/error_store');
+window.SessionStore = require('./stores/session_store');
+
 
 var App = React.createClass({
   componentDidMount: function() {

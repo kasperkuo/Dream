@@ -28,11 +28,15 @@
   },
   "dependencies": {
     "flux": "^2.1.1",
+    "imports-loader": "^0.6.5",
     "jquery": "^2.1.4",
     "react": "^0.14.2",
     "react-addons-linked-state-mixin": "^0.14.8",
     "react-dom": "^0.14.2",
+    "react-masonry-component": "^4.0.2",
+    "react-masonry-mixin": "^2.1.0",
     "react-modal": "^1.2.1",
+    "react-packery-component": "^1.0.2",
     "react-router": "^2.0.1"
   }
 }
