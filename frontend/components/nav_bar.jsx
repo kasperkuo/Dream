@@ -36,11 +36,14 @@ var NavBar = React.createClass({
 
   render: function() {
     var button;
+    var signupButton;
     if (this.state.isLogged) {
       button = <a className="navbar-logout"
         onClick={this.logoutUser}>LOGOUT</a>;
+      signupButton = <a className="userButton">YOU</a>;
     } else {
       button = <LoginForm />;
+      signupButton = <SignUpForm />;
     }
 
     return (
@@ -50,7 +53,7 @@ var NavBar = React.createClass({
         <ul>
           <li id="nav-session"><UploadButton /></li>
           <li id="nav-session">{button}</li>
-          <li id="nav-session"><SignUpForm /></li>
+          <li id="nav-session">{signupButton}</li>
         </ul>
       </div>
     );

@@ -36,7 +36,7 @@ var ImageIndex = React.createClass({
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
     } else {
-      photos = <p>hi</p>;
+      photos = <p> </p>;
     }
 
     var masonryOptions = {

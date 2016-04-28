@@ -34266,7 +34266,7 @@
 	      photos = React.createElement(
 	        'p',
 	        null,
-	        'hi'
+	        ' '
 	      );
 	    }
 	
@@ -39378,6 +39378,7 @@
 	
 	  render: function () {
 	    var button;
+	    var signupButton;
 	    if (this.state.isLogged) {
 	      button = React.createElement(
 	        'a',
@@ -39385,8 +39386,14 @@
 	          onClick: this.logoutUser },
 	        'LOGOUT'
 	      );
+	      signupButton = React.createElement(
+	        'a',
+	        { className: 'userButton' },
+	        'YOU'
+	      );
 	    } else {
 	      button = React.createElement(LoginForm, null);
+	      signupButton = React.createElement(SignUpForm, null);
 	    }
 	
 	    return React.createElement(
@@ -39413,7 +39420,7 @@
 	        React.createElement(
 	          'li',
 	          { id: 'nav-session' },
-	          React.createElement(SignUpForm, null)
+	          signupButton
 	        )
 	      )
 	    );
@@ -39602,30 +39609,51 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var SessionStore = __webpack_require__(219);
 	
 	var UploadButton = React.createClass({
-	  displayName: "UploadButton",
+	  displayName: 'UploadButton',
 	
+	  getInitialState: function () {
+	    return { isLogged: false };
+	  },
+	
+	  componentDidMount: function () {
+	    this.sessionListener = SessionStore.addListener(this._onChange);
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.sessionListener.remove();
+	  },
+	
+	  _onChange: function () {
+	    this.setState({ isLogged: SessionStore.isLogged() });
+	  },
 	
 	  handleUpload: function (e) {
 	    e.preventDefault();
-	    var widget = cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, payload) {
-	      if (!error) {
-	        this.successfulUpload(payload);
-	      }
-	    }.bind(this));
+	    if (this.state.isLogged) {
+	      var widget = cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, payload) {
+	        if (!error) {
+	          this.successfulUpload(payload);
+	        }
+	      }.bind(this));
+	    } else {
+	      alert('Not logged in');
+	    }
 	  },
 	
 	  successfulUpload: function (payload) {},
 	
 	  render: function () {
+	
 	    return React.createElement(
-	      "div",
+	      'div',
 	      null,
 	      React.createElement(
-	        "a",
-	        { className: "upload-button", onClick: this.handleUpload },
-	        "UPLOAD"
+	        'a',
+	        { className: 'upload-button', onClick: this.handleUpload },
+	        'UPLOAD'
 	      )
 	    );
 	  }
