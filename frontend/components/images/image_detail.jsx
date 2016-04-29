@@ -26,7 +26,7 @@ var ImageDetail = React.createClass({
 
     return (
       <div>
-        <div className="imageDetail">
+        <div className="imageDetail" >
         </div>
       </div>
     );
