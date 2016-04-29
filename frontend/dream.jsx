@@ -7,13 +7,15 @@ var Router = require('react-router').Router,
     HashHistory = require('react-router').hashHistory,
     Cloudinary = require('cloudinary');
 
-var Explore = require('./components/explore');
-var NavBar = require('./components/nav_bar');
-var Footer = require('./components/footer/footer');
+var Explore = require('./components/explore'),
+    NavBar = require('./components/nav_bar'),
+    Footer = require('./components/footer/footer'),
+    ImageDetail = require('./components/images/image_detail');
+    
 var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
 var ErrorStore = require('./stores/error_store');
-window.SessionStore = require('./stores/session_store');
+// window.SessionStore = require('./stores/session_store');
 
 Cloudinary.config({
   cloud_name: 'kasperkuo',
@@ -42,6 +44,7 @@ var routes = (
   <Router history={HashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Explore} />
+      <Route path="/images/:imageId" component={ImageDetail} />
 
     </Route>
   </Router>

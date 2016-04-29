@@ -53,13 +53,15 @@
 	    HashHistory = __webpack_require__(159).hashHistory,
 	    Cloudinary = __webpack_require__(296);
 	
-	var Explore = __webpack_require__(218);
-	var NavBar = __webpack_require__(292);
-	var Footer = __webpack_require__(360);
+	var Explore = __webpack_require__(218),
+	    NavBar = __webpack_require__(292),
+	    Footer = __webpack_require__(360),
+	    ImageDetail = __webpack_require__(362);
+	
 	var Modal = __webpack_require__(246);
 	var UserClientActions = __webpack_require__(242);
 	var ErrorStore = __webpack_require__(294);
-	window.SessionStore = __webpack_require__(219);
+	// window.SessionStore = require('./stores/session_store');
 	
 	Cloudinary.config({
 	  cloud_name: 'kasperkuo',
@@ -91,7 +93,8 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: Explore })
+	    React.createElement(IndexRoute, { component: Explore }),
+	    React.createElement(Route, { path: '/images/:imageId', component: ImageDetail })
 	  )
 	);
 	
@@ -65828,6 +65831,12 @@
 	});
 	
 	module.exports = ImageForm;
+
+/***/ },
+/* 362 */
+/***/ function(module, exports) {
+
+
 
 /***/ }
 /******/ ]);

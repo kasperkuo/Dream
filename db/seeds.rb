@@ -17,7 +17,8 @@ IMAGE_URLS = [
   "http://orig02.deviantart.net/b722/f/2012/247/1/6/stairway_to_the_sky___by_megatruh-d5dj2ik.jpg",
   "http://orig07.deviantart.net/bf94/f/2011/202/7/8/phantasmagoria___by_megatruh-d4172as.jpg",
   "http://pre00.deviantart.net/8738/th/pre/f/2011/058/7/f/berangkat__by_megatruh-d3aivav.jpg",
-  "http://img10.deviantart.net/3b73/i/2013/361/c/3/infinite_dreams_by_rhads-d5eywh4.jpg"
+  "http://img10.deviantart.net/3b73/i/2013/361/c/3/infinite_dreams_by_rhads-d5eywh4.jpg",
+  "http://i1.pixiv.net/c/1200x1200/img-master/img/2015/01/19/00/35/53/48253260_p0_master1200.jpg"
 ]
 
 IMAGE_URLS.length.times do |i|
