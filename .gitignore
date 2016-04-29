@@ -11,14 +11,3 @@
 /log/*
 !/log/.keep
 /tmp
-
-
-node_modules
-jspm_packages
-
-.npm
-
-.node_repl_history
-
-# Ignore application configuration
-/config/application.yml
