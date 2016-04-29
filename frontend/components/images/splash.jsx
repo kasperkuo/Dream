@@ -5,7 +5,7 @@ var Splash = React.createClass({
 
   render: function() {
     var dreamText = "The home for all your artwork";
-    var dreamText2 = "Upload, access, organize, edit, and share your artwork from anywhere in the world"
+    var dreamText2 = "Upload, access, organize, edit, and share your artwork from anywhere in the world";
 
     return (
       <div>

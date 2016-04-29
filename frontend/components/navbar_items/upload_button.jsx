@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionStore = require('../../stores/session_store');
 var ImageClientActions = require('../../actions/image_client_actions');
+var cloudinary = require('cloudinary');
 
 var UploadButton = React.createClass({
   getInitialState: function() {
@@ -23,7 +24,7 @@ var UploadButton = React.createClass({
     e.preventDefault();
     if (this.state.isLogged) {
       var widget = cloudinary.openUploadWidget(
-        CLOUDINARY_OPTIONS,
+        window.CLOUDINARY_OPTIONS,
         function(error, payload) {
           if (!error) {
             this.successfulUpload(payload);

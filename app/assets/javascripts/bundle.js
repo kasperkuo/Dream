@@ -39700,6 +39700,7 @@
 	var React = __webpack_require__(1);
 	var SessionStore = __webpack_require__(219);
 	var ImageClientActions = __webpack_require__(270);
+	var cloudinary = __webpack_require__(296);
 	
 	var UploadButton = React.createClass({
 	  displayName: 'UploadButton',
@@ -39723,7 +39724,7 @@
 	  handleUpload: function (e) {
 	    e.preventDefault();
 	    if (this.state.isLogged) {
-	      var widget = cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, payload) {
+	      var widget = cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function (error, payload) {
 	        if (!error) {
 	          this.successfulUpload(payload);
 	        }
