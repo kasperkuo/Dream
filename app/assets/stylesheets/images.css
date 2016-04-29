@@ -36,7 +36,6 @@
 }
 
 .image img {
-  align-self: auto | flex-start | flex-end | center | baseline | stretch;
   width: 270px;
   vertical-align: text-top;
 }
