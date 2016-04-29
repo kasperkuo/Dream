@@ -1,5 +1,6 @@
 var React = require('react');
 var SessionStore = require('../../stores/session_store');
+var ImageClientActions = require('../../actions/image_client_actions');
 
 var UploadButton = React.createClass({
   getInitialState: function() {
@@ -24,17 +25,19 @@ var UploadButton = React.createClass({
       var widget = cloudinary.openUploadWidget(
         CLOUDINARY_OPTIONS,
         function(error, payload) {
-            if (!error) {
-              this.successfulUpload(payload);
-            }
-          }.bind(this));
+          if (!error) {
+            this.successfulUpload(payload);
+          }
+        }.bind(this));
     } else {
       alert('Not logged in');
     }
   },
 
   successfulUpload: function(payload) {
-
+    payload.forEach(function(image){
+      ImageClientActions.postImage(image.url);
+    });
   },
 
   render: function() {

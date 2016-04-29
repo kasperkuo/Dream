@@ -22,10 +22,6 @@ IMAGE_URLS = [
 
 IMAGE_URLS.length.times do |i|
   Image.create!(
-    title: "hi",
-    description: "hi",
-    user_id: 1,
-    album_id: 1,
     image_url: IMAGE_URLS[i],
     image_type: "digital")
 end

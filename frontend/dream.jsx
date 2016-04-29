@@ -9,6 +9,7 @@ var Router = require('react-router').Router,
 
 var Explore = require('./components/explore');
 var NavBar = require('./components/nav_bar');
+var Footer = require('./components/footer/footer');
 var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
 var ErrorStore = require('./stores/error_store');
@@ -31,6 +32,7 @@ var App = React.createClass({
       <div>
         <NavBar />
         {this.props.children}
+        <Footer />
       </div>
     );
   }

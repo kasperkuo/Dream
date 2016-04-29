@@ -55,6 +55,7 @@
 	
 	var Explore = __webpack_require__(218);
 	var NavBar = __webpack_require__(292);
+	var Footer = __webpack_require__(360);
 	var Modal = __webpack_require__(246);
 	var UserClientActions = __webpack_require__(242);
 	var ErrorStore = __webpack_require__(294);
@@ -78,7 +79,8 @@
 	      'div',
 	      null,
 	      React.createElement(NavBar, null),
-	      this.props.children
+	      this.props.children,
+	      React.createElement(Footer, null)
 	    );
 	  }
 	});
@@ -34195,22 +34197,38 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var SignUpForm = __webpack_require__(293);
 	
 	var Splash = React.createClass({
-	  displayName: "Splash",
+	  displayName: 'Splash',
 	
 	
 	  render: function () {
+	    var dreamText = "The home for all your artwork";
+	    var dreamText2 = "Upload, access, organize, edit, and share your artwork from anywhere in the world";
+	
 	    return React.createElement(
-	      "div",
+	      'div',
 	      null,
 	      React.createElement(
-	        "div",
-	        { className: "splash" },
+	        'div',
+	        { className: 'splash' },
 	        React.createElement(
-	          "h1",
-	          { className: "dreamheader" },
-	          "DREAM"
+	          'h1',
+	          { className: 'dreamheader' },
+	          'DREAM'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'dreamtext' },
+	          dreamText,
+	          React.createElement('br', null),
+	          dreamText2
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'splashSignUp' },
+	          React.createElement(SignUpForm, null)
 	        )
 	      )
 	    );
@@ -34321,10 +34339,18 @@
 	  ImageStore.__emitChange();
 	};
 	
+	var addImage = function (image) {
+	  _images[image.id] = image;
+	};
+	
 	ImageStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
 	    case ImageConstants.IMAGES_RECEIVED:
 	      resetImages(payload.images);
+	      break;
+	    case ImageConstants.IMAGE_RECEIVED:
+	      addImage(payload.image);
+	      break;
 	  }
 	};
 	
@@ -34335,7 +34361,9 @@
 /***/ function(module, exports) {
 
 	var ImageConstants = {
-	  IMAGES_RECEIVED: "IMAGES_RECEIVED"
+	  IMAGES_RECEIVED: "IMAGES_RECEIVED",
+	  IMAGE_RECEIVED: "IMAGE_RECEIVED",
+	  ERROR: "ERROR"
 	};
 	
 	module.exports = ImageConstants;
@@ -34349,6 +34377,10 @@
 	var ImageClientActions = {
 	  fetchAllImages: function () {
 	    ImageApiUtil.fetchAllImages();
+	  },
+	
+	  postImage: function (imageUrl) {
+	    ImageApiUtil.postImage(imageUrl);
 	  }
 	};
 	
@@ -34368,6 +34400,20 @@
 	        ImageServerActions.receiveImages(images);
 	      }
 	    });
+	  },
+	
+	  postImage: function (url) {
+	    $.ajax({
+	      url: '/api/images',
+	      method: 'POST',
+	      data: { image: { image_url: url } },
+	      success: function (image) {
+	        ImageServerActions.receiveImage(image);
+	      },
+	      errors: function (errors) {
+	        alert("invalid image params");
+	      }
+	    });
 	  }
 	};
 	
@@ -34379,12 +34425,27 @@
 
 	var Dispatcher = __webpack_require__(220);
 	var ImageConstants = __webpack_require__(269);
+	var UserConstants = __webpack_require__(241);
 	
 	var ImageServerActions = {
 	  receiveImages: function (images) {
 	    Dispatcher.dispatch({
 	      actionType: ImageConstants.IMAGES_RECEIVED,
 	      images: images
+	    });
+	  },
+	
+	  receiveImage: function (image) {
+	    Dispatcher.dispatch({
+	      actionType: ImageConstants.IMAGE_RECEIVED,
+	      image: image
+	    });
+	  },
+	
+	  handleError: function (error) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.ERROR,
+	      errors: error.responseJSON.errors
 	    });
 	  }
 	};
@@ -39343,7 +39404,7 @@
 	var SessionStore = __webpack_require__(219);
 	var LoginForm = __webpack_require__(245);
 	var SignUpForm = __webpack_require__(293);
-	var UploadButton = __webpack_require__(295);
+	var ImageForm = __webpack_require__(361);
 	var HashHistory = __webpack_require__(159).hashHistory;
 	
 	var NavBar = React.createClass({
@@ -39410,7 +39471,7 @@
 	        React.createElement(
 	          'li',
 	          { id: 'nav-session' },
-	          React.createElement(UploadButton, null)
+	          React.createElement(ImageForm, null)
 	        ),
 	        React.createElement(
 	          'li',
@@ -39610,6 +39671,7 @@
 
 	var React = __webpack_require__(1);
 	var SessionStore = __webpack_require__(219);
+	var ImageClientActions = __webpack_require__(270);
 	
 	var UploadButton = React.createClass({
 	  displayName: 'UploadButton',
@@ -39643,7 +39705,11 @@
 	    }
 	  },
 	
-	  successfulUpload: function (payload) {},
+	  successfulUpload: function (payload) {
+	    payload.forEach(function (image) {
+	      ImageClientActions.postImage(image.url);
+	    });
+	  },
 	
 	  render: function () {
 	
@@ -65702,6 +65768,66 @@
 
 	console.log("I'm `fs` modules");
 
+
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var PropTypes = React.PropTypes;
+	
+	var Footer = React.createClass({
+	  displayName: 'Footer',
+	
+	
+	  render: function () {
+	    return React.createElement('div', null);
+	  }
+	
+	});
+	
+	module.exports = Footer;
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var UploadButton = __webpack_require__(295);
+	var ImageStore = __webpack_require__(268);
+	var ImageClientActions = __webpack_require__(270);
+	
+	var ImageForm = React.createClass({
+	  displayName: 'ImageForm',
+	
+	  getInitialState: function () {
+	    return { images: ImageStore.all() };
+	  },
+	
+	  componentDidMount: function () {
+	    this.imageListener = ImageStore.addListener(this._onChange);
+	    ImageClientActions.fetchAllImages();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.imageListener.remove();
+	  },
+	
+	  _onChange: function () {
+	    this.setState({ images: ImageStore.all() });
+	  },
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(UploadButton, null)
+	    );
+	  }
+	
+	});
+	
+	module.exports = ImageForm;
 
 /***/ }
 /******/ ]);

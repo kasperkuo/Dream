@@ -11,9 +11,10 @@ class Api::ImagesController < ApplicationController
   end
 
   def create
+    puts image_params
+    puts params
     @image = Image.new(image_params)
     if @image.save
-      login(@image)
       render "api/images/show"
     else
       @errors = @image.errors.full_messages
@@ -37,6 +38,6 @@ class Api::ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:title, :description, :image_url, :file_name, :image_type, :date_taken)
+    params.require(:image).permit(:image_url, :title, :description, :date_taken, :file_name, :image_type)
   end
 end

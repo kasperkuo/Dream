@@ -2,7 +2,7 @@
     width: 100%;
     display: block!important;
     background-color: #000000;
-    background:url("https://images.unsplash.com/photo-1433878455169-4698e60005b1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=32ef9fdba73b09a4062eacb00bbfacb5");
+    background:url("https://images.unsplash.com/photo-1457955375330-f723ec0e5312?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=b664ae58eff11bf13e136aa03661d06b");
 
     background-size: cover;
     background-attachment: fixed;
@@ -12,16 +12,40 @@
     min-height: 360px;
     top: 0; right: 0; bottom: 0; left: 0;
     z-index: 1;
+
 }
 
 
 .dreamheader {
   width:100%;
-  font-size: 200px;
+  font-size: 100px;
   text-align: center;
-  margin-top:100px;
-  font-family: 'Oswald', sans-serif;
+  margin-top: 220px;
+  font-family: 'Raleway', sans-serif;
   z-index: 3;
   color: white;
+  font-weight: 100;
+  
+}
 
+.dreamtext {
+  margin-top: -40px;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  
+}
+
+.splashSignUp {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+  z-index: 3;
+  font-family: 'Raleway', sans-serif;
+  
 }

@@ -8,6 +8,20 @@ var ImageApiUtil = {
         ImageServerActions.receiveImages(images);
       }
     });
+  },
+
+  postImage: function(url) {
+    $.ajax({
+      url: '/api/images',
+      method: 'POST',
+      data: {image: {image_url: url}},
+      success: function(image) {
+        ImageServerActions.receiveImage(image);
+      },
+      errors: function(errors) {
+        alert("invalid image params");
+      }
+    });
   }
 };
 

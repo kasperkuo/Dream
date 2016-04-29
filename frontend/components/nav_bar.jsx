@@ -3,7 +3,7 @@ var UserClientActions = require('../actions/user_client_actions');
 var SessionStore = require("../stores/session_store");
 var LoginForm = require('./user_forms/login_form');
 var SignUpForm = require('./user_forms/signup_form');
-var UploadButton = require('./navbar_items/upload_button');
+var ImageForm = require('./images/image_form');
 var HashHistory = require('react-router').hashHistory;
 
 var NavBar = React.createClass({
@@ -51,7 +51,7 @@ var NavBar = React.createClass({
       <div className="nav">
         <a className="home-button" onClick={this.redirectHome}>Dream</a>
         <ul>
-          <li id="nav-session"><UploadButton /></li>
+          <li id="nav-session"><ImageForm /></li>
           <li id="nav-session">{button}</li>
           <li id="nav-session">{signupButton}</li>
         </ul>

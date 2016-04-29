@@ -22,10 +22,18 @@ var resetImages = function(images) {
   ImageStore.__emitChange();
 };
 
+var addImage = function(image) {
+  _images[image.id] = image;
+};
+
 ImageStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case ImageConstants.IMAGES_RECEIVED:
       resetImages(payload.images);
+      break;
+    case ImageConstants.IMAGE_RECEIVED:
+      addImage(payload.image);
+      break;
   }
 };
 
