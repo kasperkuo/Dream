@@ -1,11 +1,15 @@
-var React = require('react');
+var React = require('react'),
+    HashHistory = require('react-router').hashHistory;
 
 var ImageIndexItem = React.createClass({
+  showImage: function() {
+    HashHistory.push('/images/' + this.props.photo.id);
+  },
 
   render: function() {
     return (
-      <li className="image">
-        <img src={this.props.photo.image_url} />
+      <li className="image" onClick={this.showImage}>
+        <img src={this.props.photo.image_url}/>
       </li>
     );
   }

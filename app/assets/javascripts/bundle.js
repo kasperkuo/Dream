@@ -56,7 +56,7 @@
 	var Explore = __webpack_require__(218),
 	    NavBar = __webpack_require__(292),
 	    Footer = __webpack_require__(360),
-	    ImageDetail = __webpack_require__(362);
+	    ImageDetail = __webpack_require__(363);
 	
 	var Modal = __webpack_require__(246);
 	var UserClientActions = __webpack_require__(242);
@@ -34334,6 +34334,10 @@
 	  return images;
 	};
 	
+	ImageStore.find = function (id) {
+	  return _images[id];
+	};
+	
 	var resetImages = function (images) {
 	  _images = {};
 	  images.forEach(function (image) {
@@ -34384,6 +34388,10 @@
 	
 	  postImage: function (imageUrl) {
 	    ImageApiUtil.postImage(imageUrl);
+	  },
+	
+	  fetchSingleImage: function (id) {
+	    ImageApiUtil.fetchSingleImage(id);
 	  }
 	};
 	
@@ -34415,6 +34423,19 @@
 	      },
 	      errors: function (errors) {
 	        alert("invalid image params");
+	      }
+	    });
+	  },
+	
+	  fetchSingleImage: function (id) {
+	    $.ajax({
+	      url: '/api/images/' + id,
+	      method: 'GET',
+	      success: function (image) {
+	        ImageServerActions.receiveImage(image);
+	      },
+	      errors: function (errors) {
+	        alert("Cannot find image");
 	      }
 	    });
 	  }
@@ -34459,17 +34480,21 @@
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
+	var React = __webpack_require__(1),
+	    HashHistory = __webpack_require__(159).hashHistory;
 	
 	var ImageIndexItem = React.createClass({
-	  displayName: "ImageIndexItem",
+	  displayName: 'ImageIndexItem',
 	
+	  showImage: function () {
+	    HashHistory.push('/images/' + this.props.photo.id);
+	  },
 	
 	  render: function () {
 	    return React.createElement(
-	      "li",
-	      { className: "image" },
-	      React.createElement("img", { src: this.props.photo.image_url })
+	      'li',
+	      { className: 'image', onClick: this.showImage },
+	      React.createElement('img', { src: this.props.photo.image_url })
 	    );
 	  }
 	
@@ -65833,10 +65858,48 @@
 	module.exports = ImageForm;
 
 /***/ },
-/* 362 */
-/***/ function(module, exports) {
+/* 362 */,
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
 
-
+	var React = __webpack_require__(1);
+	
+	var ImageStore = __webpack_require__(268),
+	    ImageClientActions = __webpack_require__(270);
+	
+	var ImageDetail = React.createClass({
+	  displayName: 'ImageDetail',
+	
+	  getStateFromStore: function () {
+	    return { image: ImageStore.find(parseInt(this.props.params.imageId)) };
+	  },
+	
+	  _onChange: function () {
+	    this.setState(this.getStateFromStore());
+	  },
+	
+	  componentDidMount: function () {
+	    this.imageListener = ImageStore.addListener(this._onChange);
+	    ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.imageListener.remove();
+	  },
+	
+	  render: function () {
+	    var url;
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement('div', { className: 'imageDetail' })
+	    );
+	  }
+	
+	});
+	
+	module.exports = ImageDetail;
 
 /***/ }
 /******/ ]);

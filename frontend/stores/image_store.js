@@ -14,6 +14,10 @@ ImageStore.all = function() {
   return images;
 };
 
+ImageStore.find = function(id) {
+  return _images[id];
+};
+
 var resetImages = function(images) {
   _images = {};
   images.forEach(function(image) {
@@ -25,6 +29,8 @@ var resetImages = function(images) {
 var addImage = function(image) {
   _images[image.id] = image;
 };
+
+
 
 ImageStore.__onDispatch = function(payload) {
   switch(payload.actionType) {

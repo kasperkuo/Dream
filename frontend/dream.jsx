@@ -10,8 +10,8 @@ var Router = require('react-router').Router,
 var Explore = require('./components/explore'),
     NavBar = require('./components/nav_bar'),
     Footer = require('./components/footer/footer'),
-    ImageDetail = require('./components/images/image_detail');
-    
+    ImageDetail = require('./components/images/image_detail.jsx');
+
 var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
 var ErrorStore = require('./stores/error_store');

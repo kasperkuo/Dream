@@ -22,6 +22,19 @@ var ImageApiUtil = {
         alert("invalid image params");
       }
     });
+  },
+
+  fetchSingleImage: function(id) {
+    $.ajax({
+      url: '/api/images/' + id,
+      method: 'GET',
+      success: function(image) {
+        ImageServerActions.receiveImage(image);
+      },
+      errors: function(errors) {
+        alert("Cannot find image");
+      }
+    });
   }
 };
 
