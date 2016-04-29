@@ -16,3 +16,6 @@
 
 #Ignore node modules
 node_modules/
+
+#Ignore Public/Assets
+./public/assets/
