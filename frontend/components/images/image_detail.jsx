@@ -4,29 +4,40 @@ var ImageStore = require('../../stores/image_store'),
     ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageDetail = React.createClass({
-  getStateFromStore: function () {
-   return { image: ImageStore.find(parseInt(this.props.params.imageId)) };
+  getInitialState: function() {
+    return {image: {}};
   },
 
   _onChange: function () {
-    this.setState(this.getStateFromStore());
+    var id = parseInt(this.props.params.imageId);
+    this.setState({image: ImageStore.find(this.props.params.imageId) });
   },
 
   componentDidMount: function () {
-    this.imageListener = ImageStore.addListener(this._onChange);
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
+    this.imageListener = ImageStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.imageListener.remove();
   },
 
+  componentWillReceiveProps: function (newProps) {
+    this.setState({ image: ImageStore.find(newProps.params.imageId) });
+  },
+
   render: function() {
     var url;
 
+    if (this.state !== null) {
+      url = this.state.image.image_url;
+    }
+
     return (
       <div>
-        <div className="imageDetail" >
+        <div className="imageDetail">
+          <img src={url} />
         </div>
       </div>
     );

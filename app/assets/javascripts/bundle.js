@@ -34252,10 +34252,6 @@
 	var ImageIndexItem = __webpack_require__(273);
 	var Packery = __webpack_require__(274)(React);
 	
-	var packeryOptions = {
-	  transitionDuration: 0
-	};
-	
 	var ImageIndex = React.createClass({
 	  displayName: 'ImageIndex',
 	
@@ -34283,15 +34279,9 @@
 	      photos = this.state.images.map(function (photo) {
 	        return React.createElement(ImageIndexItem, { key: photo.id, photo: photo });
 	      });
-	    } else {
-	      photos = React.createElement(
-	        'p',
-	        null,
-	        ' '
-	      );
 	    }
 	
-	    var masonryOptions = {
+	    var packeryOptions = {
 	      transitionDuration: 0
 	    };
 	
@@ -39462,6 +39452,7 @@
 	
 	  redirectHome: function (e) {
 	    e.preventDefault();
+	    UserClientActions.fetchCurrentUser();
 	    HashHistory.push('/');
 	  },
 	
@@ -65871,30 +65862,44 @@
 	var ImageDetail = React.createClass({
 	  displayName: 'ImageDetail',
 	
-	  getStateFromStore: function () {
-	    return { image: ImageStore.find(parseInt(this.props.params.imageId)) };
+	  getInitialState: function () {
+	    return { image: {} };
 	  },
 	
 	  _onChange: function () {
-	    this.setState(this.getStateFromStore());
+	    var id = parseInt(this.props.params.imageId);
+	    this.setState({ image: ImageStore.find(this.props.params.imageId) });
 	  },
 	
 	  componentDidMount: function () {
-	    this.imageListener = ImageStore.addListener(this._onChange);
+	    document.body.scrollTop = document.documentElement.scrollTop = 0;
 	    ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
+	    this.imageListener = ImageStore.addListener(this._onChange);
 	  },
 	
 	  componentWillUnmount: function () {
 	    this.imageListener.remove();
 	  },
 	
+	  componentWillReceiveProps: function (newProps) {
+	    this.setState({ image: ImageStore.find(newProps.params.imageId) });
+	  },
+	
 	  render: function () {
 	    var url;
+	
+	    if (this.state !== null) {
+	      url = this.state.image.image_url;
+	    }
 	
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement('div', { className: 'imageDetail' })
+	      React.createElement(
+	        'div',
+	        { className: 'imageDetail' },
+	        React.createElement('img', { src: url })
+	      )
 	    );
 	  }
 	

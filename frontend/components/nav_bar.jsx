@@ -31,6 +31,7 @@ var NavBar = React.createClass({
 
   redirectHome: function(e){
     e.preventDefault();
+    UserClientActions.fetchCurrentUser();
     HashHistory.push('/');
   },
 

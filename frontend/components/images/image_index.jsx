@@ -5,9 +5,7 @@ var ImageClientActions = require('../../actions/image_client_actions');
 var ImageIndexItem = require('./image_index_item.jsx');
 var Packery = require('react-packery-component')(React);
 
-var packeryOptions = {
-  transitionDuration: 0
-};
+
 
 var ImageIndex = React.createClass({
 
@@ -35,11 +33,9 @@ var ImageIndex = React.createClass({
       photos = this.state.images.map(function(photo) {
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
-    } else {
-      photos = <p> </p>;
     }
 
-    var masonryOptions = {
+    var packeryOptions = {
       transitionDuration: 0
     };
 
