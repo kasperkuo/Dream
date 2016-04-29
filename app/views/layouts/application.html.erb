@@ -3,21 +3,23 @@
 <head>
   <title>Capstone</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+
+  <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <script>cloudinary.setCloudName('kasperkuo');</script>
+  <script type="text/javascript">
+      window.CLOUDINARY_OPTIONS = {
+        cloud_name: "kasperkuo",
+        upload_preset: "nzrfhtyc",
+        stylesheet: "<%= asset_url 'cloudinary.css' %>"
+      };
+   </script>
+
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,200italic,300' rel='stylesheet' type='text/css'>
 
-    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-    <script>cloudinary.setCloudName('kasperkuo');</script>
-    <script type="text/javascript">
-        window.CLOUDINARY_OPTIONS = {
-          cloud_name: "kasperkuo",
-          upload_preset: "nzrfhtyc",
-          stylesheet: "<%= asset_url 'cloudinary.css' %>"
-        };
-     </script>
 
 </head>
 <body>

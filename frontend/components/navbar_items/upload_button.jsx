@@ -1,7 +1,6 @@
 var React = require('react');
 var SessionStore = require('../../stores/session_store');
 var ImageClientActions = require('../../actions/image_client_actions');
-var cloudinary = require('cloudinary');
 
 var UploadButton = React.createClass({
   getInitialState: function() {
