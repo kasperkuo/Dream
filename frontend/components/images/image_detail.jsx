@@ -5,7 +5,7 @@ var ImageStore = require('../../stores/image_store'),
 
 var ImageDetail = React.createClass({
   getInitialState: function() {
-    return {image: {}};
+    return {image: ImageStore.find(this.props.params.imageId)};
   },
 
   _onChange: function () {
@@ -28,9 +28,10 @@ var ImageDetail = React.createClass({
   },
 
   render: function() {
+    console.log("adlsfajsdlfjaslfjlakslfk;ajl;");
     var url;
 
-    if (this.state !== null) {
+    if (this.state.image) {
       url = this.state.image.image_url;
     }
 
