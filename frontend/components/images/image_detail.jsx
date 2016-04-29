@@ -28,7 +28,6 @@ var ImageDetail = React.createClass({
   },
 
   render: function() {
-    console.log("adlsfajsdlfjaslfjlakslfk;ajl;");
     var url;
 
     if (this.state.image) {

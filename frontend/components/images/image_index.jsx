@@ -3,7 +3,7 @@ var ImageStore = require('../../stores/image_store');
 var ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageIndexItem = require('./image_index_item.jsx');
-var Packery = require('react-packery-component')(React);
+var Masonry = require('react-masonry-component');
 
 
 
@@ -33,21 +33,25 @@ var ImageIndex = React.createClass({
       photos = this.state.images.map(function(photo) {
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
+    } else {
+      photos = <p> </p>;
     }
 
-    var packeryOptions = {
-      transitionDuration: 0
+    var masonryOptions = {
+      isFitWidth: true
     };
 
     return (
+
       <div className="wrapper">
-        <Packery
-                className="imageList"
-                elementType={'ul'}
-                options={packeryOptions}
-                disableImagesLoaded={false}>
-            {photos}
-        </Packery>
+        <Masonry
+          className="imageList"
+          elementType={'ul'}
+          options={masonryOptions}
+          disableImagesLoaded={false}>
+
+          {photos}
+        </Masonry>
       </div>
     );
   }

@@ -1,35 +1,27 @@
 .wrapper {
   margin: 0 auto;
-  position: relative;
-}
-
-.wrapper::after{
-  content: "";
-
 }
 
 .image {
   margin: 10px auto;
   position: relative;
-  display: inline-block;
-  float: left;
   margin: 3px 4px 4px 4px;
-  text-align: center;
   background: #fff;
   cursor: pointer;
   -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   transition-timing-function: linear;
-
+  float: left;
 }
 
 .imageList {
   list-style-type: none;
-  padding: 45px 20px 40px 20px;
-  min-width: 560px;
+  padding: 45px 20px 45px 20px;
+  min-width: 200px;
   margin: 10px auto;
 
 }
+
 
 .image:hover{
   opacity: 0.7;
