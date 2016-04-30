@@ -23,6 +23,7 @@
     "react": "^0.14.2",
     "react-addons-linked-state-mixin": "^0.14.8",
     "react-dom": "^0.14.2",
+    "react-link-state": "^0.1.2",
     "react-masonry-component": "^4.0.2",
     "react-masonry-mixin": "^2.1.0",
     "react-modal": "^1.2.1",

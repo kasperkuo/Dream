@@ -19,6 +19,7 @@ var NavBar = React.createClass({
 
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._onChange);
+    UserClientActions.fetchCurrentUser();
   },
 
   componentWillUnmount: function() {
@@ -29,10 +30,14 @@ var NavBar = React.createClass({
     this.setState({ isLogged: SessionStore.isLogged() });
   },
 
+  contextTypes: {
+      router: React.PropTypes.object.isRequired
+  },
+
   redirectHome: function(e){
     e.preventDefault();
     UserClientActions.fetchCurrentUser();
-    HashHistory.push('/');
+    this.context.router.push("/");
   },
 
   render: function() {

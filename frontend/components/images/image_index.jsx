@@ -36,7 +36,7 @@ var ImageIndex = React.createClass({
     } else {
       photos = <p> </p>;
     }
-
+    //
     var masonryOptions = {
       isFitWidth: true
     };

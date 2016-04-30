@@ -5,7 +5,8 @@ var ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageForm = React.createClass({
   getInitialState: function() {
-    return { images: ImageStore.all() };
+    this.currentImage = {};
+    return { title: "", description: "", imageType: "" };
   },
 
   componentDidMount: function() {
@@ -21,6 +22,12 @@ var ImageForm = React.createClass({
     this.setState({ images: ImageStore.all() });
   },
 
+  saveImageInfo: function(){
+    if (this.currentImage.url) {
+			this.currentImage["title"] = this.state.title;
+			this.currentImage["description"] = this.state.description;
+    }
+  },
 
   render: function() {
     return (

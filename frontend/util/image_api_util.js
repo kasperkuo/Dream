@@ -1,4 +1,5 @@
-var ImageServerActions = require('../actions/image_server_actions');
+var ImageServerActions = require('../actions/image_server_actions'),
+    SessionStore = require('../stores/session_store');
 
 var ImageApiUtil = {
   fetchAllImages: function() {
@@ -11,10 +12,11 @@ var ImageApiUtil = {
   },
 
   postImage: function(url) {
+    var currentUserId = SessionStore.currentUser().id;
     $.ajax({
       url: '/api/images',
       method: 'POST',
-      data: {image: {image_url: url}},
+      data: {image: {image_url: url, user_id: currentUserId}},
       success: function(image) {
         ImageServerActions.receiveImage(image);
       },

@@ -19,7 +19,6 @@
   padding: 45px 20px 45px 20px;
   min-width: 200px;
   margin: 10px auto;
-
 }
 
 
@@ -40,4 +39,20 @@
 
 .imageDetail img {
   max-height: 600px;
+}
+
+.backExplore {
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  padding: 30px;
+  top: 30px;
+  position: relative;
+}
+
+.imageUploadUser {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  position: relative;
+  margin: 30px;
 }

@@ -20,10 +20,28 @@ IMAGE_URLS = [
   "http://img10.deviantart.net/3b73/i/2013/361/c/3/infinite_dreams_by_rhads-d5eywh4.jpg"
 ]
 
+IMAGE_TITLE = [
+  "Sky for Dreamers",
+  "Nature Salvation",
+  "Beautiful World",
+  "Great Migration",
+  "Endless Journey",
+  "Blue Planet",
+  "Somewhere Near, But Far In Time",
+  "Stairway to the Sky",
+  "Phantasmagoria",
+  "Berangkat.",
+  "Infinite Dreams"
+]
+
+
+
 IMAGE_URLS.length.times do |i|
   Image.create!(
     image_url: IMAGE_URLS[i],
-    image_type: "digital")
+    user_id: 1,
+    image_type: "digital",
+    title: IMAGE_TITLE[i])
 end
 
 User.create!(
