@@ -31,31 +31,6 @@
   vertical-align: text-top;
 }
 
-.imageDetail {
-  text-align: center;
-  position: relative;
-  margin-top: 100px;
-}
-
-.imageDetail img {
-  max-height: 600px;
-}
-
-.backExplore {
-  font-family: 'Raleway', sans-serif;
-  cursor: pointer;
-  bottom: 30px;
-  top: 30px;
-  position: relative;
-}
-
-.imageUploadUser {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  position: relative;
-  margin: 30px;
-}
 
 .image-edit-container {
   position: relative;
