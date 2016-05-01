@@ -6,7 +6,7 @@ var ImageClientActions = require('../../actions/image_client_actions');
 var ImageForm = React.createClass({
   getInitialState: function() {
     this.currentImage = {};
-    return { title: "", description: "", imageType: "" };
+    return { title: "", description: "", imageType: "", imageUrl: "" };
   },
 
   componentDidMount: function() {

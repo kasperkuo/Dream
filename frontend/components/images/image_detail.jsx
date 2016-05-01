@@ -10,27 +10,39 @@ var ImageEditForm = require('./image_edit_form');
 
 var ImageDetail = React.createClass({
   getInitialState: function() {
-    return {image: ImageStore.find(this.props.params.imageId)};
+    return {
+      image: ImageStore.find(this.props.params.imageId),
+      currentUser: SessionStore.currentUser(),
+      images: ImageStore.all()
+    };
   },
 
-  _onChange: function () {
+  _onImageChange: function () {
     var id = parseInt(this.props.params.imageId);
     this.setState({image: ImageStore.find(this.props.params.imageId) });
+    this.setState({images: ImageStore.all()});
+  },
+
+  _onSessionChange: function() {
+    this.setState({currentUser: SessionStore.currentUser()});
   },
 
   componentDidMount: function () {
-    UserClientActions.fetchCurrentUser();
     document.body.scrollTop = document.documentElement.scrollTop = 0;
+    this.imageListener = ImageStore.addListener(this._onImageChange);
+    this.currentUserListener = ImageStore.addListener(this._onSessionChange);
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
-    this.imageListener = ImageStore.addListener(this._onChange);
+    ImageClientActions.fetchAllImages();
   },
 
   componentWillUnmount: function () {
     this.imageListener.remove();
+    this.currentUserListener.remove();
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.setState({ image: ImageStore.find(newProps.params.imageId) });
+    ImageClientActions.fetchSingleImage(parseInt(newProps.params.imageId));
+    ImageClientActions.fetchAllImages();
   },
 
   redirectHome: function(e){
@@ -52,11 +64,27 @@ var ImageDetail = React.createClass({
   },
 
   goNextImage: function(e) {
-
+    var imageList = this.state.images;
+    var nextIndex = imageList.indexOf(this.state.image) + 1;
+    var nextId;
+    if (nextIndex === imageList.length) {
+      nextId = imageList[0].id;
+    } else {
+      nextId = imageList[nextIndex].id.toString();
+    }
+    HashHistory.push("/images/" + nextId.toString());
   },
 
   goPreviousImage: function(e) {
-
+    var imageList = this.state.images;
+    var prevIndex = imageList.indexOf(this.state.image) - 1;
+    var prevId;
+    if (this.state.image === imageList[0]) {
+      prevId = imageList[imageList.length - 1].id.toString();
+    } else {
+      prevId = imageList[prevIndex].id.toString();
+    }
+    HashHistory.push("/images/" + prevId.toString());
   },
 
   render: function() {
