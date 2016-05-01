@@ -17,6 +17,13 @@ var ImageServerActions = {
     });
   },
 
+  removeImage: function(image){
+    Dispatcher.dispatch({
+      actionType: ImageConstants.IMAGE_REMOVED,
+      image: image
+    });
+  },
+
   handleError: function(error) {
     Dispatcher.dispatch({
       actionType: UserConstants.ERROR,

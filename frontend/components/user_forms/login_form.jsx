@@ -65,11 +65,11 @@ var LoginForm = React.createClass({
 		  content : {
 		    position        : 'fixed',
 		    top             : '125px',
-		    left            : '33%',
+		    left            : '28%',
 		    border          : '1px solid #ccc',
 		    padding         : '20px',
 		    zIndex          : 1001,
-				maxWidth        : '30%',
+				maxWidth        : '40%',
 		  }
 		};
 
@@ -80,25 +80,36 @@ var LoginForm = React.createClass({
 				style={style}
 				isOpen={this.state.modalOpen}
 				onRequestClose={this.closeModal}>
-					<h1 className="signup-header">Log In</h1>
+				<div className="signup-form">
+					<h1 className="signup-header">SIGN IN</h1>
 	        <form onSubmit={this.handleSubmit}>
-	          <section>
-	              <input
-									className="signup-input"
-									type="text"
-									value={this.state.username}
-									onChange={this.changeUsername}
-									placeholder="username"/>
-								<br></br>
-								<input
-									className="signup-input"
-									type="password"
-									value={this.state.password}
-									onChange={this.changePassword}
-									placeholder="password"/>
-								<br></br>
-	          </section>
 
+						<div className="field name-box">
+              <input
+								className="signup-input"
+								type="text"
+								value={this.state.username}
+								onChange={this.changeUsername}
+								placeholder="username"/>
+								<label for="username">Name</label>
+								<span class="ss-icon">check</span>
+						</div>
+								<br></br>
+
+						<div className="field email-box">
+							<input
+								className="signup-input"
+								type="password"
+								value={this.state.password}
+								onChange={this.changePassword}
+								placeholder="password"/>
+							<label for="password">Password</label>
+							<span class="ss-icon">check</span>
+						</div>
+
+								<br></br>
+
+					<div className="submitBox">
 	          <input
 							className="signup-button"
 							type="submit" value="Log In"/>
@@ -108,7 +119,9 @@ var LoginForm = React.createClass({
 							onClick={this.guestLogin}
 							type="Reset">Guest Login
 						</button>
+					</div>
 	        </form>
+				</div>
 				</Modal>
 			</div>
 		);

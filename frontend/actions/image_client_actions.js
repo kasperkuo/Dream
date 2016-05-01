@@ -11,6 +11,10 @@ var ImageClientActions = {
 
   fetchSingleImage: function(id) {
     ImageApiUtil.fetchSingleImage(id);
+  },
+
+  deleteImage: function(id) {
+    ImageApiUtil.deleteImage(id);
   }
 };
 

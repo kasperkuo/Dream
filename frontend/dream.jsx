@@ -9,7 +9,8 @@ var Router = require('react-router').Router,
 var Explore = require('./components/explore'),
     NavBar = require('./components/nav_bar'),
     Footer = require('./components/footer/footer'),
-    ImageDetail = require('./components/images/image_detail.jsx');
+    ImageDetail = require('./components/images/image_detail.jsx'),
+    ImageEditForm = require('./components/images/image_edit_form');
 
 var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
@@ -39,7 +40,7 @@ var routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Explore} />
       <Route path="/images/:imageId" component={ImageDetail} />
-
+      <Route path="/images/:imageId/edit" component={ImageEditForm} />
     </Route>
   </Router>
 );

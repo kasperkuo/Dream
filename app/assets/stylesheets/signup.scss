@@ -1,0 +1,249 @@
+@mixin grid($column) {
+	  width:(100% / 8) * $column;
+	  margin:0 auto;
+}
+
+// Transition Ease
+@mixin ease($time:333ms, $attr:all, $curve:ease-in-out) {
+	  -webkit-transition: $attr $time $curve;
+	  -moz-transition: $attr $time $curve;
+	  -o-transition: $attr $time $curve;
+	  -ms-transition: $attr $time $curve;
+	  transition: $attr $time $curve;
+}
+
+//-- Lato --//
+@mixin lato-1 {font-family: 'Lato', sans-serif; font-weight:100;}
+@mixin lato-1-i {@include lato-1; font-style:italic;}
+
+@mixin lato-3 {font-family: 'Lato', sans-serif; font-weight:300;}
+@mixin lato-3-i {@include lato-3; font-style:italic;}
+
+@mixin lato-4 {font-family: 'Lato', sans-serif; font-weight:400;}
+@mixin lato-4-i {@include lato-4; font-style:italic;}
+
+@mixin lato-7 {font-family: 'Lato', sans-serif; font-weight:700;}
+@mixin lato-7-i {@include lato-7; font-style:italic;}
+
+@mixin lato-9 {font-family: 'Lato', sans-serif; font-weight:900;}
+@mixin lato-9-i {@include lato-9; font-style:italic;}
+
+
+// Colors
+$blue:#313A3D;
+$teal:#008080;
+$dark-teal:darken($teal, 20%);
+$grey:#B6B6B6;
+$light-grey:lighten($grey, 15%);
+$white:#ffffff;
+$light-teal:lighten($teal, 8%);
+
+$background:#efefef;
+$field-color:#E8E9EA;
+
+.signup-form {
+  background:$white;
+  font-size:62.5%;
+  @include lato-3;
+  color:$grey;
+
+		h1 {
+			margin-bottom:40px;
+			font-size:4em;
+			text-transform:uppercase;
+			@include lato-1;
+			text-align: center;
+		}
+}
+
+
+
+form {
+		  @include grid(7);
+
+		  .field {
+			    width:100%;
+			    position:relative;
+			    margin-bottom:15px;
+
+    			$hover-label-width:25%;
+			    $placeholder-bumper:1.5%;
+			    $label-padding:18px;
+
+			    label {
+				      text-transform: uppercase;
+				      position:absolute;
+				      top:0;
+				      left:0;
+				      background:$blue;
+				      width:100%;
+				      padding:($label-padding + 0px) 0;
+				      font-size: 1.45em;
+				      letter-spacing: 0.075em;
+							text-align: center;
+
+				      @include ease(333ms);
+
+				      + span {
+					        font-family: 'SSStandard';
+					        opacity: 0;
+					        color:white;
+				        	display: block;
+					        position:absolute;
+					        top: 12px;
+					        left: 15%;
+					        font-size: 2.5em;
+					        text-shadow:1px 2px 0 $dark-teal;
+
+					        @include ease(333ms);
+			      	}
+			    }
+
+		    	input[type="text"],
+			    textarea {
+				      border:none;
+				      background:$field-color;
+				      width:100% - $hover-label-width - $placeholder-bumper;
+				      margin:0;
+				      padding:$label-padding 0;
+				      padding-left:$hover-label-width + $placeholder-bumper;
+				      color:$blue;
+				      font-size: 1.4em;
+				      letter-spacing: 0.05em;
+				      text-transform: uppercase;
+
+				      // &#password {
+					    //     height: 18px;
+					    //     resize: none;
+					    //     @include ease(333ms);
+				      // }
+
+      				// Focus and JS Toggle Class
+				      &:focus,
+				      &.focused {
+					        outline:none;
+
+        					&#password {
+						          padding-bottom:150px;
+					        }
+
+        					+ label {
+						          width:$hover-label-width;
+						          background:$teal;
+						          color:$blue;
+					        }
+				      }
+
+      				// JS Toggle Class
+				      &.focused {
+					        + label {
+						          color: $teal;
+					        }
+				      }
+
+			    }
+
+					input[type="password"],
+					textarea {
+						border:none;
+						background:$field-color;
+						width:100% - $hover-label-width - $placeholder-bumper;
+						margin:0;
+						padding:$label-padding 0;
+						padding-left:$hover-label-width + $placeholder-bumper;
+						color:$blue;
+						font-size: 1.4em;
+						letter-spacing: 0.05em;
+						text-transform: uppercase;
+
+
+						&:focus,
+						&.focused {
+							outline:none;
+
+							&#password {
+								padding-bottom:150px;
+							}
+
+							+ label {
+								width:$hover-label-width;
+								background:$teal;
+								color:$blue;
+							}
+						}
+
+
+						&.focused {
+							+ label {
+								color: $teal;
+							}
+						}
+					}
+
+
+			    &:hover {
+				      label {
+					        width:$hover-label-width;
+					        background:$blue;
+					        color:white;
+				      }
+			    }
+		  }
+
+			input[type="submit"] {
+				background:$teal;
+				color:white;
+				-webkit-appearance: none;
+				border: none;
+				text-transform: uppercase;
+				position: relative;
+				padding: 13px 80px;
+				font-size: 1.4em;
+				letter-spacing: 0.1em;
+				@include lato-3;
+				@include ease;
+				text-align: center;
+
+				&:hover {
+					background:$teal;
+					color:$white;
+					opacity: 0.7;
+				}
+
+				&:focus {
+					outline:none;
+					background:$dark-teal;
+				}
+			}
+
+			button[type="Reset"] {
+				background:$light-teal;
+				color:white;
+				-webkit-appearance: none;
+				border: none;
+				text-transform: uppercase;
+				position: relative;
+				padding: 13px 54px;
+				font-size: 1.4em;
+				letter-spacing: 0.1em;
+				@include lato-3;
+				@include ease;
+				text-align: center;
+
+				&:hover {
+					background:$teal;
+					color:$white;
+					opacity: 0.7;
+				}
+
+				&:focus {
+					outline:none;
+					background:$dark-teal;
+				}
+			}
+
+	}
+
+	.submitBox {
+		text-align: center;
+	}

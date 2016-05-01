@@ -30,7 +30,9 @@ var addImage = function(image) {
   _images[image.id] = image;
 };
 
-
+var removeImage = function(image) {
+  delete _images[image.id];
+};
 
 ImageStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
@@ -39,6 +41,9 @@ ImageStore.__onDispatch = function(payload) {
       break;
     case ImageConstants.IMAGE_RECEIVED:
       addImage(payload.image);
+      break;
+    case ImageConstants.IMAGE_REMOVED:
+      removeImage(payload.image);
       break;
   }
 };

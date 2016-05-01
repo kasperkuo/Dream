@@ -37,6 +37,19 @@ var ImageApiUtil = {
         alert("Cannot find image");
       }
     });
+  },
+
+  deleteImage: function(id) {
+    $.ajax({
+      url: '/api/images/' + id,
+      method: 'DELETE',
+      success: function(image) {
+        ImageServerActions.removeImage(image);
+      },
+      errors: function(errors) {
+        alert("Cannot find image");
+      }
+    });
   }
 };
 

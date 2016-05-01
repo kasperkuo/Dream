@@ -44,7 +44,7 @@
 .backExplore {
   font-family: 'Raleway', sans-serif;
   cursor: pointer;
-  padding: 30px;
+  bottom: 30px;
   top: 30px;
   position: relative;
 }
@@ -55,4 +55,11 @@
   font-size: 30px;
   position: relative;
   margin: 30px;
+}
+
+.image-edit-container {
+  position: relative;
+  margin: 0 auto;
+  align-self: center;
+  top: 100px;
 }
