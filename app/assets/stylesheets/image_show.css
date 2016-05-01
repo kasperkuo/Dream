@@ -21,13 +21,15 @@
   transition: background .5s ease;
   margin: 0 auto;
   width: 80%;
+  font-family: 'Lato', sans-serif;
 }
 
 
 .arrow {
   width: 60px;
   color: #000;
-  position: absolute;
+  top: 50%;
+  position: fixed;
   font-size: 32px;
   font-size: 2rem;
   display: -webkit-box;
@@ -44,7 +46,6 @@
   align-items: center;
   cursor: pointer;
   height: 60px;
-  border-radius: 50%;
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -92,22 +93,22 @@
 }
 
 .userOptions {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   bottom: 30px;
   top: 30px;
   position: relative;
   padding-left: 10px;
   padding-right: 10px;
+  font-size: .6em;
+  letter-spacing: 2px;
 }
 
-.backExplore {
+.userFeatures {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.backExplore:hover {
-  text-decoration: underline;
+.backExplore:hover, .userFeatures:hover {
   transition: all .2s ease-out;
   -webkit-transition: all .2s ease-out;
   cursor: pointer;
@@ -116,16 +117,29 @@
 }
 
 .imageInfoHeader {
-  font-family: 'Lato', sans-serif;
   font-weight: 900;
   font-size: 2.2em;
   position: relative;
   margin: 30px;
   text-transform: uppercase;
+  letter-spacing: 3px;
 }
+
+.imageOwner {
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.imageDescription {
+  position: relative;
+  font-weight: 300;
+}
+
 
 .imageInfo {
   float: left;
   display: block;
   text-align: center;
+  margin-bottom: 30px;
 }

@@ -24,8 +24,8 @@
   font-family: 'Lato', sans-serif;
   z-index: 3;
   color: white;
-  font-weight: 100;
-
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .dreamtext {
@@ -41,11 +41,23 @@
 }
 
 .splashSignUp {
+  width: 100px;
   position: relative;
-  margin-top: 50px;
+  margin: 50px auto;
   text-align: center;
   color: white;
   z-index: 3;
   font-family: 'Lato', sans-serif;
+  letter-spacing: 2px;
+  border: 2px solid white;
+  cursor: pointer;
+  padding: 10px 10px;
+}
 
+.splashSignUp:hover {
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.splashSignUpContainer {
+  align-items: center;
 }

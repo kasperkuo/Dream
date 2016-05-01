@@ -16,6 +16,7 @@ var Splash = React.createClass({
             <br></br>
             {dreamText2}
           </p>
+
           <div className="splashSignUp"><SignUpForm /></div>
         </div>
       </div>
