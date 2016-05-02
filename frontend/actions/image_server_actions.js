@@ -1,6 +1,8 @@
 var Dispatcher = require('../dispatcher/dispatcher');
-var ImageConstants = require('../constants/image_constants');
-var UserConstants = require('../constants/user_constants');
+
+var ImageConstants = require('../constants/image_constants'),
+    UserConstants = require('../constants/user_constants'),
+    ErrorConstants = require('../constants/error_constants');
 
 var ImageServerActions = {
   receiveImages: function(images){
@@ -26,7 +28,7 @@ var ImageServerActions = {
 
   handleError: function(error) {
     Dispatcher.dispatch({
-      actionType: UserConstants.ERROR,
+      actionType: ErrorConstants.ERROR,
       errors: error.responseJSON.errors
     });
   },

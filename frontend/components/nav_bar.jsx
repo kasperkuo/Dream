@@ -5,6 +5,7 @@ var LoginForm = require('./user_forms/login_form');
 var SignUpForm = require('./user_forms/signup_form');
 var ImageForm = require('./images/image_form');
 var HashHistory = require('react-router').hashHistory;
+var UploadButton = require('./navbar_items/upload_button');
 
 var NavBar = React.createClass({
   getInitialState: function() {

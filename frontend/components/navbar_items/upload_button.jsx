@@ -4,7 +4,7 @@ var ImageClientActions = require('../../actions/image_client_actions');
 
 var UploadButton = React.createClass({
   getInitialState: function() {
-    return { isLogged: false };
+    return { isLogged: SessionStore.isLogged };
   },
 
   componentDidMount: function() {
@@ -26,19 +26,17 @@ var UploadButton = React.createClass({
         window.CLOUDINARY_OPTIONS,
         function(error, payload) {
           if (!error) {
-            this.successfulUpload(payload);
+            this.props.handleUpload(payload);
           }
         }.bind(this));
     } else {
       alert('Not logged in');
     }
   },
-
-  successfulUpload: function(payload) {
-    payload.forEach(function(image){
-      ImageClientActions.postImage(image.url);
-    });
-  },
+  // 
+  // successfulUpload: function(payload) {
+  //   this.props.handleUpload(payload);
+  // },
 
   render: function() {
 

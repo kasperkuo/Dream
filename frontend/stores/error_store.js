@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var Store = require('flux/utils').Store;
-var UserConstants = require('../constants/user_constants');
+var ErrorConstants = require('../actions/error_actions');
 
 var ErrorStore = new Store(Dispatcher);
 
@@ -16,10 +16,17 @@ var addErrors = function(errors) {
   ErrorStore.__emitChange();
 };
 
+var removeErrors = function() {
+  _errors = [];
+};
+
 ErrorStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
-    case UserConstants.ERROR:
+    case ErrorConstants.ERROR:
       addErrors(payload.errors);
+      break;
+    case ErrorConstants.REMOVE_ERRORS:
+      removeErrors();
       break;
   }
 };

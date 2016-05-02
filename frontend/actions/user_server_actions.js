@@ -1,5 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher');
-var UserConstants = require('../constants/user_constants');
+var UserConstants = require('../constants/user_constants'),
+    ErrorConstants = require('../constants/error_constants');
 
 var UserServerActions = {
   receiveCurrentUser: function(user){
@@ -11,7 +12,7 @@ var UserServerActions = {
 
   handleError: function(error) {
     Dispatcher.dispatch({
-      actionType: UserConstants.ERROR,
+      actionType: ErrorConstants.ERROR,
       errors: error.responseJSON.errors
     });
   },
