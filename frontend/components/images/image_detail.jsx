@@ -103,8 +103,8 @@ var ImageDetail = React.createClass({
       description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 
-
-    if (SessionStore.isLogged()) {
+    //changed this to currentUser.id = image.user_id
+    if (this.state.currentUser) {
     editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
     deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
 

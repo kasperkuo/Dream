@@ -25,7 +25,6 @@ var Explore = React.createClass({
 
   render: function(){
     var feed;
-    console.log(this.state.isLogged);
     if (this.state.currentUser) {
       feed = <ImageIndex />;
     } else {
