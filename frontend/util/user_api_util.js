@@ -51,6 +51,16 @@ var UserApiUtil = {
       }
     });
   },
+
+  fetchUserProfile: function(id) {
+    $.ajax({
+      url: "/api/users/" + id,
+      method: "GET",
+      success: function(user) {
+        UserServerActions.receiveUserProfile(user);
+      }
+    });
+  }
 };
 
 module.exports = UserApiUtil;

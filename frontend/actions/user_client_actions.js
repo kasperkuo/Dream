@@ -16,6 +16,10 @@ var UserClientActions = {
 
 	logout: function() {
 		UserApiUtil.logout();
+	},
+
+	fetchUserProfile: function(id) {
+		UserApiUtil.fetchUserProfile(id);
 	}
 };
 

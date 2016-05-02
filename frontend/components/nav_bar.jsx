@@ -9,7 +9,7 @@ var UploadButton = require('./navbar_items/upload_button');
 
 var NavBar = React.createClass({
   getInitialState: function() {
-    return { isLogged: false };
+    return { currentUser: SessionStore.currentUser() };
   },
 
   logoutUser: function(e) {
@@ -20,7 +20,7 @@ var NavBar = React.createClass({
 
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._onChange);
-    UserClientActions.fetchCurrentUser();
+    // UserClientActions.fetchCurrentUser();
   },
 
   componentWillUnmount: function() {
@@ -28,7 +28,7 @@ var NavBar = React.createClass({
   },
 
   _onChange: function() {
-    this.setState({ isLogged: SessionStore.isLogged() });
+    this.setState({ currentUser: SessionStore.currentUser() });
   },
 
   contextTypes: {
@@ -37,7 +37,7 @@ var NavBar = React.createClass({
 
   redirectHome: function(e){
     e.preventDefault();
-    UserClientActions.fetchCurrentUser();
+    // UserClientActions.fetchCurrentUser();
     this.context.router.push("/");
   },
 
@@ -50,7 +50,7 @@ var NavBar = React.createClass({
   render: function() {
     var button;
     var signupButton;
-    if (this.state.isLogged) {
+    if (this.state.currentUser) {
       button = <a className="navbar-logout"
         onClick={this.logoutUser}>LOGOUT</a>;
       signupButton = <a className="userButton" onClick={this.redirectProfile}>YOU</a>;

@@ -8,7 +8,7 @@ var ImageIndex = require('./images/image_index');
 var Explore = React.createClass({
 
   getInitialState: function() {
-    return { isLogged: false };
+    return { currentUser: SessionStore.currentUser() };
   },
 
   componentDidMount: function() {
@@ -20,13 +20,13 @@ var Explore = React.createClass({
   },
 
   _onChange: function() {
-    this.setState({ isLogged: SessionStore.isLogged() });
+    this.setState({ currentUser: SessionStore.currentUser() });
   },
 
   render: function(){
     var feed;
     console.log(this.state.isLogged);
-    if (this.state.isLogged === true) {
+    if (this.state.currentUser) {
       feed = <ImageIndex />;
     } else {
       feed = <Splash />;

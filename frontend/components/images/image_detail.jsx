@@ -47,7 +47,6 @@ var ImageDetail = React.createClass({
 
   redirectHome: function(e){
     e.preventDefault();
-    UserClientActions.fetchCurrentUser();
     HashHistory.push('/');
   },
 
@@ -104,13 +103,12 @@ var ImageDetail = React.createClass({
       description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 
-    console.log(SessionStore.isLogged());
 
-    // if (SessionStore.isLogged()) {
+    if (SessionStore.isLogged()) {
     editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
     deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
 
-    // }
+    }
     // imageUploader = <div className="imageOwner">Image uploader goes here.</div>;
 
     return (

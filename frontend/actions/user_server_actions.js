@@ -21,6 +21,13 @@ var UserServerActions = {
     Dispatcher.dispatch({
       actionType: UserConstants.LOGOUT,
     });
+  },
+
+  receiveUserProfile: function(user) {
+    Dispatcher.dispatch({
+      actionType: UserConstants.RECEIVE_USER,
+      user: user
+    });
   }
 };
 
