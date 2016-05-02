@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    Masonry = require('react-masonry-component');
 
 var SessionStore = require('../../stores/session_store'),
     UserStore = require('../../stores/user_store');
@@ -33,28 +34,32 @@ var UserDetail = React.createClass({
     this.currentUserListener.remove();
   },
 
-  allImages: function() {
-    return this.state.userProfile.images.map(function(image, index) {
-      return <ImageIndexItem key={index} image={image} />;
-    });
-  },
 
   render: function() {
     if (this.state.userProfile) {
       var username = this.state.userProfile.username;
-      console.log(this.state.userProfile.images);
+      var imageList = this.state.userProfile.images.map(function(image, index) {
+        return <ImageIndexItem key={index} photo={image} />;
+      });
     }
 
+    var masonryOptions = {
+      isFitWidth: true
+    };
+
     return (
-      <div>
-        <div className="profile-container">
-          <div className="cover-container">
-            {username}
-          </div>
-          <div className="profile-images-container">
-
-
-          </div>
+      <div className="profile-container">
+        <div className="cover-container">
+          <div className="cover-header">{username}</div>
+        </div>
+        <div className="profile-images-container">
+          <Masonry
+            className="imageList"
+            elementType={'ul'}
+            options={masonryOptions}
+            disableImagesLoaded={false}>
+            {imageList}
+          </Masonry>
         </div>
       </div>
     );

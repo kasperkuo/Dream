@@ -1,4 +1,31 @@
 .profile-container {
+  display: block;
   position: relative;
-  top: 45px;
+  top: 44px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.cover-container {
+  position: relative;
+  height: 250px;
+  width: 100%;
+  background-color: teal;
+  color: white;
+  font-family: 'Lato', sans-serif;
+
+  .cover-header {
+    position: relative;
+    font-size: 40px;
+    top: 150px;
+    left: 170px;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+}
+
+.profile-images-container {
+  position: relative;
 }

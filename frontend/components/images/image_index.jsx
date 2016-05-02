@@ -33,10 +33,8 @@ var ImageIndex = React.createClass({
       photos = this.state.images.map(function(photo) {
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
-    } else {
-      photos = <p> </p>;
     }
-    //
+    
     var masonryOptions = {
       isFitWidth: true
     };
