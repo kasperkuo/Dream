@@ -48,14 +48,14 @@ Dream will allow users to do the following:
 
 **Objective** Working rails project that has authentication capabilities
 
-- [ ] create a new project with Postgres and development gems
-- [ ] create a `User` model with proper validations that handles sign up
-- [ ] authentication
-- [ ] creating sessions controller that handles sign in features
-- [ ] user's profile page has cover photo and profile photo with their name and join date
-- [ ] create home page that viewers that aren't logged in go to with simple styling
-- [ ] blank landing page after signing in (which will be the explore page that shows all images and photos)
-- [ ] create demo login
+- [x] create a new project with Postgres and development gems
+- [x] create a `User` model with proper validations that handles sign up
+- [x] authentication
+- [x] creating sessions controller that handles sign in features
+- [x] user's profile page has cover photo and profile photo with their name and join date
+- [x] create home page that viewers that aren't logged in go to with simple styling
+- [x] blank landing page after signing in (which will be the explore page that shows all images and photos)
+- [x] create demo login
 
 ### Phase 2: Images Model, API, and basic APIUtil (1.5 days)
 
