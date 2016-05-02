@@ -99,7 +99,7 @@ var ImageDetail = React.createClass({
       url = this.state.image.image_url;
       id = this.state.image.user_id;
       title = this.state.image.title;
-      imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.username}</div>;
+      imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.name}</div>;
       description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 

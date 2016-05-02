@@ -6,7 +6,7 @@ var Modal = require("react-modal");
 var SignUpForm = React.createClass({
 
 	getInitialState: function(){
-		return { modalOpen: false, username: "", email: "", password: ""};
+		return { modalOpen: false, name: "", email: "", password: ""};
 	},
 
   closeModal: function(){
@@ -20,28 +20,24 @@ var SignUpForm = React.createClass({
 	handleSubmit: function(e){
 		e.preventDefault();
 		var loginData = {
-			username: this.state.username,
+			name: this.state.name,
       email: this.state.email,
 			password: this.state.password
 		};
 		UserClientActions.signup(loginData);
     this.setState({
 			modalOpen: false,
-			username: "",
+			name: "",
 			email: "",
 			password: ""
 		});
 
 	},
 
-	// logout: function(e){
-	// 	e.preventDefault();
-	// 	UserClientActions.logout();
-	// },
 
-	changeUsername: function(e) {
-		var newUsername = e.target.value;
-		this.setState({ username: newUsername });
+	changeName: function(e) {
+		var newName = e.target.value;
+		this.setState({ name: newName });
 	},
 
   changeEmail: function(e) {
@@ -96,10 +92,10 @@ var SignUpForm = React.createClass({
               <input
                 className="signup-input"
 								type="text"
-								value={this.state.username}
-								onChange={this.changeUsername}
-                placeholder="username"/>
-							<label for="username">Name</label>
+								value={this.state.name}
+								onChange={this.changeName}
+                placeholder="full name"/>
+							<label for="name">Name</label>
 							<span class="ss-icon">check</span>
 						</div>
               <br></br>

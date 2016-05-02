@@ -37,7 +37,7 @@ var UserDetail = React.createClass({
 
   render: function() {
     if (this.state.userProfile) {
-      var username = this.state.userProfile.username;
+      var name = this.state.userProfile.name;
       var imageList = this.state.userProfile.images.map(function(image, index) {
         return <ImageIndexItem key={index} photo={image} />;
       });
@@ -50,7 +50,7 @@ var UserDetail = React.createClass({
     return (
       <div className="profile-container">
         <div className="cover-container">
-          <div className="cover-header">{username}</div>
+          <div className="cover-header">{name}</div>
         </div>
         <div className="profile-images-container">
           <Masonry

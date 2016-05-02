@@ -7,7 +7,7 @@ var UserClientActions = require('../../actions/user_client_actions');
 var LoginForm = React.createClass({
 
 	getInitialState: function(){
-		return { modalOpen: false, username: "", password: ""};
+		return { modalOpen: false, email: "", password: ""};
 	},
 
 	closeModal: function(){
@@ -21,7 +21,7 @@ var LoginForm = React.createClass({
 	handleSubmit: function(e){
 		e.preventDefault();
 		var loginData = {
-			username: this.state.username,
+			email: this.state.email,
 			password: this.state.password
 		};
 		UserClientActions.login(loginData);
@@ -29,8 +29,8 @@ var LoginForm = React.createClass({
 	},
 
 	guestLogin: function(e) {
-		this.setState({ username: "guest", password: "password"});
-		UserClientActions.login({ username: "guest", password: "password"});
+		this.setState({ email: "guest@example.com", password: "password"});
+		UserClientActions.login({ email: "guest@example.com", password: "password"});
 	},
 
 	logout: function(e){
@@ -38,9 +38,9 @@ var LoginForm = React.createClass({
 		UserClientActions.logout();
 	},
 
-	changeUsername: function(e) {
-		var newUsername = e.target.value;
-		this.setState({ username: newUsername });
+	changeEmail: function(e) {
+		var newEmail = e.target.value;
+		this.setState({ email: newEmail });
 	},
 
 	changePassword: function(e) {
@@ -88,10 +88,10 @@ var LoginForm = React.createClass({
               <input
 								className="signup-input"
 								type="text"
-								value={this.state.username}
-								onChange={this.changeUsername}
-								placeholder="username"/>
-								<label for="username">Name</label>
+								value={this.state.email}
+								onChange={this.changeEmail}
+								placeholder="email"/>
+							<label for="email">Email</label>
 								<span class="ss-icon">check</span>
 						</div>
 								<br></br>
