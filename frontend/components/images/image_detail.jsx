@@ -13,7 +13,8 @@ var ImageDetail = React.createClass({
     return {
       image: ImageStore.find(this.props.params.imageId),
       currentUser: SessionStore.currentUser(),
-      images: ImageStore.all()
+      images: ImageStore.all(),
+      display: "description"
     };
   },
 
@@ -21,6 +22,7 @@ var ImageDetail = React.createClass({
     var id = parseInt(this.props.params.imageId);
     this.setState({image: ImageStore.find(this.props.params.imageId) });
     this.setState({images: ImageStore.all()});
+    this.setState({display: "description"});
   },
 
   _onSessionChange: function() {
@@ -54,6 +56,7 @@ var ImageDetail = React.createClass({
     e.preventDefault();
     var url = "/images/" + this.state.image.id.toString() + "/edit";
     HashHistory.push(url);
+    this.setState({display: "edit"});
   },
 
   deleteImage: function(e){
@@ -87,26 +90,21 @@ var ImageDetail = React.createClass({
   },
 
   render: function() {
-    var url;
-    var id;
-    var title;
-    var editForm;
-    var deleteForm;
-    var description;
-    var imageUploader;
-
+    var slash = "slashHidden";
     if (this.state.image) {
-      url = this.state.image.image_url;
-      id = this.state.image.user_id;
-      title = this.state.image.title;
-      imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.name}</div>;
-      description = <div className="imageDescription">{this.state.image.description}</div>;
+      var url = this.state.image.image_url;
+      var id = this.state.image.user_id;
+      var title = this.state.image.title;
+      var imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.name}</div>;
+      var description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 
     //changed this to currentUser.id = image.user_id
-    if (this.state.currentUser) {
-    editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
-    deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
+    if (this.state.currentUser &&
+          this.state.currentUser.id === this.state.image.user_id) {
+      var editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
+      var deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
+      var slash = "";
 
     }
     // imageUploader = <div className="imageOwner">Image uploader goes here.</div>;
@@ -124,7 +122,7 @@ var ImageDetail = React.createClass({
             {imageUploader}
             {description}
             <div className="userOptions">
-              {editForm}<span> / </span>{deleteForm}
+              {editForm}<span className={slash}> / </span>{deleteForm}
               <br></br>
               <br></br>
               <a onClick={this.redirectHome} className="backExplore">BACK TO EXPLORE</a>

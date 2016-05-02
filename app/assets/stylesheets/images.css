@@ -30,11 +30,3 @@
   width: 270px;
   vertical-align: text-top;
 }
-
-
-.image-edit-container {
-  position: relative;
-  margin: 0 auto;
-  align-self: center;
-  top: 100px;
-}

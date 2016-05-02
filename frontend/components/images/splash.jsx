@@ -19,6 +19,12 @@ var Splash = React.createClass({
 
           <div className="splashSignUp"><SignUpForm /></div>
         </div>
+        <div className="inspire">
+          <a href="#" class="hero-btn">
+            <span class="str">INSPIRE ME</span>
+          </a>
+          <div class="bg"></div>
+        </div>
       </div>
     );
   }

@@ -61,3 +61,51 @@
 .splashSignUpContainer {
   align-items: center;
 }
+
+.inspire {
+  font-family: 'roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #000 url(https://images.unsplash.com/photo-1421930535025-d2af27c14065?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0504e939e787f3307ebd9fb74c366d84) no-repeat center center;
+  background-size: cover;
+  filter: brightness(45%) blur(10px);
+  transition: filter 1.5s;
+}
+
+.hero-btn {
+  border: 2px solid white;
+  padding: 25px;
+  letter-spacing: 0.75em;
+  color: white;
+  z-index: 999;
+  margin: 25px;
+  line-height: 1.5;
+  transition: all 2s, padding 700ms;
+}
+
+.hero-btn:hover + div {
+  filter: brightness(100%);
+}
+
+.hero-btn:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.3);
+  padding: 15em
+}
+
+.str {
+  transition: 1s 1s
+}
+
+.hero-btn:hover .str {
+  color: red
+}

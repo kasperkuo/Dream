@@ -4,7 +4,7 @@ var ImageClientActions = require('../../actions/image_client_actions');
 
 var UploadButton = React.createClass({
   getInitialState: function() {
-    return { isLogged: SessionStore.isLogged };
+    return { currentUser: SessionStore.currentUser() };
   },
 
   componentDidMount: function() {
@@ -16,12 +16,12 @@ var UploadButton = React.createClass({
   },
 
   _onChange: function() {
-    this.setState({ isLogged: SessionStore.isLogged() });
+    this.setState({ currentUser: SessionStore.currentUser() });
   },
 
   handleUpload: function(e) {
     e.preventDefault();
-    if (this.state.isLogged) {
+    if (this.state.currentUser) {
       var widget = cloudinary.openUploadWidget(
         window.CLOUDINARY_OPTIONS,
         function(error, payload) {

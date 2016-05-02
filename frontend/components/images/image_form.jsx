@@ -31,7 +31,11 @@ var ImageForm = React.createClass({
   },
 
   openModal: function(){
-    this.setState({ modalOpen: true });
+    if (SessionStore.currentUser()) {
+      this.setState({ modalOpen: true });
+    } else {
+      alert("Please log in to upload images");
+    }
   },
 
   changeTitle: function(e) {
