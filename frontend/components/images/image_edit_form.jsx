@@ -1,6 +1,6 @@
 var React = require('react'),
     Link = require('react-router').Link,
-    hashHistory = require('react-router').hashHistory;
+    HashHistory = require('react-router').hashHistory;
 
 var ImageStore = require('../../stores/image_store');
 var ImageClientActions = require('../../actions/image_client_actions');
@@ -9,9 +9,13 @@ var ImageClientActions = require('../../actions/image_client_actions');
 var ImageEditForm = React.createClass({
 
   getInitialState: function () {
-  var potentialImage = ImageStore.find(this.props.params.imageId);
-  var image = potentialImage ? potentialImage : {};
-  return ({ title: image.title, description: image.description });
+    var potentialImage = ImageStore.find(this.props.params.imageId);
+    var image = potentialImage ? potentialImage : {};
+    return ({
+      title: image.title,
+      description: image.description,
+      url: image.image_url
+    });
   },
 
   componentDidMount: function () {
@@ -37,15 +41,21 @@ var ImageEditForm = React.createClass({
     this.setState({ title: image.title, description: image.description });
   },
 
+  returnToPhoto: function(e) {
+    var id = parseInt(this.props.params.imageId);
+    HashHistory.push("/images/" + id);
+  },
+
   handleSubmit: function (e) {
     e.preventDefault();
-    var postData = {
+    var id = parseInt(this.props.params.imageId);
+    var imageData = {
       title: this.state.title,
       description: this.state.description,
-      id: parseInt(this.props.params.imageId)
+      id: id
     };
-    ImageClientActions.editPost(postData);
-    hashHistory.push("/");
+    ImageClientActions.editImage(imageData);
+    HashHistory.push("/images/" + id);
   },
 
 
@@ -73,7 +83,7 @@ var ImageEditForm = React.createClass({
 
             <input className="btn btn-submit" type="submit" value="Save Changes"/>
           </form>
-
+          <a onClick={this.returnToPhoto}>Back to Photo</a>
           <Link to="/">Back to Index</Link>
         </div>
       </div>

@@ -5,12 +5,16 @@ var ImageClientActions = {
     ImageApiUtil.fetchAllImages();
   },
 
+  fetchSingleImage: function(id) {
+    ImageApiUtil.fetchSingleImage(id);
+  },
+
   postImage: function(imageData) {
     ImageApiUtil.postImage(imageData);
   },
 
-  fetchSingleImage: function(id) {
-    ImageApiUtil.fetchSingleImage(id);
+  editImage: function(imageData) {
+    ImageApiUtil.editImage(imageData);
   },
 
   deleteImage: function(id) {

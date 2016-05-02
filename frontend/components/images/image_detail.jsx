@@ -30,7 +30,7 @@ var ImageDetail = React.createClass({
   componentDidMount: function () {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     this.imageListener = ImageStore.addListener(this._onImageChange);
-    this.currentUserListener = ImageStore.addListener(this._onSessionChange);
+    this.currentUserListener = SessionStore.addListener(this._onSessionChange);
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
     ImageClientActions.fetchAllImages();
   },
@@ -100,6 +100,8 @@ var ImageDetail = React.createClass({
       url = this.state.image.image_url;
       id = this.state.image.user_id;
       title = this.state.image.title;
+      imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.username}</div>;
+      description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 
     console.log(SessionStore.isLogged());
@@ -109,8 +111,7 @@ var ImageDetail = React.createClass({
     deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
 
     // }
-    imageUploader = <div className="imageOwner">Image uploader goes here.</div>;
-    description = <div className="imageDescription">Description goes here.</div>;
+    // imageUploader = <div className="imageOwner">Image uploader goes here.</div>;
 
     return (
       <div>

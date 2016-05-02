@@ -27,6 +27,14 @@ class Api::ImagesController < ApplicationController
   end
 
   def update
+    @image = Image.find(params[:id])
+
+    if @image.update(image_params)
+      render :show
+    else
+      @errors = @image.errors.full_messages
+      render "api/shared/error", status: 422
+    end
   end
 
   def destroy

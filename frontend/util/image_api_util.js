@@ -41,6 +41,20 @@ var ImageApiUtil = {
     });
   },
 
+  editImage: function(imageData) {
+    $.ajax({
+      url: '/api/images/' + imageData.id,
+      method: 'PATCH',
+      data: {image: imageData},
+      success: function(image) {
+        ImageServerActions.receiveImage(image);
+      },
+      errors: function(errors) {
+        alert("invalid image params");
+      }
+    });
+  },
+
   deleteImage: function(id) {
     $.ajax({
       url: '/api/images/' + id,

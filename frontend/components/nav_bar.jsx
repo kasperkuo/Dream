@@ -41,13 +41,19 @@ var NavBar = React.createClass({
     this.context.router.push("/");
   },
 
+  redirectProfile: function(e){
+    e.preventDefault();
+    var currentUser = SessionStore.currentUser();
+    HashHistory.push("/users/" +currentUser.id);
+  },
+
   render: function() {
     var button;
     var signupButton;
     if (this.state.isLogged) {
       button = <a className="navbar-logout"
         onClick={this.logoutUser}>LOGOUT</a>;
-      signupButton = <a className="userButton">YOU</a>;
+      signupButton = <a className="userButton" onClick={this.redirectProfile}>YOU</a>;
     } else {
       button = <LoginForm />;
       signupButton = <SignUpForm />;
