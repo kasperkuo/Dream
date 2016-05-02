@@ -1,6 +1,8 @@
 var ImageServerActions = require('../actions/image_server_actions'),
     SessionStore = require('../stores/session_store');
 
+var HashHistory = require('react-router').hashHistory;
+
 var ImageApiUtil = {
   fetchAllImages: function() {
     $.ajax({
@@ -11,14 +13,14 @@ var ImageApiUtil = {
     });
   },
 
-  postImage: function(url) {
-    var currentUserId = SessionStore.currentUser().id;
+  postImage: function(imageData) {
     $.ajax({
       url: '/api/images',
       method: 'POST',
-      data: {image: {image_url: url, user_id: currentUserId}},
+      data: {image: imageData},
       success: function(image) {
         ImageServerActions.receiveImage(image);
+        HashHistory.push('/');
       },
       errors: function(errors) {
         alert("invalid image params");

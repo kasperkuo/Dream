@@ -5,8 +5,8 @@ var ImageClientActions = {
     ImageApiUtil.fetchAllImages();
   },
 
-  postImage: function(imageUrl) {
-    ImageApiUtil.postImage(imageUrl);
+  postImage: function(imageData) {
+    ImageApiUtil.postImage(imageData);
   },
 
   fetchSingleImage: function(id) {

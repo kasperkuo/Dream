@@ -1,10 +1,12 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    Modal = require("react-modal");
+    Modal = require("react-modal"),
+    HashHistory = require('react-router').hashHistory;
 
 var UploadButton = require('../navbar_items/upload_button'),
     ImageThumbnail = require('./image_thumbnail');
-var ImageStore = require('../../stores/image_store');
+var ImageStore = require('../../stores/image_store'),
+    SessionStore = require('../../stores/session_store');
 var ImageClientActions = require('../../actions/image_client_actions'),
     ErrorActions = require('../../actions/error_actions');
 
@@ -32,21 +34,6 @@ var ImageForm = React.createClass({
     this.setState({ modalOpen: true });
   },
 
-
-  componentDidMount: function() {
-    // setTimeout(function() {
-    //   ReactDOM.findDOMNode(this.refs.autoFocus).focus(); }.bind(this),
-    // 500);
-  },
-
-  componentWillUnmount: function() {
-    ErrorActions.removeErrors();
-  },
-
-  _onChange: function() {
-    this.setState({ images: ImageStore.all() });
-  },
-
   changeTitle: function(e) {
     e.preventDefault();
     var newTitle = e.target.value;
@@ -62,9 +49,13 @@ var ImageForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     this.saveInfo();
-    this.state.stateImages.forEach(function(imageData, index){
-			ImageClientActions.postImage(imageData);
-		});
+
+    for (var i = 0; i < this.state.stateImages.length; i++) {
+      var imageData = this.state.stateImages[i];
+      ImageClientActions.postImage(imageData);
+    }
+
+    this.closeModal();
   },
 
   handleImages: function(images) {
@@ -75,23 +66,32 @@ var ImageForm = React.createClass({
 			imageObject["image_url"] = images[i].url;
 			imageList.push(imageObject);
 		}
-		if (this.state.stateImages.length === 0){
-			this.currentImage = images[0];
-		}
+    if (this.state.stateImages.length === 0){
+      this.currentImage = images[0];
+    }
+
 		var currentImages = this.state.stateImages.concat(imageList);
 		this.setState({stateImages: currentImages, visible: ""});
+
   },
 
   saveInfo: function(){
+    if (this.state.stateImages.length === 1) {
+      var image = this.state.stateImages[0];
+      image["title"] = this.state.title;
+      image["description"] = this.state.description;
+      image["user_id"] = SessionStore.currentUser().id;
+    }
     if (this.currentImage.image_url){
 			this.currentImage["title"] = this.state.title;
 			this.currentImage["description"] = this.state.description;
+      this.currentImage["user_id"] = SessionStore.currentUser().id;
 		}
   },
 
-  _findImage: function(url){
+  findImage: function(url){
 		for (var i = 0; i < this.state.stateImages.length; i++) {
-			if (this.state.stateImages[i].url === url){
+			if (this.state.stateImages[i].image_url === url){
 				return this.state.stateImages[i];
 			}
 		}
@@ -100,7 +100,7 @@ var ImageForm = React.createClass({
   removeImage: function(url){
 		var images = this.state.stateImages;
 		for (var i = 0; i < images.length; i++) {
-			if (images[i].url === url){
+			if (images[i].image_url === url){
 				images.splice(i, 1);
 			}
 		}
@@ -120,23 +120,18 @@ var ImageForm = React.createClass({
 								image={image}
 								key={index}
 								index={index}
-								changeForm={self.updateFormDetails}
+								changeImageForm={self.updateFormDetails}
 								cName={cName}
 								removeImage={self.removeImage}/>;
     });
 	},
 
   updateFormDetails: function(url, index){
-
 		this.setState({ selected: index, visible: "" });
-		var image = this._findImage(url);
-
-		if (this.currentImage.url !== image.url){
+		var image = this.findImage(url);
+		if (this.currentImage.url !== image.image_url){
 			this.saveInfo();
-			this.setState({
-				title: image.title,
-				description: image.description
-			});
+			this.setState({ title: image.title, description: image.description });
 		}
 
 		this.currentImage = image;
@@ -145,7 +140,7 @@ var ImageForm = React.createClass({
   renderSubmitButton: function(){
 		var submitButton = "";
 		if (this.state.stateImages.length > 0){
-			submitButton = <input type="submit" value="Upload Images" className="upload-submit"/>;
+			submitButton = <input type="submit" value="UPLOAD IMAGES" id="upload-submit"/>;
 		}
 
 		return submitButton;
@@ -173,6 +168,14 @@ var ImageForm = React.createClass({
         maxWidth        : '80%',
       }
     };
+    var uploadButton;
+    if (this.state.visible === "hidden") {
+      uploadButton = <UploadButton
+        handleUpload={this.handleImages}
+        imageCount={this.state.stateImages.length} />;
+    } else {
+      uploadButton = "";
+    }
 
     return (
       <div id="upload-form">
@@ -182,21 +185,22 @@ var ImageForm = React.createClass({
 				isOpen={this.state.modalOpen}
 				onRequestClose={this.closeModal}>
         <h1 className="upload-header">UPLOAD IMAGES</h1>
+          {uploadButton}
           <div className="upload-form-container">
-            <form onSubmit={this.handleSubmit} className="upload-form">
+            <form onSubmit={this.handleSubmit} className={"upload-form " + this.state.visible}>
               <h4 className="upload-form-header">INFORMATION</h4>
               <input
                 className="upload-input"
                 type="text"
                 value={this.state.title}
                 onChange={this.changeTitle}
-                placeholder="Title"/>
+                placeholder="TITLE"/>
 
               <textarea
                 className="upload-textarea"
                 value={this.state.description}
                 onChange={this.changeDescription}
-                placeholder="Description"></textarea>
+                placeholder="DESCRIPTION"></textarea>
 
               <div className="submit-button">
   							{this.renderSubmitButton()}
@@ -206,9 +210,6 @@ var ImageForm = React.createClass({
             <div className="uploaded-images-list">
               {this.generateUploadedThumbnails()}
             </div>
-              <UploadButton
-                handleUpload={this.handleImages}
-                imageCount={this.state.stateImages.length} />
           </div>
         </Modal>
       </div>

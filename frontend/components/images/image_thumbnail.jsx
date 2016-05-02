@@ -3,7 +3,8 @@ var React = require('react');
 var ImageThumbnail = React.createClass({
   clickHandler: function(e){
     e.preventDefault();
-		this.props.changeForm(e.currentTarget.src, this.props.index);
+    var url = e.target.src;
+		this.props.changeImageForm(url, this.props.index);
 	},
 
 	cancelImage: function(){
@@ -21,7 +22,7 @@ var ImageThumbnail = React.createClass({
     return (
 			<div className={this.props.cName} >
 				{cancel}
-				<img src={this.props.image.image_url}  onClick={this.clickHandler}/>
+				<img src={this.props.image.image_url}  onClick={this.clickHandler} className="thumbnail"/>
 			</div>
 		);
   }

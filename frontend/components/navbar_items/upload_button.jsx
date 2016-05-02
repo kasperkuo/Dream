@@ -33,15 +33,15 @@ var UploadButton = React.createClass({
       alert('Not logged in');
     }
   },
-  // 
+  //
   // successfulUpload: function(payload) {
   //   this.props.handleUpload(payload);
   // },
 
   render: function() {
-
+    console.log(this.props.uploadButton);
     return (
-      <div>
+      <div className="upload-button-container">
         <a className="upload-button" onClick={this.handleUpload}>UPLOAD</a>
       </div>
     );

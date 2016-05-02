@@ -82,7 +82,7 @@ var LoginForm = React.createClass({
 				onRequestClose={this.closeModal}>
 				<div className="signup-form">
 					<h1 className="signup-header">SIGN IN</h1>
-	        <form onSubmit={this.handleSubmit}>
+	        <form className="form" onSubmit={this.handleSubmit}>
 
 						<div className="field name-box">
               <input
