@@ -37,7 +37,6 @@ var NavBar = React.createClass({
 
   redirectHome: function(e){
     e.preventDefault();
-    // UserClientActions.fetchCurrentUser();
     this.context.router.push("/");
   },
 

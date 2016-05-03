@@ -14,7 +14,8 @@ var ImageEditForm = React.createClass({
     return ({
       title: image.title,
       description: image.description,
-      url: image.image_url
+      url: image.image_url,
+      imageType: image.imageType
     });
   },
 
@@ -46,6 +47,11 @@ var ImageEditForm = React.createClass({
     HashHistory.push("/images/" + id);
   },
 
+  redirectHome: function(e){
+    e.preventDefault();
+    this.context.router.push("/");
+  },
+
   handleSubmit: function (e) {
     e.preventDefault();
     var id = parseInt(this.props.params.imageId);
@@ -60,33 +66,44 @@ var ImageEditForm = React.createClass({
 
 
   render: function () {
+
+    var redirectPhoto = <a className="edit-nav" onClick={this.returnToPhoto}>BACK TO PHOTO</a>;
+    var redirectHome = <a className="edit-nav" oncClick={this.redirectHome}>RETURN TO EXPLORE</a>;
     return (
-      <div className="image-edit-container">
-        <div className="row header">
-          <h1>EDIT FORM &nbsp;</h1>
-        </div>
-        <div className="row body">
-          <form onSubmit={this.handleSubmit}>
+      <div className="edit-form-container">
+        <div className="edit-form">
+        <h1 className="edit-header">EDIT IMAGE</h1>
+          <form onSubmit={this.handleSubmit} className="edit-form-inner">
             <input
               type="text"
+              className="input-edit"
               onChange={this.changeTitle}
               value={this.state.title}
-              placeholder="Title"/>
+              placeholder="TITLE"/>
 
             <br /><br />
             <textarea
+              className="edit-textarea"
               onChange={this.changeDescription}
               value={this.state.description}
-              placeholder="Description"/>
+              placeholder="DESCRIPTION"/>
 
             <br /><br />
 
-            <input className="btn btn-submit" type="submit" value="Save Changes"/>
+            <div className="select-container">
+              <select className="select" value={this.state.imageType} onChange={this.handleSelect}>
+                <option>Photography</option>
+                <option>Traditional</option>
+                <option>Digital</option>
+              </select>
+            </div>
+
+
+            <input id="edit-submit" type="submit" value="SAVE CHANGES"/>
           </form>
-          <a onClick={this.returnToPhoto}>Back to Photo</a>
-          <Link to="/">Back to Index</Link>
-        </div>
+          {redirectPhoto}<span className="edit-slash"> / </span>{redirectHome}
       </div>
+    </div>
      );
   }
 });

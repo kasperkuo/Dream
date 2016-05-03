@@ -99,15 +99,12 @@ var ImageDetail = React.createClass({
       var description = <div className="imageDescription">{this.state.image.description}</div>;
     }
 
-    //changed this to currentUser.id = image.user_id
     if (this.state.currentUser &&
           this.state.currentUser.id === this.state.image.user_id) {
       var editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
       var deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
       var slash = "";
-
     }
-    // imageUploader = <div className="imageOwner">Image uploader goes here.</div>;
 
     return (
       <div>

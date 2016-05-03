@@ -1,0 +1,126 @@
+@mixin ease($time:333ms, $attr:all, $curve:ease-in-out) {
+	  -webkit-transition: $attr $time $curve;
+	  -moz-transition: $attr $time $curve;
+	  -o-transition: $attr $time $curve;
+	  -ms-transition: $attr $time $curve;
+	  transition: $attr $time $curve;
+}
+
+
+.edit-form-container {
+	position: fixed;
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Lato", sans-serif;
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-flex-flow: row;
+	-ms-flex-flow: row;
+	flex-flow: row;
+	overflow: hidden;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-transition: background .5s ease;
+	transition: background .5s ease;
+	margin: 0 auto;
+}
+
+.edit-header {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 4px;
+  font-size: 2.2em;
+}
+
+.edit-form-inner {
+  text-align: center;
+  display: block;
+
+  .edit-form-header {
+    letter-spacing: 2px;
+    font-size: 1em;
+  }
+
+  .input-edit{
+    margin-bottom: 20px;
+    width: 240px;
+    border: 1px solid black;
+    padding: 3px;
+    &:focus,
+      &.focused {
+        outline:none;
+      }
+  }
+
+  .edit-textarea {
+    border:none;
+    width: 240px;
+    height: 14px;
+    resize: none;
+    @include ease(333ms);
+    border: 1px solid black;
+    padding: 3px;
+		margin-bottom: 20px;
+    &:focus,
+      &.focused {
+	        outline:none;
+
+					&.edit-textarea {
+		          padding-bottom:150px;
+	        }
+      }
+  }
+
+  .select-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+
+      select {
+        margin-bottom: 10px;
+        width: 250px;
+        padding: 10px 0;
+        height: 30px;
+        font-size: 16px;
+        color: #1c1c1c;
+        border: none;
+        font-size: 0.8em;
+				background-color: #e1e1e1;
+      }
+
+    }
+}
+
+#edit-submit {
+	border: none;
+	background: #008080;
+	padding: 10px 15px;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 2px;
+	font-weight: 300;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.edit-nav {
+	font-size: .7em;
+}
+
+.edit-slash {
+	font-size: .7em;
+}
