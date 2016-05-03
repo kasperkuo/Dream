@@ -47,10 +47,20 @@ var UserDetail = React.createClass({
       isFitWidth: true
     };
 
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 249) {
+          $('.scroller').addClass('navbar-fixed');
+      }
+      if ($(window).scrollTop() < 250) {
+          $('.scroller').removeClass('navbar-fixed');
+      }
+    });
+
     return (
       <div className="profile-container">
         <div className="cover-container">
           <div className="cover-header">{name}</div>
+          <div className="scroller">Some controls</div>
         </div>
         <div className="profile-images-container">
           <Masonry

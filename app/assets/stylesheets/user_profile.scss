@@ -21,7 +21,25 @@
   color: white;
   font-family: 'Lato', sans-serif;
   text-align: center;
+
+
 }
+.scroller {
+  z-index: 900;
+  position: relative;
+  top: 200px;
+  width: 100%;
+  background: #CCC;
+  height: 40px;
+}
+
+.navbar-fixed {
+    top: 44px;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+
 
 .cover-header {
   font-weight: 100;

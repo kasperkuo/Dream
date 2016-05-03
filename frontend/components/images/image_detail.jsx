@@ -119,7 +119,6 @@ var ImageDetail = React.createClass({
             <h1 className="imageInfoHeader">{title}</h1>
             {imageUploader}
             {description}
-            {imageType}
             <div className="userOptions">
               {editForm}<span className={slash}> / </span>{deleteForm}
               <br></br>
