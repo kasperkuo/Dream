@@ -69,13 +69,13 @@ IMAGE_URLS.length.times do |i|
 end
 
 User.create!(
-  name: "Guest",
-  email: "guest@example.com",
+  name: "Kasper Kuo",
+  email: "kasper@example.com",
   password: "password"
 )
 
 User.create!(
-  name: "Kasper Kuo",
-  email: "kasper@example.com",
+  name: "Guest",
+  email: "guest@example.com",
   password: "password"
 )
