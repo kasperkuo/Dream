@@ -97,6 +97,7 @@ var ImageDetail = React.createClass({
       var title = this.state.image.title;
       var imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.name}</div>;
       var description = <div className="imageDescription">{this.state.image.description}</div>;
+      var imageType = <div className="imageDescription">{this.state.image.image_type}</div>;
     }
 
     if (this.state.currentUser &&
@@ -118,6 +119,7 @@ var ImageDetail = React.createClass({
             <h1 className="imageInfoHeader">{title}</h1>
             {imageUploader}
             {description}
+            {imageType}
             <div className="userOptions">
               {editForm}<span className={slash}> / </span>{deleteForm}
               <br></br>

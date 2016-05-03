@@ -8,38 +8,46 @@ var ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageEditForm = React.createClass({
 
-  getInitialState: function () {
+  getInitialState: function() {
     var potentialImage = ImageStore.find(this.props.params.imageId);
     var image = potentialImage ? potentialImage : {};
     return ({
       title: image.title,
       description: image.description,
       url: image.image_url,
-      imageType: image.imageType
+      imageType: "Photography"
     });
   },
 
-  componentDidMount: function () {
+  componentDidMount: function() {
     this.imageListener = ImageStore.addListener(this.handleChange);
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount: function() {
     this.imageListener.remove();
   },
 
-  changeTitle: function (e) {
+  changeTitle: function(e) {
     this.setState({ title: e.target.value });
   },
 
-  changeDescription: function (e) {
+  changeImageType: function(e) {
+    this.setState({ imageType: e.target.value });
+  },
+
+  changeDescription: function(e) {
     this.setState({ description: e.target.value });
   },
 
-  handleChange: function () {
+  handleChange: function() {
     var potentialImage = ImageStore.find(this.props.params.imageId);
     var image = potentialImage ? potentialImage : {};
-    this.setState({ title: image.title, description: image.description });
+    this.setState({
+      title: image.title,
+      description: image.description,
+      url: image.image_url,
+      imageType: image.imageType});
   },
 
   returnToPhoto: function(e) {
@@ -55,9 +63,11 @@ var ImageEditForm = React.createClass({
   handleSubmit: function (e) {
     e.preventDefault();
     var id = parseInt(this.props.params.imageId);
+    debugger;
     var imageData = {
       title: this.state.title,
       description: this.state.description,
+      image_type: this.state.imageType,
       id: id
     };
     ImageClientActions.editImage(imageData);
@@ -91,7 +101,7 @@ var ImageEditForm = React.createClass({
             <br /><br />
 
             <div className="select-container">
-              <select className="select" value={this.state.imageType} onChange={this.handleSelect}>
+              <select className="select" value={this.state.imageType} onChange={this.changeImageType}>
                 <option>Photography</option>
                 <option>Traditional</option>
                 <option>Digital</option>

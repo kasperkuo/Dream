@@ -18,7 +18,7 @@ var ImageForm = React.createClass({
       modalOpen: false,
       title: "",
       description: "",
-      imageType: "",
+      imageType: "Photography",
       imageUrl: "",
       stateImages: [],
       selected: 0,
@@ -48,6 +48,12 @@ var ImageForm = React.createClass({
     e.preventDefault();
     var newDescription = e.target.value;
     this.setState({ description: newDescription});
+  },
+
+  changeImageType: function(e) {
+    e.preventDefault();
+    var newImageType = e.target.value;
+    this.setState({ imageType: newImageType});
   },
 
   handleSubmit: function(e) {
@@ -84,11 +90,13 @@ var ImageForm = React.createClass({
       var image = this.state.stateImages[0];
       image["title"] = this.state.title;
       image["description"] = this.state.description;
+      image["image_type"] = this.state.imageType;
       image["user_id"] = SessionStore.currentUser().id;
     }
     if (this.currentImage.image_url){
 			this.currentImage["title"] = this.state.title;
 			this.currentImage["description"] = this.state.description;
+      this.currentImage["image_type"] = this.state.imageType;
       this.currentImage["user_id"] = SessionStore.currentUser().id;
 		}
   },
@@ -205,6 +213,14 @@ var ImageForm = React.createClass({
                 value={this.state.description}
                 onChange={this.changeDescription}
                 placeholder="DESCRIPTION"></textarea>
+
+              <div className="select-container">
+                <select className="select" value={this.state.imageType} onChange={this.changeImageType}>
+                  <option>Photography</option>
+                  <option>Traditional</option>
+                  <option>Digital</option>
+                </select>
+              </div>
 
               <div className="submit-button">
   							{this.renderSubmitButton()}

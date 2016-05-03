@@ -10,7 +10,7 @@ var Masonry = require('react-masonry-component');
 var ImageIndex = React.createClass({
 
   getInitialState: function() {
-    return { images: ImageStore.all() };
+    return { images: ImageStore.getDigital(), selected: "digital"};
   },
 
   componentDidMount: function() {
@@ -23,9 +23,61 @@ var ImageIndex = React.createClass({
   },
 
   _onChange: function() {
-    this.setState({ images: ImageStore.all() });
+    this.setState({ images: ImageStore.getDigital() });
   },
 
+  changeDigital: function(e) {
+    this.setState({
+      images: ImageStore.getDigital(),
+      selected: "digital"
+     });
+  },
+
+  changeTraditional: function(e) {
+    this.setState({
+      images: ImageStore.getTraditional(),
+      selected: "traditional"
+    });
+  },
+
+  changePhotography: function(e) {
+    this.setState({
+      images: ImageStore.getPhotography(),
+      selected: "photography"
+    });
+  },
+
+  exploreNavList: function() {
+    var cName = "explore-button " + "type-selected";
+    if (this.state.selected === "digital") {
+      var list = (
+        <ul>
+          <li className={cName} onClick={this.changeDigital}>Digital</li>
+          <li className="explore-button" onClick={this.changeTraditional}>Traditional</li>
+          <li className="explore-button" onClick={this.changePhotography}>Photography</li>
+        </ul>
+      );
+    }
+    else if (this.state.selected ==="traditional") {
+      var list = (
+        <ul>
+          <li className="explore-button" onClick={this.changeDigital}>Digital</li>
+          <li className={cName} onClick={this.changeTraditional}>Traditional</li>
+          <li className="explore-button" onClick={this.changePhotography}>Photography</li>
+        </ul>
+      );
+    } else {
+      var list = (
+        <ul>
+          <li className="explore-button" onClick={this.changeDigital}>Digital</li>
+          <li className="explore-button" onClick={this.changeTraditional}>Traditional</li>
+          <li className={cName} onClick={this.changePhotography}>Photography</li>
+        </ul>
+      );
+    }
+
+    return list;
+  },
 
   render: function() {
     var photos;
@@ -34,7 +86,7 @@ var ImageIndex = React.createClass({
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
     }
-    
+
     var masonryOptions = {
       isFitWidth: true
     };
@@ -42,12 +94,15 @@ var ImageIndex = React.createClass({
     return (
 
       <div className="wrapper">
+        <div className="exploreNavBar">
+          {this.exploreNavList()}
+        </div>
+
         <Masonry
           className="imageList"
           elementType={'ul'}
           options={masonryOptions}
           disableImagesLoaded={false}>
-
           {photos}
         </Masonry>
       </div>

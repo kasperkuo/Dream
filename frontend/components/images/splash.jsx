@@ -6,7 +6,12 @@ var Splash = React.createClass({
   render: function() {
     var dreamText = "The home for all your artwork";
     var dreamText2 = "Upload, access, organize, edit, and share your artwork from anywhere in the world";
-
+    // <div className="inspire">
+    //   <a href="#" className="hero-btn">
+    //     <span className="str">INSPIRE ME</span>
+    //   </a>
+    //   <div className="bg"></div>
+    // </div>
     return (
       <div>
         <div className="splash">
@@ -19,12 +24,7 @@ var Splash = React.createClass({
 
           <div className="splashSignUp"><SignUpForm /></div>
         </div>
-        <div className="inspire">
-          <a href="#" class="hero-btn">
-            <span class="str">INSPIRE ME</span>
-          </a>
-          <div class="bg"></div>
-        </div>
+
       </div>
     );
   }

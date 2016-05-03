@@ -59,8 +59,6 @@ var LoginForm = React.createClass({
 		    bottom          : 0,
 		    backgroundColor : 'rgba(255, 255, 255, 0.30)',
 		    zIndex          : 1000,
-
-
 		  },
 		  content : {
 		    position        : 'fixed',

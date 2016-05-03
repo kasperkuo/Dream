@@ -18,6 +18,36 @@ ImageStore.find = function(id) {
   return _images[id];
 };
 
+ImageStore.getDigital = function() {
+  var digitalImages = [];
+  for (var id in _images) {
+    if (_images[id].image_type === "Digital") {
+      digitalImages.push(_images[id]);
+    }
+  }
+  return digitalImages;
+};
+
+ImageStore.getTraditional = function() {
+  var traditionalImages = [];
+  for (var id in _images) {
+    if (_images[id].image_type === "Traditional") {
+      traditionalImages.push(_images[id]);
+    }
+  }
+  return traditionalImages;
+};
+
+ImageStore.getPhotography = function() {
+  var photos = [];
+  for (var id in _images) {
+    if (_images[id].image_type === "Photography") {
+      photos.push(_images[id]);
+    }
+  }
+  return photos;
+};
+
 var resetImages = function(images) {
   _images = {};
   images.forEach(function(image) {
