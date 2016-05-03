@@ -11,7 +11,8 @@ var UserDetail = React.createClass({
   getInitialState: function() {
     return {
       currentUser: SessionStore.currentUser(),
-      userProfile: UserStore.userProfile()
+      userProfile: UserStore.userProfile(),
+      selected: "All Images"
     };
   },
 
@@ -34,6 +35,32 @@ var UserDetail = React.createClass({
     this.currentUserListener.remove();
   },
 
+  allImages: function() {
+    this.setState({ selected: "All Images"});
+  },
+
+  showAlbums: function() {
+    this.setState({ selected: "Albums"});
+  },
+
+  exploreNavList: function() {
+    var cName = "explore-button " + "type-selected";
+    if (this.state.selected === "All Images") {
+      return (
+        <ul>
+          <li className={cName} onClick={this.allImages}>All Images</li>
+          <li className="explore-button" onClick={this.showAlbums}>Albums</li>
+        </ul>
+      );
+    } else if (this.state.selected === "Albums") {
+    return (
+      <ul>
+        <li className="explore-button" onClick={this.allImages}>All Images</li>
+        <li className={cName} onClick={this.showAlbums}>Albums</li>
+      </ul>
+    );
+  }
+  },
 
   render: function() {
     if (this.state.userProfile) {
@@ -46,13 +73,25 @@ var UserDetail = React.createClass({
     var masonryOptions = {
       isFitWidth: true
     };
+    var display;
+    if (this.state.selected === "All Images") {
+      display = (
+        <Masonry
+          className="imageList"
+          elementType={'ul'}
+          options={masonryOptions}
+          disableImagesLoaded={false}>
+          {imageList}
+        </Masonry>
+      );
+    }
 
     $(window).scroll(function () {
       if ($(window).scrollTop() > 249) {
-          $('.scroller').addClass('navbar-fixed');
+          $('.userNavBar').addClass('navbar-fixed');
       }
       if ($(window).scrollTop() < 250) {
-          $('.scroller').removeClass('navbar-fixed');
+          $('.userNavBar').removeClass('navbar-fixed');
       }
     });
 
@@ -60,16 +99,10 @@ var UserDetail = React.createClass({
       <div className="profile-container">
         <div className="cover-container">
           <div className="cover-header">{name}</div>
-          <div className="scroller">Some controls</div>
+          <div className="userNavBar">{this.exploreNavList()}</div>
         </div>
         <div className="profile-images-container">
-          <Masonry
-            className="imageList"
-            elementType={'ul'}
-            options={masonryOptions}
-            disableImagesLoaded={false}>
-            {imageList}
-          </Masonry>
+          {display}
         </div>
       </div>
     );

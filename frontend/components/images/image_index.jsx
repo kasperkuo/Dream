@@ -50,7 +50,7 @@ var ImageIndex = React.createClass({
   exploreNavList: function() {
     var cName = "explore-button " + "type-selected";
     if (this.state.selected === "digital") {
-      var list = (
+      return (
         <ul>
           <li className={cName} onClick={this.changeDigital}>Digital</li>
           <li className="explore-button" onClick={this.changeTraditional}>Traditional</li>
@@ -59,7 +59,7 @@ var ImageIndex = React.createClass({
       );
     }
     else if (this.state.selected ==="traditional") {
-      var list = (
+      return (
         <ul>
           <li className="explore-button" onClick={this.changeDigital}>Digital</li>
           <li className={cName} onClick={this.changeTraditional}>Traditional</li>
@@ -67,7 +67,7 @@ var ImageIndex = React.createClass({
         </ul>
       );
     } else {
-      var list = (
+      return (
         <ul>
           <li className="explore-button" onClick={this.changeDigital}>Digital</li>
           <li className="explore-button" onClick={this.changeTraditional}>Traditional</li>
@@ -76,7 +76,6 @@ var ImageIndex = React.createClass({
       );
     }
 
-    return list;
   },
 
   render: function() {
