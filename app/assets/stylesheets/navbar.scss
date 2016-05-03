@@ -134,6 +134,10 @@
   padding-right: 10px;
 }
 
+.exploreNavBar li:hover {
+  color: #008080;
+}
+
 .type-selected {
   border-bottom: 2px solid black;
   z-index: 901;

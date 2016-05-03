@@ -89,13 +89,19 @@ var ImageDetail = React.createClass({
     HashHistory.push("/images/" + prevId.toString());
   },
 
+  goUserProfile: function(e) {
+    e.preventDefault();
+    var userId = this.state.image.user.id;
+    HashHistory.push("/users/" + userId);
+  },
+
   render: function() {
     var slash = "slashHidden";
     if (this.state.image) {
       var url = this.state.image.image_url;
       var id = this.state.image.user_id;
       var title = this.state.image.title;
-      var imageUploader = <div className="imageOwner">uploaded by {this.state.image.user.name}</div>;
+      var imageUploader = <div className="imageOwner" onClick={this.goUserProfile}>uploaded by {this.state.image.user.name}</div>;
       var description = <div className="imageDescription">{this.state.image.description}</div>;
       var imageType = <div className="imageDescription">{this.state.image.image_type}</div>;
     }

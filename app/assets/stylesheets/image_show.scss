@@ -139,6 +139,12 @@ $color--secondary: #0E647D;
   letter-spacing: 2px;
   margin-bottom: 10px;
   font-size: 1.2em;
+  padding: 0;
+}
+
+.imageOwner:hover {
+  color: #008080;
+  cursor: pointer;
 }
 
 .imageDescription {

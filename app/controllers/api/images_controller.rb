@@ -11,8 +11,6 @@ class Api::ImagesController < ApplicationController
   end
 
   def create
-    puts image_params
-    puts params
     @image = Image.new(image_params)
     if @image.save
       render "api/images/show"
