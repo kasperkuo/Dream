@@ -55,15 +55,14 @@ var ImageEditForm = React.createClass({
     HashHistory.push("/images/" + id);
   },
 
-  redirectHome: function(e){
+  redirectExplore: function(e){
     e.preventDefault();
-    this.context.router.push("/");
+    HashHistory.push("/");
   },
 
   handleSubmit: function (e) {
     e.preventDefault();
     var id = parseInt(this.props.params.imageId);
-    debugger;
     var imageData = {
       title: this.state.title,
       description: this.state.description,
@@ -78,7 +77,7 @@ var ImageEditForm = React.createClass({
   render: function () {
 
     var redirectPhoto = <a className="edit-nav" onClick={this.returnToPhoto}>BACK TO PHOTO</a>;
-    var redirectHome = <a className="edit-nav" oncClick={this.redirectHome}>RETURN TO EXPLORE</a>;
+    var redirectHome = <a className="edit-nav" onClick={this.redirectExplore}>RETURN TO EXPLORE</a>;
     return (
       <div className="edit-form-container">
         <div className="edit-form">

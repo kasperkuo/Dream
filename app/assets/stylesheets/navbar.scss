@@ -46,10 +46,6 @@
     letter-spacing: 2.5px;
 }
 
-.nav a:hover,
-.nav a:active {
-  letter-spacing: 5px;
-}
 
 .nav a:after,
 .nav a:before {
@@ -136,6 +132,7 @@
 
 .exploreNavBar li:hover {
   color: #008080;
+  transition: all 280ms ease-in-out;
 }
 
 .type-selected {

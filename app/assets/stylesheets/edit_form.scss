@@ -118,9 +118,16 @@
 }
 
 .edit-nav {
-	font-size: .7em;
+	font-size: .6em;
+	letter-spacing: .15em;
+}
+
+.edit-nav:hover {
+	color:#008080;
+	cursor:pointer;
 }
 
 .edit-slash {
 	font-size: .7em;
+	padding: 10px;
 }

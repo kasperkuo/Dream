@@ -4,7 +4,7 @@ var ImageThumbnail = React.createClass({
   clickHandler: function(e){
     e.preventDefault();
     var url = e.target.src;
-		this.props.changeImageForm(url, this.props.index);
+		this.props.updateFormDetails(url, this.props.index);
 	},
 
 	cancelImage: function(){

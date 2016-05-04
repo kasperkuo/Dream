@@ -74,10 +74,13 @@ var ImageForm = React.createClass({
 		for (var i = 0; i < images.length; i++) {
 			var imageObject = {};
 			imageObject["image_url"] = images[i].url;
+      imageObject["title"] = "";
+      imageObject["description"] = "";
+      imageObject["image_type"] = "Photography";
 			imageList.push(imageObject);
 		}
     if (this.state.stateImages.length === 0){
-      this.currentImage = images[0];
+      this.currentImage = imageList[0];
     }
 
 		var currentImages = this.state.stateImages.concat(imageList);
@@ -86,13 +89,6 @@ var ImageForm = React.createClass({
   },
 
   saveInfo: function(){
-    if (this.state.stateImages.length === 1) {
-      var image = this.state.stateImages[0];
-      image["title"] = this.state.title;
-      image["description"] = this.state.description;
-      image["image_type"] = this.state.imageType;
-      image["user_id"] = SessionStore.currentUser().id;
-    }
     if (this.currentImage.image_url){
 			this.currentImage["title"] = this.state.title;
 			this.currentImage["description"] = this.state.description;
@@ -132,7 +128,7 @@ var ImageForm = React.createClass({
 								image={image}
 								key={index}
 								index={index}
-								changeImageForm={self.updateFormDetails}
+								updateFormDetails={self.updateFormDetails}
 								cName={cName}
 								removeImage={self.removeImage}/>;
     });
@@ -143,7 +139,7 @@ var ImageForm = React.createClass({
 		var image = this.findImage(url);
 		if (this.currentImage.url !== image.image_url){
 			this.saveInfo();
-			this.setState({ title: image.title, description: image.description });
+			this.setState({ title: image.title, description: image.description, imageType: image.imageType });
 		}
 
 		this.currentImage = image;
@@ -215,7 +211,7 @@ var ImageForm = React.createClass({
                 placeholder="DESCRIPTION"></textarea>
 
               <div className="select-container">
-                <select className="select" value={this.state.imageType} onChange={this.changeImageType}>
+                <select className="select" selected={this.state.imageType} onChange={this.changeImageType}>
                   <option>Photography</option>
                   <option>Traditional</option>
                   <option>Digital</option>
