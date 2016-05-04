@@ -29,11 +29,11 @@ var AlbumForm = React.createClass({
       content : {
         position        : 'fixed',
         top             : '125px',
-        left            : '28%',
         border          : '1px solid #ccc',
         padding         : '20px',
         zIndex          : 1001,
-        maxWidth        : '40%',
+        width           : '90%',
+        height          : "400px"
       }
     };
 
@@ -47,7 +47,7 @@ var AlbumForm = React.createClass({
           <div className="album-form-container">
             <h1 className="album-header">CREATE ALBUM</h1>
             <form className="album-form" onSubmit={this.handleSubmit}>
-
+              <h3 className="description-header">INFORMATION</h3>
               <input
                 type="text"
                 className="album-title"
@@ -67,6 +67,9 @@ var AlbumForm = React.createClass({
 
               <input id="edit-submit" type="submit" value="CREATE ALBUM"/>
             </form>
+            <div className="album-images">
+
+            </div>
           </div>
           </Modal>
         </div>

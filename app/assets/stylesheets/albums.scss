@@ -1,12 +1,79 @@
+@mixin ease($time:333ms, $attr:all, $curve:ease-in-out) {
+	  -webkit-transition: $attr $time $curve;
+	  -moz-transition: $attr $time $curve;
+	  -o-transition: $attr $time $curve;
+	  -ms-transition: $attr $time $curve;
+	  transition: $attr $time $curve;
+}
+
 .album-container {
   background: #008080;
   position: relative;
   height: 100vh;
   text-align: center;
+  display: flex;
 }
 
 .album-create {
   position: relative;
   top: 150px;
   font-size: 15px;
+}
+
+.album-header {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 2px;
+}
+
+
+.album-form {
+  position: absolute;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  height: 320px;
+  display: block;
+  left: 40px;
+
+  .description-header {
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+
+
+  .album-title {
+    margin-bottom: 10px;
+    width: 240px;
+    border: 1px solid black;
+    padding: 3px;
+    &:focus,
+      &.focused {
+        outline:none;
+      }
+  }
+
+  .album-textarea {
+    border:none;
+    width: 240px;
+    height: 14px;
+    resize: none;
+    @include ease(333ms);
+    border: 1px solid black;
+    padding: 3px;
+    margin-bottom: 20px;
+    &:focus,
+      &.focused {
+          outline:none;
+
+          &.album-textarea {
+              padding-bottom:100px;
+          }
+      }
+  }
+
+}
+
+.album-images {
+  position: relative;
+  background-color: red;
 }
