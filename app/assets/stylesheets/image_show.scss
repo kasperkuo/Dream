@@ -86,20 +86,18 @@ $color--secondary: #0E647D;
 }
 
 .imageDetail {
-  display: block;
+  display: flex;
   text-align: center;
   position: relative;
   margin-top: 100px;
   max-width: 100%;
-  left: 20%;
+  left: 25%;
 }
 
 .imageDetail img {
-  max-width: 100%;
-  max-height: 800px;
-  height: 80vh;
-  width: 80%;
-  float: right;
+  float:right;
+  height: 77vh;
+  width: auto;
   padding: 10px 30px 10px 30px;
 }
 

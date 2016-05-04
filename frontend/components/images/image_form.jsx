@@ -13,7 +13,6 @@ var ImageClientActions = require('../../actions/image_client_actions'),
 
 var ImageForm = React.createClass({
   getInitialState: function() {
-    this.path = window.location.hash.slice(1);
     this.currentImage = {};
     return {
       modalOpen: false,
@@ -23,7 +22,7 @@ var ImageForm = React.createClass({
       imageUrl: "",
       stateImages: [],
       selected: 0,
-      visible: "hidden",
+      visible: "hidden"
     };
   },
 
@@ -75,7 +74,7 @@ var ImageForm = React.createClass({
       selected: 0,
       visible: "hidden"
     });
-    HashHistory.push(this.path);
+    HashHistory.push("/users/" + SessionStore.currentUser().id);
   },
 
   handleImages: function(images) {
