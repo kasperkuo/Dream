@@ -33,6 +33,7 @@ var ImageEditForm = React.createClass({
   },
 
   changeImageType: function(e) {
+    debugger;
     this.setState({ imageType: e.target.value });
   },
 
@@ -100,7 +101,7 @@ var ImageEditForm = React.createClass({
             <br /><br />
 
             <div className="select-container">
-              <select className="select" value={this.state.imageType} onChange={this.changeImageType}>
+              <select className="select" selected={this.state.imageType} onChange={this.changeImageType}>
                 <option>Photography</option>
                 <option>Traditional</option>
                 <option>Digital</option>
