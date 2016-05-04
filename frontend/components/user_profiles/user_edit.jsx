@@ -1,15 +1,26 @@
 var React = require('react');
-var PropTypes = React.PropTypes;
+var UserStore = require('../../stores/user_store');
+var UserClientActions = require("../../actions/user_client_actions");
+var HashHistory = require('react-router').hashHistory;
 
 var UserUpdateForm = React.createClass({
-  handleSubmit = function(e) {
-    var id = parseInt(this.props.params.userId);
-    var userData = {
-      name: this.state.name;
-    };
-    UserClient.editImage(imageData);
-    HashHistory.push("/images/" + id);
+  getInitialState: function() {
+    var user = UserStore.userProfile();
+    return { user: user, name: user.name};
   },
+
+  handleSubmit: function(e) {
+    var id = parseInt(this.state.user.id);
+    var userData = {
+      name: this.state.name,
+      id: id
+    };
+    UserClientActions.editUserProfile(userData);
+    HashHistory.push("/users/" + id);
+  },
+
+  changeName: function(e) {
+    this.setState({ name: e.target.value });
   },
 
   render: function() {
@@ -21,31 +32,14 @@ var UserUpdateForm = React.createClass({
               <input
                 type="text"
                 className="input-edit"
-                onChange={this.changeTitle}
-                value={this.state.title}
-                placeholder="TITLE"/>
+                onChange={this.changeName}
+                value={this.state.name}
+                placeholder="NAME"/>
 
               <br /><br />
-              <textarea
-                className="edit-textarea"
-                onChange={this.changeDescription}
-                value={this.state.description}
-                placeholder="DESCRIPTION"/>
-
-              <br /><br />
-
-              <div className="select-container">
-                <select className="select" selected={this.state.imageType} onChange={this.changeImageType}>
-                  <option>Photography</option>
-                  <option>Traditional</option>
-                  <option>Digital</option>
-                </select>
-              </div>
-
 
               <input id="edit-submit" type="submit" value="SAVE CHANGES"/>
             </form>
-            {redirectPhoto}<span className="edit-slash"> / </span>{redirectHome}
         </div>
       </div>
     );

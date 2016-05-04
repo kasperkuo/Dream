@@ -44,10 +44,6 @@ var UserDetail = React.createClass({
     this.setState({ selected: "All Images"});
   },
 
-  showAlbums: function() {
-    this.setState({ selected: "Albums"});
-  },
-
   editUser: function() {
     if (this.state.currentUser.id === this.state.userProfile.id) {
       this.setState({ selected: "Edit User"});
@@ -63,23 +59,13 @@ var UserDetail = React.createClass({
       return (
         <ul>
           <li className={cName} onClick={this.allImages}>All Images</li>
-          <li className="explore-button" onClick={this.showAlbums}>Albums</li>
           <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
         </ul>
       );
-    } else if (this.state.selected === "Albums") {
-    return (
-      <ul>
-        <li className="explore-button" onClick={this.allImages}>All Images</li>
-        <li className={cName} onClick={this.showAlbums}>Albums</li>
-        <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
-      </ul>
-    );
   } else  {
     return (
       <ul>
         <li className="explore-button" onClick={this.allImages}>All Images</li>
-        <li className="explore-button" onClick={this.showAlbums}>Albums</li>
         <li className={cName} onClick={this.editUser}>Edit Profile</li>
       </ul>
     );
@@ -91,9 +77,6 @@ var UserDetail = React.createClass({
       var name = this.state.userProfile.name;
       var imageList = this.state.userProfile.images.map(function(image, index) {
         return <ImageIndexItem key={index} photo={image} />;
-      });
-      var albums = this.state.userProfile.albums.map(function(album, index) {
-        return <AlbumDetail key={index} album={album} />;
       });
     }
 
@@ -112,17 +95,6 @@ var UserDetail = React.createClass({
         {imageList}
       </Masonry>
     );
-  } else if (this.state.selected === "Albums") {
-      display = (
-        <div className="album-container">
-          <div className="no-album">{albums}</div>
-          <AlbumForm
-            albums={albums}
-            images={imageList}
-            user={this.state.userProfile} />
-        </div>
-
-      );
   } else if (this.state.selected === "Edit User") {
     display = <UserUpdateForm />;
   }

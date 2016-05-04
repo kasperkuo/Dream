@@ -20,7 +20,6 @@ var ImageApiUtil = {
       data: {image: imageData},
       success: function(image) {
         ImageServerActions.receiveImage(image);
-        HashHistory.push('/');
       },
       errors: function(errors) {
         alert("invalid image params");

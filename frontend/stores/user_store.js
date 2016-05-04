@@ -10,7 +10,6 @@ UserStore.userProfile = function(){
   return _user;
 };
 
-
 var addUser = function(user) {
   _user = undefined;
   _user = user;
