@@ -20,6 +20,10 @@ var UserClientActions = {
 
 	fetchUserProfile: function(id) {
 		UserApiUtil.fetchUserProfile(id);
+	},
+
+	editUserProfile: function(userData) {
+		UserApiUtil.editUserProfile(userData);
 	}
 };
 

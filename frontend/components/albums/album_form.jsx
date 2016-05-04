@@ -1,9 +1,17 @@
 var React = require('react'),
     Modal = require('react-modal');
 
+var AlbumImageThumbnail = require('./album_image_thumbnail');
+var ImageClientActions = require('../../actions/image_client_actions');
+
 var AlbumForm = React.createClass({
   getInitialState: function() {
-    return { modalOpen: false };
+    return {
+      modalOpen: false,
+      title: "",
+      description: "",
+      images: []
+    };
   },
 
   closeModal: function(){
@@ -14,8 +22,42 @@ var AlbumForm = React.createClass({
     this.setState({ modalOpen: true });
   },
 
-  render: function() {
+  changeTitle: function(e) {
+    this.setState({ title: e.target.value});
+  },
 
+  changeDescription: function(e) {
+    this.setState({ description: e.target.value });
+  },
+
+  handleSelect: function(e) {
+
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var albumData = {
+      title: this.state.title,
+      description: this.state.description,
+      user_id: this.props.user
+    };
+
+    ImageClientActions.createAlbum(albumData);
+    this.setState({
+      modalOpen: false,
+      title: "",
+      description: "",
+      images:[]
+    });
+  },
+
+  render: function() {
+    if (this.props.images) {
+      var albumImageThumbnails = this.props.images.map(function(image, index) {
+        return <AlbumImageThumbnail key={index} image={image} />;
+      });
+    }
+    
     var style = {
       overlay : {
         position        : 'fixed',
@@ -67,8 +109,8 @@ var AlbumForm = React.createClass({
 
               <input id="edit-submit" type="submit" value="CREATE ALBUM"/>
             </form>
-            <div className="album-images">
-
+            <div className="album-images-container">
+              {albumImageThumbnails}
             </div>
           </div>
           </Modal>

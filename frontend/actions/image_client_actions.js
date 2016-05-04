@@ -19,6 +19,10 @@ var ImageClientActions = {
 
   deleteImage: function(id) {
     ImageApiUtil.deleteImage(id);
+  },
+
+  createAlbum: function(albumData) {
+    ImageApiUtil.createAlbum(albumData);
   }
 };
 

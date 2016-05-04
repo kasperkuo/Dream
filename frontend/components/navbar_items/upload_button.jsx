@@ -39,7 +39,6 @@ var UploadButton = React.createClass({
   // },
 
   render: function() {
-    console.log(this.props.uploadButton);
     return (
       <div className="upload-button-container">
         <a className="upload-button" onClick={this.handleUpload}>UPLOAD</a>

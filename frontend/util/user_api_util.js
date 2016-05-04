@@ -60,6 +60,20 @@ var UserApiUtil = {
         UserServerActions.receiveUserProfile(user);
       }
     });
+  },
+
+  editUserProfile: function(userData) {
+    $.ajax({
+      url: '/api/users/' + userData.id,
+      method: 'PATCH',
+      data: {user: userData},
+      success: function(user) {
+        UserServerActions.receiveUserProfile(user);
+      },
+      errors: function(errors) {
+        alert("invalid user params");
+      }
+    });
   }
 };
 

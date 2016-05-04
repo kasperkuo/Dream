@@ -11,14 +11,6 @@ SessionStore.currentUser = function(){
   return _currentUser;
 };
 
-SessionStore.isLogged = function(){
-  if (_currentUser) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 var addCurrentUser = function(user) {
   _currentUser = undefined;
   _currentUser = user;

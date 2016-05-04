@@ -66,6 +66,22 @@ var ImageApiUtil = {
         alert("Cannot find image");
       }
     });
+  },
+
+  createAlbum: function(albumData) {
+    var ownerId = albumData.user_id;
+    $.ajax({
+      url: '/api/albums',
+      method: 'POST',
+      data: {image: albumData},
+      success: function(album) {
+        ImageServerActions.receiveAlbum(album);
+        HashHistory.push('/users/' + ownerId);
+      },
+      errors: function(errors) {
+        alert("invalid image params");
+      }
+    });
   }
 };
 

@@ -7,14 +7,15 @@ var SessionStore = require('../../stores/session_store'),
 var UserClientActions = require('../../actions/user_client_actions');
 var ImageIndexItem = require('../images/image_index_item'),
     AlbumDetail = require('../albums/album_detail'),
-    AlbumForm = require('../albums/album_form');
+    AlbumForm = require('../albums/album_form'),
+    UserUpdateForm = require('./user_edit');
 
 var UserDetail = React.createClass({
   getInitialState: function() {
     return {
       currentUser: SessionStore.currentUser(),
       userProfile: UserStore.userProfile(),
-      selected: "Albums",
+      selected: "All Images",
       modalOpen: false
     };
   },
@@ -47,6 +48,15 @@ var UserDetail = React.createClass({
     this.setState({ selected: "Albums"});
   },
 
+  editUser: function() {
+    if (this.state.currentUser.id === this.state.userProfile.id) {
+      this.setState({ selected: "Edit User"});
+    } else {
+      debugger;
+      alert("Can't update other user's information");
+    }
+  },
+
   exploreNavList: function() {
     var cName = "explore-button " + "type-selected";
     if (this.state.selected === "All Images") {
@@ -54,6 +64,7 @@ var UserDetail = React.createClass({
         <ul>
           <li className={cName} onClick={this.allImages}>All Images</li>
           <li className="explore-button" onClick={this.showAlbums}>Albums</li>
+          <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
         </ul>
       );
     } else if (this.state.selected === "Albums") {
@@ -61,6 +72,15 @@ var UserDetail = React.createClass({
       <ul>
         <li className="explore-button" onClick={this.allImages}>All Images</li>
         <li className={cName} onClick={this.showAlbums}>Albums</li>
+        <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
+      </ul>
+    );
+  } else  {
+    return (
+      <ul>
+        <li className="explore-button" onClick={this.allImages}>All Images</li>
+        <li className="explore-button" onClick={this.showAlbums}>Albums</li>
+        <li className={cName} onClick={this.editUser}>Edit Profile</li>
       </ul>
     );
   }
@@ -96,11 +116,15 @@ var UserDetail = React.createClass({
       display = (
         <div className="album-container">
           <div className="no-album">{albums}</div>
-          <AlbumForm albums={albums} />
+          <AlbumForm
+            albums={albums}
+            images={imageList}
+            user={this.state.userProfile} />
         </div>
 
       );
-
+  } else if (this.state.selected === "Edit User") {
+    display = <UserUpdateForm />;
   }
 
     $(window).scroll(function () {

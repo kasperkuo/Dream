@@ -14,7 +14,7 @@ var NavBar = React.createClass({
 
   logoutUser: function(e) {
     UserClientActions.logout();
-    this.setState({ isLogged: false });
+    this.setState({ currentUser: SessionStore.currentUser() });
     HashHistory.push("/");
   },
 

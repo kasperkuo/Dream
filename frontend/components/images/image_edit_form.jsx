@@ -76,7 +76,9 @@ var ImageEditForm = React.createClass({
 
 
   render: function () {
-
+    if (this.state.url) {
+      var url = this.state.url;
+    }
     var redirectPhoto = <a className="edit-nav" onClick={this.returnToPhoto}>BACK TO PHOTO</a>;
     var redirectHome = <a className="edit-nav" onClick={this.redirectExplore}>RETURN TO EXPLORE</a>;
     return (

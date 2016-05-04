@@ -13,8 +13,7 @@ var ImageDetail = React.createClass({
     return {
       image: ImageStore.find(this.props.params.imageId),
       currentUser: SessionStore.currentUser(),
-      images: ImageStore.all(),
-      display: "description"
+      images: ImageStore.all()
     };
   },
 
@@ -22,7 +21,6 @@ var ImageDetail = React.createClass({
     var id = parseInt(this.props.params.imageId);
     this.setState({image: ImageStore.find(this.props.params.imageId) });
     this.setState({images: ImageStore.all()});
-    this.setState({display: "description"});
   },
 
   _onSessionChange: function() {
@@ -56,7 +54,6 @@ var ImageDetail = React.createClass({
     e.preventDefault();
     var url = "/images/" + this.state.image.id.toString() + "/edit";
     HashHistory.push(url);
-    this.setState({display: "edit"});
   },
 
   deleteImage: function(e){
@@ -110,7 +107,7 @@ var ImageDetail = React.createClass({
           this.state.currentUser.id === this.state.image.user_id) {
       var editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
       var deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
-      var slash = "";
+      slash = "";
     }
 
     return (
