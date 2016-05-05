@@ -81,7 +81,20 @@ var ImageApiUtil = {
         alert("invalid image params");
       }
     });
-  }
+  },
+
+  fetchAlbum: function(id) {
+    $.ajax({
+      url: '/api/albums/' + id,
+      method: 'GET',
+      success: function(album) {
+        ImageServerActions.receiveAlbum(album);
+      },
+      errors: function(errors) {
+        alert("Cannot find album");
+      }
+    });
+  },
 };
 
 module.exports = ImageApiUtil;

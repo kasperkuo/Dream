@@ -23,7 +23,11 @@ var ImageClientActions = {
 
   createAlbum: function(albumData) {
     ImageApiUtil.createAlbum(albumData);
-  }
+  },
+
+  fetchAlbum: function(id) {
+    ImageApiUtil.fetchAlbum(id);
+  },
 };
 
 module.exports = ImageClientActions;

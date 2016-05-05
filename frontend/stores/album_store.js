@@ -1,27 +1,24 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var Store = require('flux/utils').Store;
-var AlbumConstants = require('../constants/image_constants');
+var AlbumConstants = require('../constants/album_constants');
 
 var AlbumStore = new Store(Dispatcher);
 
-var _album;
+var _albums = {};
 
-AlbumStore.find = function(id) {
-  return _album[id];
-};
 
 AlbumStore.album = function() {
-  return _album;
+  return _albums;
 };
 
-var addCurrentAlbum = function(album) {
-  _album = undefined;
-  _album = album;
+AlbumStore.find = function(id) {
+  return _albums[id];
+};
+
+
+var addAlbum = function(album) {
+  _albums[album.id] = album;
   AlbumStore.__emitChange();
-};
-
-var addAlbum = function(image) {
-  _album[image.id] = image;
 };
 
 

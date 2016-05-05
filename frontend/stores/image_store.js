@@ -58,10 +58,12 @@ var resetImages = function(images) {
 
 var addImage = function(image) {
   _images[image.id] = image;
+  ImageStore.__emitChange();
 };
 
 var removeImage = function(image) {
   delete _images[image.id];
+  ImageStore.__emitChange();
 };
 
 ImageStore.__onDispatch = function(payload) {
