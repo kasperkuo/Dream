@@ -58,14 +58,72 @@ IMAGE_TITLE = [
   "Moment"
 ]
 
+ALBUM_IMAGE_URLS = [
+  "https://images.unsplash.com/photo-1461468611824-46457c0e11fd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=a035cc63ca5112addcce8399c7cd432a",
+  "https://66.media.tumblr.com/tumblr_md6vw2FJ321qgn6feo1_500.jpg",
+  "https://67.media.tumblr.com/cb0055e777f41739333a47989a1397f0/tumblr_nsgnji0GHO1qz62xqo1_500.jpg",
+  "http://67.media.tumblr.com/934bf8628824f369d6766d7d9bb6301f/tumblr_n2um3mqwID1qz62xqo1_500.jpg",
+  "http://66.media.tumblr.com/41fc4028562f91979d0bf5166b61c97c/tumblr_mmax68Dflh1rgo217o1_500.jpg",
+  "http://66.media.tumblr.com/09b73f2ee5139d5c5b911c7b2c737550/tumblr_mwu1o9QJ3Z1sulnzno1_500.jpg",
+  "http://65.media.tumblr.com/8ba0bc5dc2adab77c6a2d7e12bee22b4/tumblr_mqx68uZNkw1rcnu4ao1_500.jpg",
+  "http://66.media.tumblr.com/c6f25548535d48726ab46ec6a09667b6/tumblr_mk2oor3uZa1qggs6ao1_500.jpg",
+  "http://66.media.tumblr.com/tumblr_lvtevhCKPz1qdxchuo1_500.jpg",
+  "http://66.media.tumblr.com/adee4d13d9673d0b1fb74f3e4da32765/tumblr_mrx3axMGaB1rnlb7lo1_r1_400.jpg",
+  "http://66.media.tumblr.com/081cb9c6b4fc1a7ecbd5aa3b6d5e8c5d/tumblr_mkclglFgWz1rwe56eo1_500.jpg",
+  "http://66.media.tumblr.com/tumblr_max0psVRDI1rsbqe6o1_500.jpg",
+  "http://66.media.tumblr.com/4eb575978cbd3061dfb4e88d7ad3d968/tumblr_meqq6uPL3T1r302kmo1_500.jpg",
+  "http://66.media.tumblr.com/8a41d1bec958cb8c6d5969f0a10f961f/tumblr_mffpodAoaF1qhu7x0o1_500.jpg",
+  "http://66.media.tumblr.com/009e3b0980951a7312a3f990e385b35d/tumblr_mj4qe1rgqN1r4p7vto1_500.jpg",
+  "http://67.media.tumblr.com/tumblr_m8la2eSbmN1qik7xgo1_500.jpg",
+  "http://67.media.tumblr.com/5a209aae934a6f6fe996fcd48f7e5bc5/tumblr_mgvotsX6UD1s1aez7o1_500.jpg",
+  "http://67.media.tumblr.com/3a287dd8ad33b0da56ed18fdacdcbfd0/tumblr_mijqrblOAq1rtbxrwo1_500.jpg",
+  "http://66.media.tumblr.com/08109daf6a6f3cff6e3874f4dfa77049/tumblr_mg9m8abL7g1rpe0jco1_500.jpg",
+  "http://66.media.tumblr.com/43d2742a6917ac13fd856e016273102b/tumblr_mfswzlVygD1qiucwio1_500.jpg",
+  "http://66.media.tumblr.com/babfc79880065d92216009fa429afa6c/tumblr_meymuzxbWy1rpc1rco1_500.png"
+]
 
+ALBUM_IMAGE_TITLES = [
+  "Serenity",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "Venezia",
+  "Atlantis",
+  "Day Dream",
+  "Float",
+  "Paris",
+  "Curiosity",
+  "Waiting",
+  "Eye of the Predator",
+  "Magic Forest",
+  "Moment of Happiness",
+  "Waterfall",
+  "A Day of Happiness"
+]
+
+ALBUM_IMAGE_URLS.length.times do |i|
+  Image.create!(
+    image_url: ALBUM_IMAGE_URLS[i],
+    user_id: 2,
+    image_type: "Photography",
+    title: ALBUM_IMAGE_TITLES[1],
+    album_id: 2
+  )
+end
 
 IMAGE_URLS.length.times do |i|
   Image.create!(
     image_url: IMAGE_URLS[i],
     user_id: 1,
     image_type: "Digital",
-    title: IMAGE_TITLE[i])
+    title: IMAGE_TITLE[i],
+    album_id: 1
+  )
 end
 
 User.create!(
@@ -75,7 +133,26 @@ User.create!(
 )
 
 User.create!(
+  name: "Shaghig",
+  email: "shaghig@example.com",
+  password: "password"
+)
+
+User.create!(
   name: "Guest",
   email: "guest@example.com",
   password: "password"
+)
+
+Album.create!(
+  title: "Explore the World",
+  description: "Images taken around the world",
+  cover_photo_url: "https://66.media.tumblr.com/tumblr_md6vw2FJ321qgn6feo1_500.jpg",
+  user_id: 1
+)
+
+Album.create!(
+  title: "Serenity",
+  cover_photo_url: "https://images.unsplash.com/photo-1461468611824-46457c0e11fd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=a035cc63ca5112addcce8399c7cd432a",
+  user_id: 2
 )

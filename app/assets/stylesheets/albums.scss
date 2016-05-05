@@ -18,6 +18,16 @@
   display: flex;
 }
 
+.album-list-container {
+	text-align: center;
+	position: relative;
+	top: 100px;
+	left: 30px;
+	font-size: 100px;
+	background: #008080;
+	display: flex;
+}
+
 .album-create {
   position: relative;
   top: 150px;
@@ -88,4 +98,24 @@
 .album-images {
   position: relative;
   background-color: red;
+}
+
+.album-cover-container {
+	width: 300px;
+	height: 300px;
+	background: red;
+	background-position: center center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.album-cover-container:hover {
+	opacity: 0.7;
+}
+
+.album-cover-container img {
+	width: 500px;
+	position: relative;
+	right: 130px;
 }

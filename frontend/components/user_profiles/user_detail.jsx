@@ -8,6 +8,7 @@ var UserClientActions = require('../../actions/user_client_actions');
 var ImageIndexItem = require('../images/image_index_item'),
     AlbumDetail = require('../albums/album_detail'),
     AlbumForm = require('../albums/album_form'),
+    Albums = require('../albums/albums'),
     UserUpdateForm = require('./user_edit');
 
 var UserDetail = React.createClass({
@@ -51,7 +52,6 @@ var UserDetail = React.createClass({
     if (this.state.currentUser.id === this.state.userProfile.id) {
       this.setState({ selected: "Edit User"});
     } else {
-      debugger;
       alert("Can't update other user's information");
     }
   },
@@ -111,7 +111,13 @@ var UserDetail = React.createClass({
   } else if (this.state.selected === "Edit User") {
     display = <UserUpdateForm />;
   } else {
-    display = <AlbumForm user={this.state.currentUser} />;
+    display = (
+      <div className="albums-container">
+        <Albums user={this.state.currentUser} />
+        <AlbumForm user={this.state.currentUser} />;
+      </div>
+    );
+
   }
 
     $(window).scroll(function () {

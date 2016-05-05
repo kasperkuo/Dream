@@ -4,7 +4,7 @@ var AlbumDetail = React.createClass({
 
   render: function() {
     return (
-      <div />
+      <div>ALBUM GOES HERE</div>
     );
   }
 
