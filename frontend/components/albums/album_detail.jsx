@@ -31,6 +31,8 @@ var AlbumDetail = React.createClass({
       var imageList = this.state.album.images.map(function(image, index) {
         return <ImageIndexItem key={index} photo={image} />;
       });
+      var imageUrl = this.state.album.cover_photo_url;
+      console.log(this.state.album);
     }
 
     var masonryOptions = {
@@ -39,6 +41,9 @@ var AlbumDetail = React.createClass({
 
     return (
       <div className="album-images-container">
+        <div className="album-cover-photo">
+          <img src={imageUrl} />
+        </div>
         <Masonry
           className="imageList"
           elementType={'ul'}

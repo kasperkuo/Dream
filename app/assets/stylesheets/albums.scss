@@ -119,3 +119,20 @@
 	position: relative;
 	right: 130px;
 }
+
+.album-cover-photo {
+	background: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	overflow: hidden;
+	
+	img {
+		width: 100%;
+	}
+}
+
+
+
+.album-images-container {
+	display: block;
+}
