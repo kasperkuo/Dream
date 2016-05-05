@@ -6,6 +6,7 @@ var SessionStore = require('../../stores/session_store');
 var ImageClientActions = require('../../actions/image_client_actions');
 
 var AlbumDetail = React.createClass({
+
   getInitialState: function() {
     return { album: AlbumStore.find(this.props.params.albumId) };
   },
@@ -16,7 +17,11 @@ var AlbumDetail = React.createClass({
   },
 
   componentDidMount: function () {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    $(document).ready(function(){
+      $('html').animate({scrollTop:0}, 1);
+      $('body').animate({scrollTop:0}, 1);
+    });
+
     this.albumListener = AlbumStore.addListener(this._onAlbumChange);
     ImageClientActions.fetchAlbum(parseInt(this.props.params.albumId));
   },
@@ -25,6 +30,13 @@ var AlbumDetail = React.createClass({
     this.albumListener.remove();
   },
 
+  scrollDown: function() {
+    var number = window.innerHeight;
+    $('html, body').animate({
+    scrollTop: '+=' + number
+ }, 800);
+    // window.scrollBy(0,window.innerHeight);
+  },
 
   render: function() {
     if (this.state.album) {
@@ -32,7 +44,8 @@ var AlbumDetail = React.createClass({
         return <ImageIndexItem key={index} photo={image} />;
       });
       var imageUrl = this.state.album.cover_photo_url;
-      console.log(this.state.album);
+      var imageTitle = this.state.album.title;
+      var imageDescription = this.state.album.description;
     }
 
     var masonryOptions = {
@@ -42,6 +55,13 @@ var AlbumDetail = React.createClass({
     return (
       <div className="album-images-container">
         <div className="album-cover-photo">
+          <div className="album-cover-info">
+            <div className="album-cover-title">{imageTitle}</div>
+            <div className="album-cover-description">{imageDescription}</div>
+              <div className="album-open-container">
+                <div className="album-open" onClick={this.scrollDown}>OPEN</div>
+              </div>
+          </div>
           <img src={imageUrl} />
         </div>
         <Masonry

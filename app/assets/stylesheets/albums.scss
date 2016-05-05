@@ -125,12 +125,47 @@
 	background-size: cover;
 	height: 100vh;
 	overflow: hidden;
-	
+	text-align: center;
 	img {
 		width: 100%;
 	}
 }
 
+.album-cover-info {
+	font-size: 100px;
+	position: absolute;
+	top: 33%;
+	left: 33%;
+	color: white;
+	text-align: center;
+	z-index: 100;
+
+	.album-cover-title {
+		font-family: 'Italianno', cursive;
+		font-size: 2em;
+	}
+
+	.album-open-container {
+		width: 100px;
+		text-align: center;
+		position: relative;
+		left: 38%;
+
+		.album-open {
+			font-family: 'Lato', sans-serif;
+			letter-spacing: .4em;
+			padding: 1em;
+			border: 2px solid white;
+			font-size: .13em;
+			text-align: center;
+		}
+
+		.album-open:hover {
+			cursor: pointer;
+			box-shadow: 0px 0px 5px #fff;
+		}
+	}
+}
 
 
 .album-images-container {
