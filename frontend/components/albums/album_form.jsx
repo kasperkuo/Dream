@@ -39,7 +39,7 @@ var AlbumForm = React.createClass({
     var albumData = {
       title: this.state.title,
       description: this.state.description,
-      user_id: this.props.user
+      user_id: this.props.user.id
     };
 
     ImageClientActions.createAlbum(albumData);
@@ -57,7 +57,7 @@ var AlbumForm = React.createClass({
         return <AlbumImageThumbnail key={index} image={image} />;
       });
     }
-    
+
     var style = {
       overlay : {
         position        : 'fixed',
@@ -80,7 +80,7 @@ var AlbumForm = React.createClass({
     };
 
     return (
-      <div>
+      <div className="album-create-container">
         <a className="album-create" onClick={this.openModal}>CREATE ALBUM</a>
           <Modal
           style={style}

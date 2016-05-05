@@ -63,11 +63,13 @@ var LoginForm = React.createClass({
 		  content : {
 		    position        : 'fixed',
 		    top             : '125px',
-		    left            : '28%',
+		    left            : '32%',
 		    border          : '1px solid #ccc',
 		    padding         : '20px',
 		    zIndex          : 1001,
-				maxWidth        : '40%',
+				width           : '30%',
+				maxWidth        : '500px',
+				height          : '420px'
 		  }
 		};
 

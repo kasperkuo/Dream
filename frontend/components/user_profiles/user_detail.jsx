@@ -20,7 +20,6 @@ var UserDetail = React.createClass({
     };
   },
 
-
   _onUserChange: function() {
     this.setState({ userProfile: UserStore.userProfile() });
   },
@@ -44,6 +43,10 @@ var UserDetail = React.createClass({
     this.setState({ selected: "All Images"});
   },
 
+  showAlbums: function() {
+    this.setState({ selected: "Albums" });
+  },
+
   editUser: function() {
     if (this.state.currentUser.id === this.state.userProfile.id) {
       this.setState({ selected: "Edit User"});
@@ -59,17 +62,27 @@ var UserDetail = React.createClass({
       return (
         <ul>
           <li className={cName} onClick={this.allImages}>All Images</li>
+          <li className="explore-button" onClick={this.showAlbums}>Albums</li>
           <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
         </ul>
       );
-  } else  {
-    return (
-      <ul>
-        <li className="explore-button" onClick={this.allImages}>All Images</li>
-        <li className={cName} onClick={this.editUser}>Edit Profile</li>
-      </ul>
-    );
-  }
+    } else if (this.state.selected === "Albums") {
+      return (
+        <ul>
+          <li className="explore-button" onClick={this.allImages}>All Images</li>
+          <li className={cName} onClick={this.showAlbums}>Albums</li>
+          <li className="explore-button" onClick={this.editUser}>Edit Profile</li>
+        </ul>
+      );
+    } else  {
+      return (
+        <ul>
+          <li className="explore-button" onClick={this.allImages}>All Images</li>
+          <li className="explore-button" onClick={this.showAlbums}>Albums</li>
+          <li className={cName} onClick={this.editUser}>Edit Profile</li>
+        </ul>
+      );
+    }
   },
 
   render: function() {
@@ -97,6 +110,8 @@ var UserDetail = React.createClass({
     );
   } else if (this.state.selected === "Edit User") {
     display = <UserUpdateForm />;
+  } else {
+    display = <AlbumForm user={this.state.currentUser} />;
   }
 
     $(window).scroll(function () {

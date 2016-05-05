@@ -82,7 +82,7 @@ var ImageForm = React.createClass({
 
 		for (var i = 0; i < images.length; i++) {
 			var imageObject = {};
-			imageObject["image_url"] = images[i].url;
+			imageObject["image_url"] = images[i].secure_url;
       imageObject["title"] = "";
       imageObject["description"] = "";
       imageObject["image_type"] = "Photography";

@@ -6,6 +6,10 @@
 	  transition: $attr $time $curve;
 }
 
+.album-create-container {
+	text-align: center;
+}
+
 .album-container {
   background: #008080;
   position: relative;
@@ -17,7 +21,15 @@
 .album-create {
   position: relative;
   top: 150px;
+	margin: 0 auto;
   font-size: 15px;
+	font-family: 'Lato', sans-serif;
+	background: #008080;
+	padding: 10px 15px;
+	color: white;
+	letter-spacing: 2px;
+	font-weight: 300;
+
 }
 
 .album-header {

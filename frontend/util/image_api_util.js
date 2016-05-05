@@ -72,7 +72,7 @@ var ImageApiUtil = {
     $.ajax({
       url: '/api/albums',
       method: 'POST',
-      data: {image: albumData},
+      data: {album: albumData},
       success: function(album) {
         ImageServerActions.receiveAlbum(album);
         HashHistory.push('/users/' + ownerId);

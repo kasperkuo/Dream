@@ -6,6 +6,7 @@ var SignUpForm = require('./user_forms/signup_form');
 var ImageForm = require('./images/image_form');
 var HashHistory = require('react-router').hashHistory;
 var UploadButton = require('./navbar_items/upload_button');
+var UserStore = require('../stores/user_store');
 
 var NavBar = React.createClass({
   getInitialState: function() {
@@ -40,10 +41,12 @@ var NavBar = React.createClass({
     HashHistory.push("/");
   },
 
+
+
   redirectProfile: function(e){
     e.preventDefault();
     var currentUser = SessionStore.currentUser();
-    HashHistory.push("/users/" +currentUser.id);
+    HashHistory.push("/users/" + currentUser.id);
   },
 
   render: function() {
