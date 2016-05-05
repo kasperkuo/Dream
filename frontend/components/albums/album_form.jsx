@@ -9,7 +9,7 @@ var AlbumForm = React.createClass({
     return {
       modalOpen: false,
       title: "",
-      description: "",
+      coverPhotoUrl: "",
       images: []
     };
   },
@@ -26,8 +26,8 @@ var AlbumForm = React.createClass({
     this.setState({ title: e.target.value});
   },
 
-  changeDescription: function(e) {
-    this.setState({ description: e.target.value });
+  changeCoverPhoto: function(e) {
+    this.setState({ coverPhotoUrl: e.target.value });
   },
 
   handleSelect: function(e) {
@@ -38,7 +38,7 @@ var AlbumForm = React.createClass({
     e.preventDefault();
     var albumData = {
       title: this.state.title,
-      description: this.state.description,
+      coverPhotoUrl: this.state.coverPhotoUrl,
       user_id: this.props.user.id
     };
 
@@ -46,7 +46,7 @@ var AlbumForm = React.createClass({
     this.setState({
       modalOpen: false,
       title: "",
-      description: "",
+      coverPhotoUrl: "",
       images:[]
     });
   },
@@ -99,11 +99,12 @@ var AlbumForm = React.createClass({
 
               <br /><br />
 
-              <textarea
-                className="album-textarea"
-                onChange={this.changeDescription}
-                value={this.state.description}
-                placeholder="DESCRIPTION"/>
+                <input
+                  type="text"
+                  className="album-title"
+                  onChange={this.changeCoverPhoto}
+                  value={this.state.coverPhotoUrl}
+                  placeholder="COVER PHOTO URL"/>
 
               <br /><br />
 

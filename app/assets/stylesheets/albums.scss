@@ -22,10 +22,10 @@
 	text-align: center;
 	position: relative;
 	top: 100px;
-	left: 30px;
 	font-size: 100px;
-	background: #008080;
 	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .album-create {
@@ -39,7 +39,7 @@
 	color: white;
 	letter-spacing: 2px;
 	font-weight: 300;
-
+	margin-bottom: 30px;
 }
 
 .album-header {
@@ -97,13 +97,11 @@
 
 .album-images {
   position: relative;
-  background-color: red;
 }
 
 .album-cover-container {
 	width: 300px;
 	height: 300px;
-	background: red;
 	background-position: center center;
 	background-repeat: no-repeat;
 	overflow: hidden;
@@ -128,14 +126,17 @@
 	text-align: center;
 	img {
 		width: 100%;
+		opacity: 0.7;
 	}
 }
 
 .album-cover-info {
+	margin: 0 auto;
 	font-size: 100px;
 	position: absolute;
 	top: 33%;
-	left: 33%;
+	left: 0;
+	right: 0;
 	color: white;
 	text-align: center;
 	z-index: 100;
@@ -143,13 +144,13 @@
 	.album-cover-title {
 		font-family: 'Italianno', cursive;
 		font-size: 2em;
+		margin: 0 auto;
 	}
 
 	.album-open-container {
 		width: 100px;
 		text-align: center;
-		position: relative;
-		left: 38%;
+		margin: 0 auto;
 
 		.album-open {
 			font-family: 'Lato', sans-serif;

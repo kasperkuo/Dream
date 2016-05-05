@@ -29,7 +29,8 @@ IMAGE_URLS = [
   "https://orig02.deviantart.net/2d2c/f/2012/311/0/f/deserere___by_megatruh-d5k9246.jpg",
   "https://orig09.deviantart.net/74db/f/2014/046/3/e/quiet_calamity_by_megatruh-d76k76f.jpg",
   "https://orig13.deviantart.net/bb4b/f/2015/312/1/f/1f50891b645f6f0435dd8dce5120514f-d9fydcs.jpg",
-  "https://orig02.deviantart.net/9f56/f/2015/073/b/c/bc85aab5186cdeae4076abdef5afafad-d8lr3th.jpg"
+  "https://orig02.deviantart.net/9f56/f/2015/073/b/c/bc85aab5186cdeae4076abdef5afafad-d8lr3th.jpg",
+  "http://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg"
 ]
 
 IMAGE_TITLE = [
@@ -55,7 +56,8 @@ IMAGE_TITLE = [
   "Deserere",
   "Quiet Calamity",
   "Cloud Regatta",
-  "Moment"
+  "Moment",
+  "The Heavens and Us"
 ]
 
 ALBUM_IMAGE_URLS = [
@@ -145,9 +147,8 @@ User.create!(
 )
 
 Album.create!(
-  title: "Explore the World",
-  description: "Images taken around the world",
-  cover_photo_url: "https://66.media.tumblr.com/tumblr_md6vw2FJ321qgn6feo1_500.jpg",
+  title: "Imagine",
+  cover_photo_url: "http://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg",
   user_id: 1
 )
 
