@@ -40,6 +40,10 @@ var UserDetail = React.createClass({
     this.currentUserListener.remove();
   },
 
+  componentWillReceiveProps: function(newProps) {
+    UserClientActions.fetchUserProfile(parseInt(newProps.params.userId));
+  },
+
   allImages: function() {
     this.setState({ selected: "All Images"});
   },
