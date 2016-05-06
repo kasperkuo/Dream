@@ -38,7 +38,6 @@ var LoginForm = React.createClass({
 	},
 
 	guestLogin: function(e) {
-		this.setState({ email: "guest@example.com", password: "password"});
 		UserClientActions.login({ email: "guest@example.com", password: "password"});
 	},
 
