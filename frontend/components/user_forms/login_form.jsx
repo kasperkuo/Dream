@@ -4,6 +4,7 @@ var Modal = require("react-modal");
 var SessionStore = require('../../stores/session_store.js'),
 		ErrorStore = require('../../stores/error_store');
 var UserClientActions = require('../../actions/user_client_actions');
+var ErrorActions = require('../../actions/error_actions');
 
 var LoginForm = React.createClass({
 
@@ -16,6 +17,7 @@ var LoginForm = React.createClass({
  	},
 
 	openModal: function(){
+		ErrorActions.removeErrors();
 		this.setState({ modalOpen: true });
  	},
 
@@ -56,14 +58,14 @@ var LoginForm = React.createClass({
 	},
 
 	render: function(){
-
 		var errors;
-		if (this.props.errors.length > 0) {
-			errors = this.props.errors.map(function(error, index) {
-									return <li key={index}>{error}</li>;
-								});
+		if (this.props.errors) {
+			if (this.props.errors.length > 0) {
+				errors = this.props.errors.map(function(error, index) {
+										return <li key={index}>{error}</li>;
+									});
+			}
 		}
-
 
 		var style = {
 		  overlay : {

@@ -62,10 +62,12 @@ var SignUpForm = React.createClass({
 
 	render: function(){
 		var errors;
-		if (this.props.errors.length > 0) {
-			errors = this.props.errors.map(function(error, index) {
-									return <li key={index}>{error}</li>;
-								});
+		if (this.props.errors) {
+			if (this.props.errors.length > 0) {
+				errors = this.props.errors.map(function(error, index) {
+										return <li key={index}>{error}</li>;
+									});
+			}
 		}
 
 		var style = {
