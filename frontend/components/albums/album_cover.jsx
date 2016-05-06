@@ -10,6 +10,7 @@ var AlbumCover = React.createClass({
     return (
       <div className="album-cover-container" onClick={this.showAlbum}>
         <img src={this.props.album.cover_photo_url} />
+        <div className="album-title">{this.props.album.title}</div>
       </div>
     );
   }
