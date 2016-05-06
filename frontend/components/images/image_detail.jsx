@@ -111,7 +111,7 @@ var ImageDetail = React.createClass({
 
     if (this.state.currentUser && this.state.image) {
         if (this.state.currentUser.id === this.state.image.user_id) {
-        var editForm = <a className="userFeatures" onClick={this.editImage}>EDIT</a>;
+        var editForm = <a className="userFeatures" onClick={this.editImage} userId={this.state.image.user_id}>EDIT</a>;
         var deleteForm = <a onClick={this.deleteImage} className="userFeatures">DELETE</a>;
         slash = "";
       }

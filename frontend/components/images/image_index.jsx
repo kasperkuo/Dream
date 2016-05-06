@@ -4,18 +4,24 @@ var ImageClientActions = require('../../actions/image_client_actions');
 
 var ImageIndexItem = require('./image_index_item.jsx');
 var Masonry = require('react-masonry-component');
-
+var Loader = require('react-loader');
 
 
 var ImageIndex = React.createClass({
 
   getInitialState: function() {
-    return { images: ImageStore.getDigital(), selected: "digital"};
+    return {
+      images: ImageStore.getDigital(),
+      selected: "digital",
+      loaded: false
+    };
   },
+
 
   componentDidMount: function() {
     this.imageListener = ImageStore.addListener(this._onChange);
     ImageClientActions.fetchAllImages();
+    this.setState({loaded: true});
   },
 
   componentWillUnmount: function() {
@@ -96,14 +102,16 @@ var ImageIndex = React.createClass({
         <div className="exploreNavBar">
           {this.exploreNavList()}
         </div>
+        <Loader loaded={this.state.loaded}>
+          <Masonry
+            className="imageList"
+            elementType={'ul'}
+            options={masonryOptions}
+            disableImagesLoaded={false}>
 
-        <Masonry
-          className="imageList"
-          elementType={'ul'}
-          options={masonryOptions}
-          disableImagesLoaded={false}>
-          {photos}
-        </Masonry>
+            {photos}
+          </Masonry>
+        </Loader>
       </div>
     );
   }

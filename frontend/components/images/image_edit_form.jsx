@@ -3,7 +3,9 @@ var React = require('react'),
     HashHistory = require('react-router').hashHistory;
 
 var ImageStore = require('../../stores/image_store');
+var UserStore = require('../../stores/user_store');
 var ImageClientActions = require('../../actions/image_client_actions');
+var UserClientActions = require('../../actions/user_client_actions');
 
 
 var ImageEditForm = React.createClass({
@@ -15,17 +17,26 @@ var ImageEditForm = React.createClass({
       title: image.title,
       description: image.description,
       url: image.image_url,
-      imageType: "Photography"
+      imageType: "Photography",
+      album: image.album,
+      imageOnwer: UserStore.userProfile()
     });
   },
 
   componentDidMount: function() {
     this.imageListener = ImageStore.addListener(this.handleChange);
+    this.userListener = UserStore.addListener(this._onUserChange);
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
+    UserClientActions.fetchUserProfile(this.props.userId);
   },
 
   componentWillUnmount: function() {
     this.imageListener.remove();
+    this.userListener.remove();
+  },
+
+  _onUserChange: function() {
+    this.setState({imageOwner: UserStore.userProfile()});
   },
 
   changeTitle: function(e) {
@@ -39,6 +50,11 @@ var ImageEditForm = React.createClass({
 
   changeDescription: function(e) {
     this.setState({ description: e.target.value });
+  },
+
+  changeAlbum: function(e) {
+    e.preventDefault();
+    this.setState({ album: e.target.value });
   },
 
   handleChange: function() {
@@ -79,6 +95,14 @@ var ImageEditForm = React.createClass({
     if (this.state.url) {
       var url = this.state.url;
     }
+
+    var albumList;
+    if (this.state.imageOwner) {
+      albumList = this.state.imageOwner.albums.map(function(album, index){
+        return <option key={index}>{album.title}</option>;
+      });
+    }
+
     var redirectPhoto = <a className="edit-nav" onClick={this.returnToPhoto}>BACK TO PHOTO</a>;
     var redirectHome = <a className="edit-nav" onClick={this.redirectExplore}>RETURN TO EXPLORE</a>;
     return (
@@ -107,6 +131,15 @@ var ImageEditForm = React.createClass({
                 <option>Photography</option>
                 <option>Traditional</option>
                 <option>Digital</option>
+              </select>
+            </div>
+
+            <br /><br />
+
+            <div className="select-container">
+              <select className="select" selected={this.state.album} onChange={this.changeAlbum}>
+                <option></option>
+                {albumList}
               </select>
             </div>
 

@@ -11,7 +11,10 @@ var ErrorStore = require('../stores/error_store');
 
 var NavBar = React.createClass({
   getInitialState: function() {
-    return { currentUser: SessionStore.currentUser() };
+    return {
+      currentUser: SessionStore.currentUser(),
+      errors: ErrorStore.all()
+    };
   },
 
   logoutUser: function(e) {
@@ -22,27 +25,26 @@ var NavBar = React.createClass({
 
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._onChange);
+    this.errorsListener = ErrorStore.addListener(this._onErrorsChange);
   },
 
   componentWillUnmount: function() {
     this.sessionListener.remove();
+    this.errorsListener.remove();
   },
 
+  _onErrorsChange: function() {
+    this.setState({ errors: ErrorStore.all() });
+  },
 
   _onChange: function() {
     this.setState({ currentUser: SessionStore.currentUser() });
-  },
-
-  contextTypes: {
-      router: React.PropTypes.object.isRequired
   },
 
   redirectHome: function(e){
     e.preventDefault();
     HashHistory.push("/");
   },
-
-
 
   redirectProfile: function(e){
     e.preventDefault();
@@ -58,8 +60,8 @@ var NavBar = React.createClass({
         onClick={this.logoutUser}>LOGOUT</a>;
       signupButton = <a className="userButton" onClick={this.redirectProfile}>YOU</a>;
     } else {
-      button = <LoginForm />;
-      signupButton = <SignUpForm />;
+      button = <LoginForm errors={this.state.errors} />;
+      signupButton = <SignUpForm errors={this.state.errors }/>;
     }
 
     return (

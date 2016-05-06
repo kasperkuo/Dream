@@ -8,7 +8,7 @@ var UserClientActions = require('../../actions/user_client_actions');
 var LoginForm = React.createClass({
 
 	getInitialState: function(){
-		return { modalOpen: false, email: "", password: "", errors: []};
+		return { modalOpen: false, email: "", password: ""};
 	},
 
 	closeModal: function(){
@@ -27,9 +27,11 @@ var LoginForm = React.createClass({
 		};
 		UserClientActions.login(loginData);
 		if (SessionStore.currentUser()) {
-			this.setState({modalOpen: false, name: "", email: "", password: ""});
-		} else {
-			this.setState({errors: ErrorStore.all()});
+			this.setState({
+				modalOpen: false,
+				email: "",
+				password: ""
+			});
 		}
 	},
 
@@ -56,8 +58,8 @@ var LoginForm = React.createClass({
 	render: function(){
 
 		var errors;
-		if (this.state.errors.length > 0) {
-			errors = this.state.errors.map(function(error, index) {
+		if (this.props.errors.length > 0) {
+			errors = this.props.errors.map(function(error, index) {
 									return <li key={index}>{error}</li>;
 								});
 		}
