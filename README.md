@@ -88,6 +88,7 @@ Other dependencies used for the project include:
 - BCrypt for hashing and password-salting to provide a secure authentication system
 - Cloudinary for image uploading and processing
 - React Masonry for organized and responsive image galleries
+- Figaro for hiding important API keys 
 
 ## Future Implementations
 - Tags
