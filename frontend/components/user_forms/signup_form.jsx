@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionStore = require('../../stores/session_store');
 var ErrorStore = require("../../stores/error_store");
+var ErrorActions = require('../../actions/error_actions');
 var UserClientActions = require('../../actions/user_client_actions');
 var Modal = require("react-modal");
 
@@ -21,6 +22,7 @@ var SignUpForm = React.createClass({
  },
 
   openModal: function(){
+		ErrorActions.removeErrors();
    this.setState({ modalOpen: true });
  },
 

@@ -12,8 +12,8 @@
   <script>cloudinary.setCloudName('kasperkuo');</script>
   <script type="text/javascript">
       window.CLOUDINARY_OPTIONS = {
-        cloud_name: ENV['CLOUD_NAME'],
-        upload_preset: ENV['UPLOAD_PRESET'],
+        cloud_name: "<%= ENV['CLOUD_NAME'] %>",
+        upload_preset: "<%= ENV['UPLOAD_PRESET'] %>",
         stylesheet: "<%= asset_url 'cloudinary.css' %>"
       };
    </script>
