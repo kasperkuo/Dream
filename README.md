@@ -1,125 +1,94 @@
-[Heroku link][heroku]
+[Dream live][heroku]
 
 [heroku]: https://dream-capstone.herokuapp.com/
 
-##Minimum Viable Product
+## Overview
 
-Dream is a web application inspired by Flickr that will be built using Ruby on Rails and React.js. It contains photo hosting capabilities; however, it is more geared towards showcasing artwork and possesses the capacity to filter by specific art styles, including photography, traditional, and digital. By the end of Week 9, this will satisfy the following criteria:
+Dream is an art-based full stack web application inspired by Flickr that provides users an area to showcase their artwork.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.
 
-- [x] New account creation, login, and guest/demo login
-- [ ] the Minimally necessary features for a Flickr-inspired site
-  - [x] photos and artwork uploading, displaying, editing, and deleting capabilities
-  - [ ] an explore feed that has the options to display all artwork, or organize by specific art-styles (photography, traditional, and digital)
-  - [ ] contains a user page that contains their profile information and all of their photos
-- [ ] CSS styling that is aesthetically appealing
+## Features
 
+### Diverse Art Types
 
-##Product Goals and Priorities
+![Landing Page](./docs/screenshots/landing-page.png?raw=true "Optional Title")
 
-Dream will allow users to do the following:
+Dream provides the capabilities of viewing three different types of artwork--digital, traditional, and photography. These styles are portrayed in the landing page, which is organized into three tabs on the `ExploreNavBar` component. The `ImageIndex` component serves as the backbone to the landing page. When clicking on the tabs, one of three different methods will occur:
 
-- [x] Create an account (MVP)
-- [x] Sign in / Sign out with the option of having a Guest/Demo (MVP)
-- [ ] Upload, view, edit, delete photos/artwork that come with title, descriptions, and upload dates (MVP)
-- [ ] Create a user profile page that displays their photos
-- [ ] Provide an explore page that showcases photos/artwork from all users (MVP)
-- [ ] Organize photos into an album (expected feature, but not MVP)
-- [ ] Apply detailed styling to all pages
-- [ ] Provide other features for users, such as tagging photos, creating albums, dragging photo to upload feature, providing camera roll organized by upload date, searching photos
+`  changeDigital: function(e) {
+    this.setState({
+      images: ImageStore.getDigital(),
+      selected: "digital"
+     });
+  },
 
-## Design Docs
+  changeTraditional: function(e) {
+    this.setState({
+      images: ImageStore.getTraditional(),
+      selected: "traditional"
+    });
+  },
 
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+  changePhotography: function(e) {
+    this.setState({
+      images: ImageStore.getPhotography(),
+      selected: "photography"
+    });
+  }`
 
-[views]: ./docs/views.md
-[components]: ./docs/components.md
-[flux-cycles]: ./docs/flux-cycles.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+  The `ImageIndex` asks the `ImageStore` for the filtered list of images and renders them in the form of `ImageIndexItem` components. `ImageIndex`'s state also changes, which subsequently re-renders the `ExploreNavBar`.
 
+### Clean Image Showcasing
 
-## Implementation Timeline
+The image show page is easily and readily accessible by all users and contains a clean and simple interface. Every image in the landing, user profile, and album pages are all `ImageIndexItem`s. `ImageIndexItem` possess an important `onClick` property that triggers a route redirect to the image's show page. This is displayed below:
 
-### Phase 1: Backend setup and User Authentication/Profile (1 day)
+`var ImageIndexItem = React.createClass({
+  showImage: function() {
+    HashHistory.push('/images/' + this.props.photo.id);
+  },
 
-**Objective** Working rails project that has authentication capabilities
+  render: function() {
+    return (
+      <li className="image" onClick={this.showImage}>
+        <img src={this.props.photo.image_url}/>
+      </li>
+    );
+  }
 
-- [x] create a new project with Postgres and development gems
-- [x] create a `User` model with proper validations that handles sign up
-- [x] authentication
-- [x] creating sessions controller that handles sign in features
-- [x] user's profile page has cover photo and profile photo with their name and join date
-- [x] create home page that viewers that aren't logged in go to with simple styling
-- [x] blank landing page after signing in (which will be the explore page that shows all images and photos)
-- [x] create demo login
+});`
 
-### Phase 2: Images Model, API, and basic APIUtil (1.5 days)
+ This display is detailed by the `ImageDetail` component. `ImageDetail` is highly responsive to the current user and the image's uploader, acquired by `SessionStore.currentUser()` and `this.state.image.user_id` respectively. Specific user options, such as delete and edit, are only available to users that have uploaded the image. `ImageDetail` also provides the user with comprehensive navigational tools.
 
-**Objective:** Images can be uploaded, saved, edited, and destroyed through the API.
+### Image Editing
 
-- [ ] create `Image` model
-- [ ] seed the database with a small amount of images
-- [ ] CRUD API for images (`ImagesController`)
-- [ ] jBuilder views for images
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
-- [ ] organize landing page (explore) with simple styling that displays all photos
-- [ ] images will be able to be tagged a certain type on creation
-  - [ ] for base level, will provide drawing, digital, and photo options for types of art
+Users are able to edit their image title, description, and image type if they are the uploader. By clicking on the edit button, users are redirected to the `EditForm` through the `/images/:imageId/edit` path. `EditForm` is consistently listening to `ImageStore`, which allows it to use `ImageStore.find(this.props.params.imageId)` to obtain the current image data and pre-fill the form.
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Image Uploading
 
-**Objective:** Images can be uploaded, saved, editeed, and destroyed with user interface.
-
-- [ ] set up the flux loop with skeleton files (actions, constants, apiutils, stores, and components)
-- [ ] set up the react router
-- [ ] implement the image store
-- [ ] implement each image component and building out the flux loop
-  - [ ] `ImageIndex`
-  - [ ] `ImageIndexItem`
-  - [ ] `ImageForm`
-- [ ] be able to save images to the DB upon creation and editing
+Image uploading is another feature that is available to registered users. This feature utilizes a Cloudinary widget that sends images to a cloud storage. Once uploaded, the `ImageForm` and the `UploadButton` components process each image. The `ImageForm` feature has a form that allows user to fill in data and a list of thumbnails. This form is unique for each photo and changes every time via the `updateFormDetails()` a different thumbnail is clicked. The state of each form is preserved by registering `this.currentImage` and saving its current details through `saveInformation()`.
 
 
-### Phase 4: Styling of Images (1 day)
+### User Profiles
 
-**Objective:** Existing pages (explore, sign in, sign up) will be styled completely
+Users given their own profile page that displays their images and albums and is handled by the `UserDetail` component. This page can be accessed through the `NavBar` or the `ImageDetail`. It contains its own nav bar that allows users to view their images, albums, or profile edit form. Rendering the images and albums are dependent on the user's `has_many: images` and `has_many: albums` associations.
 
-- [ ] create a style/layout
-- [ ] position elements properly
-- [ ] explore play will be divided into 3 categories based on the type of images (photos, drawings, digital art) to create an aesthetically clean/organized views
+### Albums
 
-### Phase 5: Albums (2 days)
+All albums resides in each user profile page. Users are able to create albums and view them individually. Each album possesses a `user_id` property that associates itself with its creator. Conversely, a user is connected with the album with its `albums` association.
 
-**Objective:** Albums belong to users and contain many images
+### Dependencies
 
-- [ ] create `Album` model
-- [ ] build out API, Flux loop, and components for:
-  - [ ] Album CRUD
-  - [ ] Album create will have title, description
-  - [ ] albums can be seen by non-logged in users, but only currently logged users that match album owners can make changes
-- [ ] add option for each individual current ImageIndexItem to be added to a photo
-- [ ] when logged in, it gives button that creates an album
-- [ ] creating an album includes title, description, date created
-  - [ ] has a cover photo
-  - [ ] has drag and drop capabilities from previous images
-  - [ ] adding images uses same form as the create/uploadImage form
+Other dependencies used for the project include:
+- BCrypt for hashing and password-salting to provide a secure authentication system
+- Cloudinary for image uploading and processing
+- React Masonry for organized and responsive image galleries
 
-
-
-### Phase 6: Complex Styling, seeding, and extra time for previous phases (2.5 days)
-
-- [ ] Get feedback on UI and site functionality/speed from others
-- [ ] Perhaps get users to use site by creating account, uploading photos, and commenting
-- [ ] Pagination and infinite scroll for the explore and user profile pages
-- [ ] Create layouts that resize based on the browser size
-
-### Bonus Features (TBD)
-- [ ] Add search capability in create album to look up your photos by title
-- [ ] Add search capabilities that look up photos by title or tags and users by username
-- [ ] Add a drag/drop capability when uploading photos
+## Future Implementations
+- Tags
+- Search feature that can filter results via tags and user names
+- A more interactive album create and update page that allows users to either upload new images or select images from their collection
+- Commenting
+- User profile photos
+- Following users
+- Image likes system
+- Account activation via email
+- Integration of multiple client sessions

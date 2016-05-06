@@ -58,7 +58,7 @@ var ImageForm = React.createClass({
 
   handleSubmit: function(e) {
     e.preventDefault();
-    this.saveInfo();
+    this.saveInformation();
 
     for (var i = 0; i < this.state.stateImages.length; i++) {
       var imageData = this.state.stateImages[i];
@@ -97,7 +97,7 @@ var ImageForm = React.createClass({
 
   },
 
-  saveInfo: function(){
+  saveInformation: function(){
     if (this.currentImage.image_url){
 			this.currentImage["title"] = this.state.title;
 			this.currentImage["description"] = this.state.description;
@@ -147,7 +147,7 @@ var ImageForm = React.createClass({
 		this.setState({ selected: index, visible: "" });
 		var image = this.findImage(url);
 		if (this.currentImage.url !== image.image_url){
-			this.saveInfo();
+			this.saveInformation();
 			this.setState({ title: image.title, description: image.description, imageType: image.imageType });
 		}
 
