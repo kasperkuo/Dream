@@ -1,13 +1,14 @@
 var React = require('react');
 var Modal = require("react-modal");
 
-var SessionStore = require('../../stores/session_store.js');
+var SessionStore = require('../../stores/session_store.js'),
+		ErrorStore = require('../../stores/error_store');
 var UserClientActions = require('../../actions/user_client_actions');
 
 var LoginForm = React.createClass({
 
 	getInitialState: function(){
-		return { modalOpen: false, email: "", password: ""};
+		return { modalOpen: false, email: "", password: "", errors: []};
 	},
 
 	closeModal: function(){
@@ -25,7 +26,11 @@ var LoginForm = React.createClass({
 			password: this.state.password
 		};
 		UserClientActions.login(loginData);
-		this.setState({ modalOpen: false });
+		if (SessionStore.currentUser()) {
+			this.setState({modalOpen: false, name: "", email: "", password: ""});
+		} else {
+			this.setState({errors: ErrorStore.all()});
+		}
 	},
 
 	guestLogin: function(e) {
@@ -49,6 +54,14 @@ var LoginForm = React.createClass({
 	},
 
 	render: function(){
+
+		var errors;
+		if (this.state.errors.length > 0) {
+			errors = this.state.errors.map(function(error, index) {
+									return <li key={index}>{error}</li>;
+								});
+		}
+
 
 		var style = {
 		  overlay : {
@@ -83,6 +96,7 @@ var LoginForm = React.createClass({
 				<div className="signup-form">
 					<h1 className="signup-header">SIGN IN</h1>
 	        <form className="form" onSubmit={this.handleSubmit}>
+						<ul className="errors">{errors}</ul>
 
 						<div className="field name-box">
               <input

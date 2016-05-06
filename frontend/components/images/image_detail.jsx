@@ -92,6 +92,12 @@ var ImageDetail = React.createClass({
     HashHistory.push("/users/" + userId);
   },
 
+  returnAlbum: function(e) {
+    e.preventDefault();
+    var albumId = this.state.image.album_id;
+    HashHistory.push("albums/" + albumId);
+  },
+
   render: function() {
     var slash = "slashHidden";
     if (this.state.image) {
@@ -111,6 +117,10 @@ var ImageDetail = React.createClass({
       }
     }
 
+    if (this.state.image && this.state.image.album_id) {
+      var returnAlbum = <a onClick={this.returnAlbum} className="backExplore">RETURN TO ALBUM</a>;
+    }
+
     return (
       <div>
         <div className="arrow" id="previous" onClick={this.goPreviousImage}>
@@ -125,6 +135,9 @@ var ImageDetail = React.createClass({
             {description}
             <div className="userOptions">
               {editForm}<span className={slash}> / </span>{deleteForm}
+              <br></br>
+              <br></br>
+              {returnAlbum}
               <br></br>
               <br></br>
               <a onClick={this.redirectHome} className="backExplore">BACK TO EXPLORE</a>

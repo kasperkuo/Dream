@@ -1,12 +1,19 @@
 var React = require('react');
 var SessionStore = require('../../stores/session_store');
+var ErrorStore = require("../../stores/error_store");
 var UserClientActions = require('../../actions/user_client_actions');
 var Modal = require("react-modal");
 
 var SignUpForm = React.createClass({
 
 	getInitialState: function(){
-		return { modalOpen: false, name: "", email: "", password: ""};
+		return {
+			modalOpen: false,
+			name: "",
+			email: "",
+			password: "",
+			errors: ErrorStore.all()
+		};
 	},
 
   closeModal: function(){
@@ -17,6 +24,7 @@ var SignUpForm = React.createClass({
    this.setState({ modalOpen: true });
  },
 
+
 	handleSubmit: function(e){
 		e.preventDefault();
 		var loginData = {
@@ -25,12 +33,11 @@ var SignUpForm = React.createClass({
 			password: this.state.password
 		};
 		UserClientActions.signup(loginData);
-    this.setState({
-			modalOpen: false,
-			name: "",
-			email: "",
-			password: ""
-		});
+    if (SessionStore.currentUser()) {
+			this.setState({modalOpen: false, name: "", email: "", password: ""});
+		} else {
+			this.setState({errors: ErrorStore.all()});
+		}
 
 	},
 
@@ -52,6 +59,12 @@ var SignUpForm = React.createClass({
 	},
 
 	render: function(){
+		var errors;
+		if (this.state.errors.length > 0) {
+			errors = this.state.errors.map(function(error, index) {
+									return <li key={index}>{error}</li>;
+								});
+		}
 
 		var style = {
 			overlay : {
@@ -74,7 +87,7 @@ var SignUpForm = React.createClass({
 				zIndex          : 1001,
 				width           : '30%',
 				maxWidth        : '500px',
-				height          : '440px'
+				height          : '480px'
 			}
 		};
 
@@ -86,10 +99,10 @@ var SignUpForm = React.createClass({
         onRequestClose={this.closeModal}
 				onAfterOpen={this.openModal}
         style={style}>
-
 				<div className="signup-form">
   				<h1 className="signup-header">SIGN UP</h1>
           <form className="form" onSubmit={this.handleSubmit}>
+						<ul className="errors">{errors}</ul>
 					 	<div className="field name-box">
               <input
                 className="signup-input"
