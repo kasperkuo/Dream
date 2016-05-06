@@ -178,11 +178,12 @@ var ImageForm = React.createClass({
       content : {
         position        : 'fixed',
         top             : '125px',
-        left            : '8.33%',
+        margin          : '0 auto',
         border          : '1px solid #ccc',
         padding         : '20px',
         zIndex          : 1001,
         maxWidth        : '80%',
+        height          : '500px'
       }
     };
     var uploadButton;
