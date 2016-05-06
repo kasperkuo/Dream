@@ -30,7 +30,7 @@ IMAGE_URLS = [
   "https://orig09.deviantart.net/74db/f/2014/046/3/e/quiet_calamity_by_megatruh-d76k76f.jpg",
   "https://orig13.deviantart.net/bb4b/f/2015/312/1/f/1f50891b645f6f0435dd8dce5120514f-d9fydcs.jpg",
   "https://orig02.deviantart.net/9f56/f/2015/073/b/c/bc85aab5186cdeae4076abdef5afafad-d8lr3th.jpg",
-  "http://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg"
+  "https://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg"
 ]
 
 IMAGE_TITLE = [
@@ -64,36 +64,36 @@ ALBUM_IMAGE_URLS = [
   "https://images.unsplash.com/photo-1461468611824-46457c0e11fd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=a035cc63ca5112addcce8399c7cd432a",
   "https://66.media.tumblr.com/tumblr_md6vw2FJ321qgn6feo1_500.jpg",
   "https://67.media.tumblr.com/cb0055e777f41739333a47989a1397f0/tumblr_nsgnji0GHO1qz62xqo1_500.jpg",
-  "http://67.media.tumblr.com/934bf8628824f369d6766d7d9bb6301f/tumblr_n2um3mqwID1qz62xqo1_500.jpg",
-  "http://66.media.tumblr.com/41fc4028562f91979d0bf5166b61c97c/tumblr_mmax68Dflh1rgo217o1_500.jpg",
-  "http://66.media.tumblr.com/09b73f2ee5139d5c5b911c7b2c737550/tumblr_mwu1o9QJ3Z1sulnzno1_500.jpg",
-  "http://65.media.tumblr.com/8ba0bc5dc2adab77c6a2d7e12bee22b4/tumblr_mqx68uZNkw1rcnu4ao1_500.jpg",
-  "http://66.media.tumblr.com/c6f25548535d48726ab46ec6a09667b6/tumblr_mk2oor3uZa1qggs6ao1_500.jpg",
-  "http://66.media.tumblr.com/tumblr_lvtevhCKPz1qdxchuo1_500.jpg",
-  "http://66.media.tumblr.com/adee4d13d9673d0b1fb74f3e4da32765/tumblr_mrx3axMGaB1rnlb7lo1_r1_400.jpg",
-  "http://66.media.tumblr.com/081cb9c6b4fc1a7ecbd5aa3b6d5e8c5d/tumblr_mkclglFgWz1rwe56eo1_500.jpg",
-  "http://66.media.tumblr.com/tumblr_max0psVRDI1rsbqe6o1_500.jpg",
-  "http://66.media.tumblr.com/4eb575978cbd3061dfb4e88d7ad3d968/tumblr_meqq6uPL3T1r302kmo1_500.jpg",
-  "http://66.media.tumblr.com/8a41d1bec958cb8c6d5969f0a10f961f/tumblr_mffpodAoaF1qhu7x0o1_500.jpg",
-  "http://66.media.tumblr.com/009e3b0980951a7312a3f990e385b35d/tumblr_mj4qe1rgqN1r4p7vto1_500.jpg",
-  "http://67.media.tumblr.com/tumblr_m8la2eSbmN1qik7xgo1_500.jpg",
-  "http://67.media.tumblr.com/5a209aae934a6f6fe996fcd48f7e5bc5/tumblr_mgvotsX6UD1s1aez7o1_500.jpg",
-  "http://67.media.tumblr.com/3a287dd8ad33b0da56ed18fdacdcbfd0/tumblr_mijqrblOAq1rtbxrwo1_500.jpg",
-  "http://66.media.tumblr.com/08109daf6a6f3cff6e3874f4dfa77049/tumblr_mg9m8abL7g1rpe0jco1_500.jpg",
-  "http://66.media.tumblr.com/43d2742a6917ac13fd856e016273102b/tumblr_mfswzlVygD1qiucwio1_500.jpg",
-  "http://66.media.tumblr.com/babfc79880065d92216009fa429afa6c/tumblr_meymuzxbWy1rpc1rco1_500.png"
+  "https://67.media.tumblr.com/934bf8628824f369d6766d7d9bb6301f/tumblr_n2um3mqwID1qz62xqo1_500.jpg",
+  "https://66.media.tumblr.com/41fc4028562f91979d0bf5166b61c97c/tumblr_mmax68Dflh1rgo217o1_500.jpg",
+  "https://66.media.tumblr.com/09b73f2ee5139d5c5b911c7b2c737550/tumblr_mwu1o9QJ3Z1sulnzno1_500.jpg",
+  "https://65.media.tumblr.com/8ba0bc5dc2adab77c6a2d7e12bee22b4/tumblr_mqx68uZNkw1rcnu4ao1_500.jpg",
+  "https://66.media.tumblr.com/c6f25548535d48726ab46ec6a09667b6/tumblr_mk2oor3uZa1qggs6ao1_500.jpg",
+  "https://66.media.tumblr.com/tumblr_lvtevhCKPz1qdxchuo1_500.jpg",
+  "https://66.media.tumblr.com/adee4d13d9673d0b1fb74f3e4da32765/tumblr_mrx3axMGaB1rnlb7lo1_r1_400.jpg",
+  "https://66.media.tumblr.com/081cb9c6b4fc1a7ecbd5aa3b6d5e8c5d/tumblr_mkclglFgWz1rwe56eo1_500.jpg",
+  "https://66.media.tumblr.com/tumblr_max0psVRDI1rsbqe6o1_500.jpg",
+  "https://66.media.tumblr.com/4eb575978cbd3061dfb4e88d7ad3d968/tumblr_meqq6uPL3T1r302kmo1_500.jpg",
+  "https://66.media.tumblr.com/8a41d1bec958cb8c6d5969f0a10f961f/tumblr_mffpodAoaF1qhu7x0o1_500.jpg",
+  "https://66.media.tumblr.com/009e3b0980951a7312a3f990e385b35d/tumblr_mj4qe1rgqN1r4p7vto1_500.jpg",
+  "https://67.media.tumblr.com/tumblr_m8la2eSbmN1qik7xgo1_500.jpg",
+  "https://67.media.tumblr.com/5a209aae934a6f6fe996fcd48f7e5bc5/tumblr_mgvotsX6UD1s1aez7o1_500.jpg",
+  "https://67.media.tumblr.com/3a287dd8ad33b0da56ed18fdacdcbfd0/tumblr_mijqrblOAq1rtbxrwo1_500.jpg",
+  "https://66.media.tumblr.com/08109daf6a6f3cff6e3874f4dfa77049/tumblr_mg9m8abL7g1rpe0jco1_500.jpg",
+  "https://66.media.tumblr.com/43d2742a6917ac13fd856e016273102b/tumblr_mfswzlVygD1qiucwio1_500.jpg",
+  "https://66.media.tumblr.com/babfc79880065d92216009fa429afa6c/tumblr_meymuzxbWy1rpc1rco1_500.png"
 ]
 
 ALBUM_IMAGE_TITLES = [
   "Serenity",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
+  "Pride",
+  "Horizon",
+  "Leave the Planet",
+  "La Fantasie",
+  "Recover",
+  "Silence",
+  "Dream",
+  "Venice Beach",
   "Venezia",
   "Atlantis",
   "Day Dream",
@@ -108,13 +108,69 @@ ALBUM_IMAGE_TITLES = [
   "A Day of Happiness"
 ]
 
+GUEST_ALBUM_IMAGES = [
+  "https://images.unsplash.com/reserve/RONyPwknRQOO3ag4xf3R_Kinsey.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=060404b95bb482ecb25161f0e4b69560",
+  "http://66.media.tumblr.com/aab27dc4215fff6854affa647b4fc5e9/tumblr_n3qp7rc66H1rr7g6fo1_500.jpg",
+  "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450",
+  "https://67.media.tumblr.com/tumblr_m7ux2g8Q8a1qzclx7o1_500.jpg",
+  "https://65.media.tumblr.com/60c6f79be62af89327d35d24e4153a3b/tumblr_mevpmrTHAA1rj304co1_500.jpg",
+  "https://67.media.tumblr.com/tumblr_ma9dpcXign1qf84kuo1_500.jpg",
+  "https://66.media.tumblr.com/a429ed533ebea722804dfc53f4f0fb7f/tumblr_mf8l88moO81qaatj7o1_500.jpg",
+  "https://images.unsplash.com/photo-1460364157752-926555421a7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0fe3f0d99130ab847ace35f6abe06ac6",
+  "https://65.media.tumblr.com/133ef07714577016785ef9b0199ff5bf/tumblr_msg2owBM621qmkgojo1_500.jpg",
+  "https://66.media.tumblr.com/ac865b95e2f59e5223ba674904f8a268/tumblr_mhbqpqLGzO1r5h04to1_500.jpg",
+  "https://66.media.tumblr.com/d400e91fc8edb176535257b8ca45d2d4/tumblr_mpu917gc6H1raflu8o1_500.jpg",
+  "https://67.media.tumblr.com/1e824081868848eb5954a8ddbd581fcd/tumblr_mf010pvLjl1r34qiso1_500.jpg",
+  "https://66.media.tumblr.com/cb50f3b10bffc0e1dd074498cc2eafa9/tumblr_mlmfnyL8ib1qcz4s2o1_500.jpg",
+  "https://66.media.tumblr.com/tumblr_mau03a8A6X1rd5j8mo1_500.jpg",
+  "https://67.media.tumblr.com/9cd8b90515d1888da16abd2e7f22a2ee/tumblr_meslwoNxbM1rs8i79o1_500.png",
+  "https://66.media.tumblr.com/80b91c1d3278fc54493f48cfe53d788b/tumblr_mfg15gSWnC1r2s1lro1_500.jpg",
+  "https://67.media.tumblr.com/tumblr_ma3d6wfBGt1qez43mo1_500.jpg",
+  "https://65.media.tumblr.com/tumblr_mc5sqjsXjM1r2cjjao1_500.jpg",
+  "https://66.media.tumblr.com/tumblr_mcdfdbjjYZ1r95y9ro1_500.png",
+  "https://images.unsplash.com/photo-1430713976611-6c0b558c239e?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450"
+]
+
+GUEST_ALBUM_TITLES = [
+  "Forever",
+  "Tranquility",
+  "Wonder",
+  "I Found Heaven in my Dreams",
+  "Snow Leopard",
+  "A New World",
+  "Milky Way Path",
+  "",
+  "Focus",
+  "Gentle",
+  "White Tiger",
+  "Happiest Place on Earth",
+  "",
+  "",
+  "Warmth",
+  "Adventure",
+  "",
+  "",
+  "Good Night",
+  ""
+]
+
 ALBUM_IMAGE_URLS.length.times do |i|
   Image.create!(
     image_url: ALBUM_IMAGE_URLS[i],
     user_id: 2,
     image_type: "Photography",
-    title: ALBUM_IMAGE_TITLES[1],
+    title: ALBUM_IMAGE_TITLES[i],
     album_id: 2
+  )
+end
+
+GUEST_ALBUM_IMAGES.length.times do |i|
+  Image.create!(
+    image_url: GUEST_ALBUM_IMAGES[i],
+    user_id: 3,
+    image_type: "Photography",
+    title: GUEST_ALBUM_TITLES[i],
+    album_id: 3
   )
 end
 
@@ -148,7 +204,7 @@ User.create!(
 
 Album.create!(
   title: "Imagine",
-  cover_photo_url: "http://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg",
+  cover_photo_url: "https://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg",
   user_id: 1
 )
 
@@ -156,4 +212,10 @@ Album.create!(
   title: "Serenity",
   cover_photo_url: "https://images.unsplash.com/photo-1461468611824-46457c0e11fd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=a035cc63ca5112addcce8399c7cd432a",
   user_id: 2
+)
+
+Album.create!(
+  title: "Forever",
+  cover_photo_url: "https://images.unsplash.com/reserve/RONyPwknRQOO3ag4xf3R_Kinsey.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=060404b95bb482ecb25161f0e4b69560",
+  user_id: 3
 )
