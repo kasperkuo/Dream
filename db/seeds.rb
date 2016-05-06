@@ -156,6 +156,22 @@ GUEST_ALBUM_TITLES = [
   ""
 ]
 
+TRADITIONAL_URLS = [
+  "https://66.media.tumblr.com/68e3474fa34ad2eee142eb9cd0732e94/tumblr_n37n63Hyla1rnxcz2o1_500.jpg",
+  "https://67.media.tumblr.com/705ec0e2411b2f7b5b64b026236c8a44/tumblr_n0kx1fCqWr1t8svzpo1_500.jpg",
+  "https://67.media.tumblr.com/tumblr_mdfzxf3JkM1qegbl1o1_500.jpg",
+  "https://65.media.tumblr.com/tumblr_m358b5KlZr1rs0d62o1_500.jpg",
+  "https://66.media.tumblr.com/tumblr_lrj99xQgZs1qe8vh5o1_500.jpg",
+]
+
+TRADITIONAL_URLS.length.times do |i|
+  Image.create!(
+    image_url: TRADITIONAL_URLS[i],
+    user_id: 1,
+    image_type: "Traditional"
+  )
+end
+
 ALBUM_IMAGE_URLS.length.times do |i|
   Image.create!(
     image_url: ALBUM_IMAGE_URLS[i],

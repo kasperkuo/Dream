@@ -4,6 +4,7 @@ var AlbumStore = require('../../stores/album_store');
 var ImageIndexItem = require('../images/image_index_item');
 var SessionStore = require('../../stores/session_store');
 var ImageClientActions = require('../../actions/image_client_actions');
+var HashHistory = require('react-router').hashHistory;
 
 var AlbumDetail = React.createClass({
 
@@ -33,9 +34,36 @@ var AlbumDetail = React.createClass({
   scrollDown: function() {
     var number = window.innerHeight;
     $('html, body').animate({
-    scrollTop: '+=' + number
- }, 800);
-    // window.scrollBy(0,window.innerHeight);
+      scrollTop: '+=' + number
+   }, 800);
+  },
+
+  redirectHome: function(e) {
+    e.preventDefault();
+    HashHistory.push('/');
+  },
+
+  redirectUserPage: function(e) {
+    e.preventDefault();
+    var userId = this.state.album.user_id;
+    HashHistory.push('/users/' + userId);
+  },
+
+  exploreNavList: function() {
+    return (
+      <ul>
+        <li
+          className="explore-button"
+          onClick={this.redirectHome}>
+          Explore
+        </li>
+        <li
+          className="explore-button"
+          onClick={this.redirectUserPage}>
+          Return to User Page
+        </li>
+      </ul>
+    );
   },
 
   render: function() {
@@ -52,6 +80,18 @@ var AlbumDetail = React.createClass({
       isFitWidth: true
     };
 
+
+    $(window).scroll(function () {
+      var windowHeight = window.innerHeight;
+      if ($(window).scrollTop() > (windowHeight+44)) {
+          $('.albumNavBar').addClass('album-navbar-fixed');
+      }
+      if ($(window).scrollTop() < (windowHeight+44)) {
+          $('.albumNavBar').removeClass('album-navbar-fixed');
+      }
+    });
+
+
     return (
       <div className="album-images-container">
         <div className="album-cover-photo">
@@ -64,6 +104,8 @@ var AlbumDetail = React.createClass({
           </div>
           <img src={imageUrl} />
         </div>
+        <div className="albumNavBar">{this.exploreNavList()}</div>
+
         <Masonry
           className="imageList"
           elementType={'ul'}
