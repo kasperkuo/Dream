@@ -50,24 +50,24 @@
 
 
 .album-form {
-  position: absolute;
+  position: relative;
   text-align: center;
   font-family: 'Lato', sans-serif;
   height: 320px;
   display: block;
-  left: 40px;
+	margin-top: 50px;
 
   .description-header {
     letter-spacing: 2px;
     margin-bottom: 30px;
   }
 
-
-  .album-title {
+  .album-form-title {
     margin-bottom: 10px;
     width: 240px;
     border: 1px solid black;
     padding: 3px;
+
     &:focus,
       &.focused {
         outline:none;
@@ -82,7 +82,7 @@
     @include ease(333ms);
     border: 1px solid black;
     padding: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     &:focus,
       &.focused {
           outline:none;

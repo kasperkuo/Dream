@@ -68,7 +68,7 @@ var SignUpForm = React.createClass({
 			content : {
 				position        : 'fixed',
 				top             : '125px',
-				left            : '32%',
+			  margin          : '0 auto',
 				border          : '1px solid #ccc',
 				padding         : '20px',
 				zIndex          : 1001,

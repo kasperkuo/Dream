@@ -30,10 +30,6 @@ var AlbumForm = React.createClass({
     this.setState({ coverPhotoUrl: e.target.value });
   },
 
-  handleSelect: function(e) {
-
-  },
-
   handleSubmit: function(e) {
     e.preventDefault();
     var albumData = {
@@ -47,7 +43,6 @@ var AlbumForm = React.createClass({
       modalOpen: false,
       title: "",
       coverPhotoUrl: "",
-      images:[]
     });
   },
 
@@ -74,8 +69,9 @@ var AlbumForm = React.createClass({
         border          : '1px solid #ccc',
         padding         : '20px',
         zIndex          : 1001,
-        width           : '90%',
-        height          : "400px"
+        width           : '350px',
+        height          : "400px",
+        margin          : '0 auto'
       }
     };
 
@@ -90,29 +86,24 @@ var AlbumForm = React.createClass({
             <h1 className="album-header">CREATE ALBUM</h1>
             <form className="album-form" onSubmit={this.handleSubmit}>
               <h3 className="description-header">INFORMATION</h3>
-              <input
-                type="text"
-                className="album-title"
-                onChange={this.changeTitle}
-                value={this.state.title}
-                placeholder="TITLE"/>
-
-              <br /><br />
-
                 <input
-                  type="text"
-                  className="album-title"
-                  onChange={this.changeCoverPhoto}
-                  value={this.state.coverPhotoUrl}
-                  placeholder="COVER PHOTO URL"/>
+                 type="text"
+                 className="album-form-title"
+                 onChange={this.changeTitle}
+                 value={this.state.title}
+                 placeholder="TITLE"/>
 
-              <br /><br />
+               <br /><br />
+
+                 <input
+                   type="text"
+                   className="album-textarea"
+                   onChange={this.changeCoverPhoto}
+                   value={this.state.coverPhotoUrl}
+                   placeholder="COVER PHOTO URL"/>
 
               <input id="edit-submit" type="submit" value="CREATE ALBUM"/>
             </form>
-            <div className="album-images-container">
-              {albumImageThumbnails}
-            </div>
           </div>
           </Modal>
         </div>

@@ -107,18 +107,28 @@ var UserDetail = React.createClass({
         disableImagesLoaded={false}>
         {imageList}
       </Masonry>
-    );
-  } else if (this.state.selected === "Edit User") {
-    display = <UserUpdateForm />;
-  } else {
-    display = (
-      <div className="albums-container">
-        <Albums user={this.state.currentUser} />
-        <AlbumForm user={this.state.currentUser} />;
-      </div>
-    );
+      );
+    } else if (this.state.selected === "Edit User") {
+      display = <UserUpdateForm />;
+    } else {
+      if (this.state.currentUser && this.state.userProfile) {
+        if (this.state.currentUser.id === this.state.userProfile.id) {
+          display = (
+            <div className="albums-container">
+              <Albums user={this.state.currentUser} />
+              <AlbumForm user={this.state.currentUser} />;
+            </div>
+          );
+        } else {
+          display = (
+            <div className="albums-container">
+              <Albums user={this.state.currentUser} />
+            </div>
+          );
+        }
+      }
+    }
 
-  }
 
     $(window).scroll(function () {
       if ($(window).scrollTop() > 249) {
