@@ -1,8 +1,13 @@
+.splash-container {
+  position: relative;
+  display: flex;
+}
+
 .splash {
     width: 100%;
     display: block!important;
     background-color: #000000;
-    background:url("https://images.unsplash.com/photo-1457955375330-f723ec0e5312?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=b664ae58eff11bf13e136aa03661d06b");
+    background:url("https://images.unsplash.com/photo-1449885381849-88def7e55fa0?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450");
 
     background-size: cover;
     background-attachment: fixed;
@@ -20,11 +25,12 @@
   width:100%;
   font-size: 100px;
   text-align: center;
-  margin-top: 220px;
+  margin: 210px auto;
+  margin-bottom: 120px;
   font-family: 'Lato', sans-serif;
   z-index: 3;
   color: white;
-  letter-spacing: 2px;
+  letter-spacing: 0.1em;
   font-weight: 300;
 }
 
@@ -35,8 +41,9 @@
   text-align: center;
   color: white;
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
+  letter-spacing: 1.5px;
 
 }
 
@@ -63,49 +70,28 @@
 }
 
 .inspire {
+
+  position: relative;
   font-family: 'roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
 .bg {
-  position: relative;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #000 url(https://images.unsplash.com/photo-1421930535025-d2af27c14065?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0504e939e787f3307ebd9fb74c366d84) no-repeat center center;
+  width: 100%;
+  display: block!important;
+  background-color: #000000;
+  background:url("https://images.unsplash.com/photo-1450849608880-6f787542c88a?crop=entropy&dpr=2&fit=crop&fm=jpg&h=900&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1700");
+
   background-size: cover;
-  filter: brightness(45%) blur(10px);
-  transition: filter 1.5s;
-}
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 360px;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 1;
 
-.hero-btn {
-  border: 2px solid white;
-  padding: 25px;
-  letter-spacing: 0.75em;
-  color: white;
-  z-index: 999;
-  margin: 25px;
-  line-height: 1.5;
-  transition: all 2s, padding 700ms;
-}
-
-.hero-btn:hover + div {
-  filter: brightness(100%);
-}
-
-.hero-btn:hover {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.3);
-  padding: 15em
-}
-
-.str {
-  transition: 1s 1s
-}
-
-.hero-btn:hover .str {
-  color: red
 }

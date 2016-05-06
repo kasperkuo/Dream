@@ -162,15 +162,39 @@ TRADITIONAL_URLS = [
   "https://67.media.tumblr.com/tumblr_mdfzxf3JkM1qegbl1o1_500.jpg",
   "https://65.media.tumblr.com/tumblr_m358b5KlZr1rs0d62o1_500.jpg",
   "https://66.media.tumblr.com/tumblr_lrj99xQgZs1qe8vh5o1_500.jpg",
+  "https://saimg-a.akamaihd.net/saatchi/519729/art/1962552/1083319-7.jpg",
+  "https://saimg-a.akamaihd.net/saatchi/519729/art/1980965/1099025-7.jpg",
+  "https://s-media-cache-ak0.pinimg.com/736x/58/8d/d0/588dd0255b767cbb24d72991d2be646c.jpg",
+  "https://pre11.deviantart.net/b7b8/th/pre/f/2013/270/0/2/purity__sold__by_mekhz-d68m9xx.jpg",
+  "https://s-media-cache-ak0.pinimg.com/564x/d2/f5/25/d2f5257d9d822424ffeb9b32cf069485.jpg"
 ]
 
-TRADITIONAL_URLS.length.times do |i|
-  Image.create!(
-    image_url: TRADITIONAL_URLS[i],
-    user_id: 1,
-    image_type: "Traditional"
-  )
-end
+TRADITIONAL_TITLES = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "In Your Arms",
+  "The Sunshine Was More Transient",
+  "Marionette",
+  "puRity",
+  "Howling Wolf"
+]
+
+TRADITIONAL_DESCRIPTION = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "by Sara Riches",
+  "by Sara Riches",
+  "by Sere Rivers",
+  "by Mekhz",
+  "source: https://www.flickr.com/photos/241730/"
+]
+
 
 ALBUM_IMAGE_URLS.length.times do |i|
   Image.create!(
@@ -199,6 +223,16 @@ IMAGE_URLS.length.times do |i|
     image_type: "Digital",
     title: IMAGE_TITLE[i],
     album_id: 1
+  )
+end
+
+TRADITIONAL_URLS.length.times do |i|
+  Image.create!(
+    image_url: TRADITIONAL_URLS[i],
+    user_id: 1,
+    image_type: "Traditional",
+    title: TRADITIONAL_TITLES[i],
+    description: TRADITIONAL_DESCRIPTION[i]
   )
 end
 

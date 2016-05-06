@@ -3,17 +3,17 @@ var SignUpForm = require('../user_forms/signup_form');
 
 var Splash = React.createClass({
 
+  // <div className="inspire">
+  //   <a href="#" className="hero-btn">
+  //     <span className="str">INSPIRE ME</span>
+  //   </a>
+  //   <div className="bg"></div>
+  // </div>
   render: function() {
     var dreamText = "The home for all your artwork";
     var dreamText2 = "Upload, access, organize, edit, and share your artwork from anywhere in the world";
-    // <div className="inspire">
-    //   <a href="#" className="hero-btn">
-    //     <span className="str">INSPIRE ME</span>
-    //   </a>
-    //   <div className="bg"></div>
-    // </div>
     return (
-      <div>
+      <div className="splash-container">
         <div className="splash">
           <h1 className="dreamheader">DREAM</h1>
           <p className="dreamtext">
@@ -25,7 +25,7 @@ var Splash = React.createClass({
           <div className="splashSignUp"><SignUpForm /></div>
         </div>
 
-      </div>
+    </div>
     );
   }
 
