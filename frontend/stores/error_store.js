@@ -10,7 +10,7 @@ ErrorStore.all = function() {
   return _errors.slice();
 };
 
-var addErrors = function(errors) {
+var resetErrors = function(errors) {
   _errors = [];
   _errors = errors;
   ErrorStore.__emitChange();
@@ -24,7 +24,7 @@ var removeErrors = function() {
 ErrorStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case ErrorConstants.ERROR:
-      addErrors(payload.errors);
+      resetErrors(payload.errors);
       break;
     case ErrorConstants.REMOVE_ERRORS:
       removeErrors();

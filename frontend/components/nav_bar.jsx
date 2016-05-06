@@ -7,6 +7,7 @@ var ImageForm = require('./images/image_form');
 var HashHistory = require('react-router').hashHistory;
 var UploadButton = require('./navbar_items/upload_button');
 var UserStore = require('../stores/user_store');
+var ErrorStore = require('../stores/error_store');
 
 var NavBar = React.createClass({
   getInitialState: function() {
@@ -21,12 +22,12 @@ var NavBar = React.createClass({
 
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._onChange);
-    // UserClientActions.fetchCurrentUser();
   },
 
   componentWillUnmount: function() {
     this.sessionListener.remove();
   },
+
 
   _onChange: function() {
     this.setState({ currentUser: SessionStore.currentUser() });

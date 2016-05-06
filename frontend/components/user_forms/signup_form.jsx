@@ -23,9 +23,16 @@ var SignUpForm = React.createClass({
 
   openModal: function(){
 		ErrorActions.removeErrors();
-   this.setState({ modalOpen: true });
+   	this.setState({ modalOpen: true });
  },
 
+ componentDidMount: function() {
+ 	this.errorsListener = ErrorStore.addListener(this._onErrorChange);
+ },
+
+ _onErrorChange: function() {
+	 this.setState({ errors: ErrorStore.all() });
+ },
 
 	handleSubmit: function(e){
 		e.preventDefault();
