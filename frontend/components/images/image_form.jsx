@@ -218,7 +218,7 @@ var ImageForm = React.createClass({
                 className="upload-textarea"
                 value={this.state.description}
                 onChange={this.changeDescription}
-                placeholder="DESCRIPTION"></textarea>
+                placeholder="DESCRIPTION"/>
 
               <div className="select-container">
                 <select className="select" selected={this.state.imageType} onChange={this.changeImageType}>
@@ -227,6 +227,8 @@ var ImageForm = React.createClass({
                   <option>Digital</option>
                 </select>
               </div>
+
+              <br /><br />
 
               <div className="submit-button">
   							{this.renderSubmitButton()}

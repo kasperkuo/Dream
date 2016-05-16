@@ -139,7 +139,6 @@ var ImageEditForm = React.createClass({
 
 
 
-
             <input id="edit-submit" type="submit" value="SAVE CHANGES"/>
           </form>
           {redirectPhoto}<span className="edit-slash"> / </span>{redirectHome}
