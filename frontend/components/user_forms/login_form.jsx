@@ -106,8 +106,7 @@ var LoginForm = React.createClass({
 								className="signup-input"
 								type="text"
 								value={this.state.email}
-								onChange={this.changeEmail}
-								placeholder="email"/>
+								onChange={this.changeEmail}/>
 							<label>Email</label>
 								<span className="ss-icon">check</span>
 						</div>
@@ -118,8 +117,7 @@ var LoginForm = React.createClass({
 								className="signup-input"
 								type="password"
 								value={this.state.password}
-								onChange={this.changePassword}
-								placeholder="password"/>
+								onChange={this.changePassword}/>
 							<label>Password</label>
 							<span className="ss-icon">check</span>
 						</div>

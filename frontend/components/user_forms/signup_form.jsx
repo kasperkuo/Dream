@@ -111,8 +111,7 @@ var SignUpForm = React.createClass({
                 className="signup-input"
 								type="text"
 								value={this.state.name}
-								onChange={this.changeName}
-                placeholder="full name"/>
+								onChange={this.changeName}/>
 							<label>Name</label>
 							<span className="ss-icon">check</span>
 						</div>
@@ -123,8 +122,7 @@ var SignUpForm = React.createClass({
                 className="signup-input"
                 type="text"
                 value={this.state.email}
-                onChange={this.changeEmail}
-                placeholder="email"/>
+                onChange={this.changeEmail}/>
 							<label>Email</label>
 							<span className="ss-icon">check</span>
 						</div>
@@ -135,8 +133,7 @@ var SignUpForm = React.createClass({
                 className="signup-input"
 								type="password"
 								value={this.state.password}
-								onChange={this.changePassword}
-                placeholder="password"/>
+								onChange={this.changePassword}/>
 							<label>Password</label>
 							<span className="ss-icon">check</span>
 						</div>

@@ -98,6 +98,7 @@ var ImageEditForm = React.createClass({
 
     var albumList;
     if (this.state.imageOwner) {
+      debugger;
       albumList = this.state.imageOwner.albums.map(function(album, index){
         return <option key={index}>{album.title}</option>;
       });
@@ -136,12 +137,7 @@ var ImageEditForm = React.createClass({
 
             <br /><br />
 
-            <div className="select-container">
-              <select className="select" selected={this.state.album} onChange={this.changeAlbum}>
-                <option></option>
-                {albumList}
-              </select>
-            </div>
+
 
 
             <input id="edit-submit" type="submit" value="SAVE CHANGES"/>

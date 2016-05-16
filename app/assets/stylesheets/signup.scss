@@ -51,12 +51,11 @@ $field-color:#E8E9EA;
 			margin-bottom:40px;
 			font-size:4em;
 			text-transform:uppercase;
-			@include lato-1;
+			@include lato-3;
 			text-align: center;
+			letter-spacing: 0.2em;
 		}
 }
-
-
 
 .form {
 		  @include grid(7);
