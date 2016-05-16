@@ -18,25 +18,17 @@ var ImageEditForm = React.createClass({
       description: image.description,
       url: image.image_url,
       imageType: "Photography",
-      album: image.album,
-      imageOnwer: UserStore.userProfile()
+      album: image.album
     });
   },
 
   componentDidMount: function() {
     this.imageListener = ImageStore.addListener(this.handleChange);
-    this.userListener = UserStore.addListener(this._onUserChange);
     ImageClientActions.fetchSingleImage(parseInt(this.props.params.imageId));
-    UserClientActions.fetchUserProfile(this.props.userId);
   },
 
   componentWillUnmount: function() {
     this.imageListener.remove();
-    this.userListener.remove();
-  },
-
-  _onUserChange: function() {
-    this.setState({imageOwner: UserStore.userProfile()});
   },
 
   changeTitle: function(e) {
@@ -44,17 +36,11 @@ var ImageEditForm = React.createClass({
   },
 
   changeImageType: function(e) {
-    debugger;
     this.setState({ imageType: e.target.value });
   },
 
   changeDescription: function(e) {
     this.setState({ description: e.target.value });
-  },
-
-  changeAlbum: function(e) {
-    e.preventDefault();
-    this.setState({ album: e.target.value });
   },
 
   handleChange: function() {
@@ -96,14 +82,6 @@ var ImageEditForm = React.createClass({
       var url = this.state.url;
     }
 
-    var albumList;
-    if (this.state.imageOwner) {
-      debugger;
-      albumList = this.state.imageOwner.albums.map(function(album, index){
-        return <option key={index}>{album.title}</option>;
-      });
-    }
-
     var redirectPhoto = <a className="edit-nav" onClick={this.returnToPhoto}>BACK TO PHOTO</a>;
     var redirectHome = <a className="edit-nav" onClick={this.redirectExplore}>RETURN TO EXPLORE</a>;
     return (
@@ -136,8 +114,6 @@ var ImageEditForm = React.createClass({
             </div>
 
             <br /><br />
-
-
 
             <input id="edit-submit" type="submit" value="SAVE CHANGES"/>
           </form>
