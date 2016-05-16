@@ -124,7 +124,7 @@ var ImageDetail = React.createClass({
     return (
       <div>
         <div className="arrow" id="previous" onClick={this.goPreviousImage}>
-          <img src="http://image005.flaticon.com/1/svg/60/60573.svg"/>
+          <img src="https://image005.flaticon.com/1/svg/60/60573.svg"/>
         </div>
 
         <div className="imageContainer">
@@ -150,7 +150,7 @@ var ImageDetail = React.createClass({
           </div>
 
           <div className="arrow" id="next" onClick={this.goNextImage}>
-            <img src="http://image005.flaticon.com/1/svg/60/60615.svg" />
+            <img src="https://image005.flaticon.com/1/svg/60/60615.svg" />
           </div>
       </div>
   </div>

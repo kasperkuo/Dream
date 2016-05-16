@@ -110,7 +110,7 @@ ALBUM_IMAGE_TITLES = [
 
 GUEST_ALBUM_IMAGES = [
   "https://images.unsplash.com/reserve/RONyPwknRQOO3ag4xf3R_Kinsey.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=060404b95bb482ecb25161f0e4b69560",
-  "http://66.media.tumblr.com/aab27dc4215fff6854affa647b4fc5e9/tumblr_n3qp7rc66H1rr7g6fo1_500.jpg",
+  "https://66.media.tumblr.com/aab27dc4215fff6854affa647b4fc5e9/tumblr_n3qp7rc66H1rr7g6fo1_500.jpg",
   "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450",
   "https://2.bp.blogspot.com/-Y6r8Dpt-Xsk/UZ36z0Ulj2I/AAAAAAAABmo/5INQ5dE_Q1M/s1600/pink-gradient-sky.jpg",
   "https://67.media.tumblr.com/tumblr_m7ux2g8Q8a1qzclx7o1_500.jpg",
