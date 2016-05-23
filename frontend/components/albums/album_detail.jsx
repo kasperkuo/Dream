@@ -83,10 +83,10 @@ var AlbumDetail = React.createClass({
 
     $(window).scroll(function () {
       var windowHeight = window.innerHeight;
-      if ($(window).scrollTop() > (windowHeight+44)) {
+      if ($(window).scrollTop() > (windowHeight - 43)) {
           $('.albumNavBar').addClass('album-navbar-fixed');
       }
-      if ($(window).scrollTop() < (windowHeight+44)) {
+      if ($(window).scrollTop() < (windowHeight - 43)) {
           $('.albumNavBar').removeClass('album-navbar-fixed');
       }
     });
