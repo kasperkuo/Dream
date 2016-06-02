@@ -17,7 +17,6 @@ var ImageIndex = React.createClass({
     };
   },
 
-
   componentDidMount: function() {
     this.imageListener = ImageStore.addListener(this._onChange);
     ImageClientActions.fetchAllImages();
@@ -84,12 +83,20 @@ var ImageIndex = React.createClass({
 
   },
 
+  wait10: function() {
+    return setTimeout(function() {
+      return <div><img id="loading" src="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif" alt="Loading..."/></div>
+    }, 10000);
+  },
+
   render: function() {
     var photos;
     if (this.state.images.length !== 0){
       photos = this.state.images.map(function(photo) {
         return <ImageIndexItem key={photo.id} photo={photo} />;
       });
+    } else {
+      photos = this.wait10();
     }
 
     var masonryOptions = {
