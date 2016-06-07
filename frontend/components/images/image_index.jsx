@@ -14,7 +14,7 @@ var ImageIndex = React.createClass({
       images: ImageStore.getDigital(),
       selected: "digital",
       loaded: false,
-      imageStatus: false
+      imageLoaded: false
     };
   },
 
@@ -84,25 +84,27 @@ var ImageIndex = React.createClass({
 
   },
 
-  wait10: function() {
-    var loading = <div><img id="loading" src="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif" alt="Loading..."/></div>
-    setTimeout(function() {
-      return loading;
-    }, 1000);
-  },
-
-  imageLoaded: function() {
-    this.setState({ imageStatus: true });
-    console.log("here");
+  setImageLoadedFalse: function() {
+    this.setState({ imageLoaded: false });
   },
 
   render: function() {
     var photos;
+    var render;
 
     if (this.state.images.length !== 0){
       photos = this.state.images.map((function(photo) {
-        return <ImageIndexItem imageLoaded={this.imageLoaded} key={photo.id} photo={photo} />;
+        return <ImageIndexItem key={photo.id} photo={photo} />;
       }).bind(this));
+
+      for (var i = 0; i < photos.length; i++) {
+        if (!photos[i].state.imageLoaded) {
+          render = (<div><img id="loading" src="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif" alt="Loading..."/></div>);
+          break;
+        } else if (i === photos.length && photos[i].state.imageLoaded) {
+          render = photos;
+        }
+      }
     }
 
     var masonryOptions = {
@@ -121,8 +123,7 @@ var ImageIndex = React.createClass({
             elementType={'ul'}
             options={masonryOptions}
             disableImagesLoaded={false}>
-            {this.wait10()}
-            {photos}
+            {render}
           </Masonry>
         </Loader>
       </div>
