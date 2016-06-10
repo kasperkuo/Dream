@@ -95,16 +95,7 @@ var ImageIndex = React.createClass({
     if (this.state.images.length !== 0){
       photos = this.state.images.map((function(photo) {
         return <ImageIndexItem key={photo.id} photo={photo} />;
-      }).bind(this));
-
-      for (var i = 0; i < photos.length; i++) {
-        if (!photos[i].state.imageLoaded) {
-          render = (<div><img id="loading" src="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif" alt="Loading..."/></div>);
-          break;
-        } else if (i === photos.length && photos[i].state.imageLoaded) {
-          render = photos;
-        }
-      }
+      }));
     }
 
     var masonryOptions = {
