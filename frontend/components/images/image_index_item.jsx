@@ -10,10 +10,19 @@ var ImageIndexItem = React.createClass({
     this.setState({ imageLoaded: true });
   },
 
+  imageResized: function() {
+    var imageUrl = this.props.photo.image_url;
+    var lol = /upload\S*(?:\s\S+)?/.exec(imageUrl);
+    var pop = /(?:\S+\s)?\S*upload/.exec(imageUrl);
+    if (pop) {
+      return pop[0] + "/c_scale,w_270" + lol[0].replace(/upload/,"");
+    }
+  },
+
   render: function() {
     return (
       <li className="image" onClick={this.showImage}>
-        <img className="image_thumbnail" src={this.props.photo.image_url}/>
+        <img className="image_thumbnail" src={this.imageResized()}/>
       </li>
     );
   }
