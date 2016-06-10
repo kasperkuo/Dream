@@ -33,10 +33,6 @@ var UploadButton = React.createClass({
       alert('Not logged in');
     }
   },
-  //
-  // successfulUpload: function(payload) {
-  //   this.props.handleUpload(payload);
-  // },
 
   render: function() {
     return (

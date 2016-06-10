@@ -13,7 +13,7 @@ var ImageIndex = React.createClass({
     return {
       images: ImageStore.getDigital(),
       selected: "digital",
-      loaded: false,
+      loaded: false
     };
   },
 

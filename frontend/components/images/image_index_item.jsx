@@ -13,7 +13,7 @@ var ImageIndexItem = React.createClass({
   render: function() {
     return (
       <li className="image" onClick={this.showImage}>
-        <img src={this.props.photo.image_url}/>
+        <img className="image_thumbnail" src={this.props.photo.image_url}/>
       </li>
     );
   }

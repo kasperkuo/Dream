@@ -64,6 +64,7 @@ var ImageForm = React.createClass({
       var imageData = this.state.stateImages[i];
       ImageClientActions.postImage(imageData);
     }
+    
     this.setState({
       modalOpen: false,
       title: "",
