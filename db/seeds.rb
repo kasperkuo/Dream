@@ -53,27 +53,27 @@ IMAGE_TITLE = [
 ]
 
 ALBUM_IMAGE_URLS = [
-  "https://images.unsplash.com/photo-1461468611824-46457c0e11fd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=a035cc63ca5112addcce8399c7cd432a",
-  "https://66.media.tumblr.com/tumblr_md6vw2FJ321qgn6feo1_500.jpg",
-  "https://67.media.tumblr.com/cb0055e777f41739333a47989a1397f0/tumblr_nsgnji0GHO1qz62xqo1_500.jpg",
-  "https://67.media.tumblr.com/934bf8628824f369d6766d7d9bb6301f/tumblr_n2um3mqwID1qz62xqo1_500.jpg",
-  "https://66.media.tumblr.com/41fc4028562f91979d0bf5166b61c97c/tumblr_mmax68Dflh1rgo217o1_500.jpg",
-  "https://66.media.tumblr.com/09b73f2ee5139d5c5b911c7b2c737550/tumblr_mwu1o9QJ3Z1sulnzno1_500.jpg",
-  "https://65.media.tumblr.com/8ba0bc5dc2adab77c6a2d7e12bee22b4/tumblr_mqx68uZNkw1rcnu4ao1_500.jpg",
-  "https://66.media.tumblr.com/c6f25548535d48726ab46ec6a09667b6/tumblr_mk2oor3uZa1qggs6ao1_500.jpg",
-  "https://66.media.tumblr.com/tumblr_lvtevhCKPz1qdxchuo1_500.jpg",
-  "https://66.media.tumblr.com/adee4d13d9673d0b1fb74f3e4da32765/tumblr_mrx3axMGaB1rnlb7lo1_r1_400.jpg",
-  "https://66.media.tumblr.com/081cb9c6b4fc1a7ecbd5aa3b6d5e8c5d/tumblr_mkclglFgWz1rwe56eo1_500.jpg",
-  "https://66.media.tumblr.com/tumblr_max0psVRDI1rsbqe6o1_500.jpg",
-  "https://66.media.tumblr.com/4eb575978cbd3061dfb4e88d7ad3d968/tumblr_meqq6uPL3T1r302kmo1_500.jpg",
-  "https://66.media.tumblr.com/8a41d1bec958cb8c6d5969f0a10f961f/tumblr_mffpodAoaF1qhu7x0o1_500.jpg",
-  "https://66.media.tumblr.com/009e3b0980951a7312a3f990e385b35d/tumblr_mj4qe1rgqN1r4p7vto1_500.jpg",
-  "https://67.media.tumblr.com/tumblr_m8la2eSbmN1qik7xgo1_500.jpg",
-  "https://67.media.tumblr.com/5a209aae934a6f6fe996fcd48f7e5bc5/tumblr_mgvotsX6UD1s1aez7o1_500.jpg",
-  "https://67.media.tumblr.com/3a287dd8ad33b0da56ed18fdacdcbfd0/tumblr_mijqrblOAq1rtbxrwo1_500.jpg",
-  "https://66.media.tumblr.com/08109daf6a6f3cff6e3874f4dfa77049/tumblr_mg9m8abL7g1rpe0jco1_500.jpg",
-  "https://66.media.tumblr.com/43d2742a6917ac13fd856e016273102b/tumblr_mfswzlVygD1qiucwio1_500.jpg",
-  "https://66.media.tumblr.com/babfc79880065d92216009fa429afa6c/tumblr_meymuzxbWy1rpc1rco1_500.png"
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595735/Girl3_aigtqb.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595759/Tiger_whvlp9.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595789/Waves_fulhu0.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596589/Starry_lake_u9sl8y.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596615/Whale_kwgq9v.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596655/Stag_tqpt7k.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596676/Cat2_cf5pcx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596702/tumblr_mk2oor3uZa1qggs6ao1_500_f76kae.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596727/Bike_feqonw.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596813/tumblr_mrx3axMGaB1rnlb7lo1_r1_400_iikbet.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596840/Aquarium_exgmol.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596968/Mountains_sgbtc6.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465596994/Balloons_g7ggzu.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597017/Paris_xtcegp.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597037/Baby_ycxlxj.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597085/PUppy_tfhcmj.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597114/Tiger_2_fblwps.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597144/Forest_ni2gjm.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597214/Puppy2_ewtqdm.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597240/waterfall_pxyxao.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465597267/Disneyland2_xzd9wk.png"
 ]
 
 ALBUM_IMAGE_TITLES = [
