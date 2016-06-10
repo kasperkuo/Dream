@@ -14,7 +14,6 @@ var ImageIndex = React.createClass({
       images: ImageStore.getDigital(),
       selected: "digital",
       loaded: false,
-      imageLoaded: false
     };
   },
 
@@ -81,16 +80,10 @@ var ImageIndex = React.createClass({
         </ul>
       );
     }
-
-  },
-
-  setImageLoadedFalse: function() {
-    this.setState({ imageLoaded: false });
   },
 
   render: function() {
     var photos;
-    var render;
 
     if (this.state.images.length !== 0){
       photos = this.state.images.map((function(photo) {
@@ -114,7 +107,7 @@ var ImageIndex = React.createClass({
             elementType={'ul'}
             options={masonryOptions}
             disableImagesLoaded={false}>
-            {render}
+            {photos}
           </Masonry>
         </Loader>
       </div>
