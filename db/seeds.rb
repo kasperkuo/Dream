@@ -1,36 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 IMAGE_URLS = [
-  "https://img14.deviantart.net/8b4a/i/2013/214/7/d/sky_for_dreamers_by_rhads-d6gbpqu.jpg",
-  "https://img03.deviantart.net/cfd8/i/2014/291/e/7/nature_salvation_by_rhads-d83ai0z.jpg",
-  "https://img04.deviantart.net/04cf/i/2014/137/1/9/beautiful_world_by_rhads-d7iotc1.jpg",
-  "https://img12.deviantart.net/c1ad/i/2015/140/d/f/great_migration_by_rhads-d8u3g5q.jpg",
-  "https://pre05.deviantart.net/9a63/th/pre/i/2012/308/b/c/endless_journey_by_rhads-d5jyend.jpg",
-  "https://pre09.deviantart.net/396e/th/pre/f/2013/112/4/9/blue_planet_by_yuumei-d62mn5b.jpg",
-  "https://pre08.deviantart.net/871e/th/pre/f/2012/029/f/7/somewhere_near__but_far_in_time__by_megatruh-d4nz3s5.jpg",
-  "https://orig02.deviantart.net/b722/f/2012/247/1/6/stairway_to_the_sky___by_megatruh-d5dj2ik.jpg",
-  "https://orig07.deviantart.net/bf94/f/2011/202/7/8/phantasmagoria___by_megatruh-d4172as.jpg",
-  "https://pre00.deviantart.net/8738/th/pre/f/2011/058/7/f/berangkat__by_megatruh-d3aivav.jpg",
-  "https://img10.deviantart.net/3b73/i/2013/361/c/3/infinite_dreams_by_rhads-d5eywh4.jpg",
-  "https://orig12.deviantart.net/2dc4/f/2012/151/b/6/very_secret_garden___by_megatruh-d51qr2f.jpg",
-  "https://pre01.deviantart.net/0066/th/pre/f/2012/163/3/b/weightless_and_horizontal___by_megatruh-d537h4a.jpg",
-  "https://orig11.deviantart.net/d6db/f/2011/225/7/8/firdous_e_bareen___by_megatruh-d46e5uf.jpg",
-  "https://orig07.deviantart.net/d432/f/2012/325/f/e/illuminate_my_heart__by_megatruh-d5lqf10.jpg",
-  "https://orig06.deviantart.net/5d4f/f/2013/193/9/6/sailing_home_by_megatruh-d6d7ryd.jpg",
-  "https://orig06.deviantart.net/0d99/f/2010/282/3/f/up___by_megatruh-d30dsjy.png",
-  "https://orig09.deviantart.net/ba3d/f/2013/128/4/f/flood___by_megatruh-d64jk09.jpg",
-  "https://orig13.deviantart.net/eade/f/2013/039/b/f/the_world_is_new___by_megatruh-d5uar1y.jpg",
-  "https://orig02.deviantart.net/2d2c/f/2012/311/0/f/deserere___by_megatruh-d5k9246.jpg",
-  "https://orig09.deviantart.net/74db/f/2014/046/3/e/quiet_calamity_by_megatruh-d76k76f.jpg",
-  "https://orig13.deviantart.net/bb4b/f/2015/312/1/f/1f50891b645f6f0435dd8dce5120514f-d9fydcs.jpg",
-  "https://orig02.deviantart.net/9f56/f/2015/073/b/c/bc85aab5186cdeae4076abdef5afafad-d8lr3th.jpg",
-  "https://orig08.deviantart.net/c8c1/f/2015/345/6/6/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp.jpg"
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593369/sky_for_dreamers_by_rhads-d6gbpqu_bqknq9.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593512/nature_salvation_by_rhads-d83ai0z_jc3skj.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593517/beautiful_world_by_rhads-d7iotc1_l9ydrj.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593603/great_migration_by_rhads-d8u3g5q_at6uuz.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593645/endless_journey_by_rhads-d5jyend_umlzrq.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593687/blue_planet_by_yuumei-d62mn5b_ocpa4o.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593732/somewhere_near__but_far_in_time__by_megatruh-d4nz3s5_pr7ryi.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593760/stairway_to_the_sky___by_megatruh-d5dj2ik_oaffr4.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593801/phantasmagoria___by_megatruh-d4172as_l1porm.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593833/berangkat__by_megatruh-d3aivav_bgdxon.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593873/infinite_dreams_by_rhads-d5eywh4_sne04d.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593896/very_secret_garden___by_megatruh-d51qr2f_spjagq.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593921/weightless_and_horizontal___by_megatruh-d537h4a_jwvqd4.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593952/firdous_e_bareen___by_megatruh-d46e5uf_z08nom.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465593977/illuminate_my_heart__by_megatruh-d5lqf10_re9eig.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594000/sailing_home_by_megatruh-d6d7ryd_ttsfl6.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594034/up___by_megatruh-d30dsjy_zlfiyt.png",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594067/flood___by_megatruh-d64jk09_d4evx3.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594102/the_world_is_new___by_megatruh-d5uar1y_oi5lts.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594126/deserere___by_megatruh-d5k9246_cb1pkx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594150/quiet_calamity_by_megatruh-d76k76f_ni9qng.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594192/1f50891b645f6f0435dd8dce5120514f-d9fydcs_ltsfno.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594224/bc85aab5186cdeae4076abdef5afafad-d8lr3th_xsrznu.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594256/the_heavens_and_us__with_video_tutorial_link__by_yuumei-d9jrqmp_y1jgve.jpg"
 ]
 
 IMAGE_TITLE = [
@@ -109,27 +101,27 @@ ALBUM_IMAGE_TITLES = [
 ]
 
 GUEST_ALBUM_IMAGES = [
-  "https://images.unsplash.com/reserve/RONyPwknRQOO3ag4xf3R_Kinsey.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=060404b95bb482ecb25161f0e4b69560",
-  "https://66.media.tumblr.com/aab27dc4215fff6854affa647b4fc5e9/tumblr_n3qp7rc66H1rr7g6fo1_500.jpg",
-  "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450",
-  "https://2.bp.blogspot.com/-Y6r8Dpt-Xsk/UZ36z0Ulj2I/AAAAAAAABmo/5INQ5dE_Q1M/s1600/pink-gradient-sky.jpg",
-  "https://67.media.tumblr.com/tumblr_m7ux2g8Q8a1qzclx7o1_500.jpg",
-  "https://65.media.tumblr.com/60c6f79be62af89327d35d24e4153a3b/tumblr_mevpmrTHAA1rj304co1_500.jpg",
-  "https://67.media.tumblr.com/tumblr_ma9dpcXign1qf84kuo1_500.jpg",
-  "https://66.media.tumblr.com/a429ed533ebea722804dfc53f4f0fb7f/tumblr_mf8l88moO81qaatj7o1_500.jpg",
-  "https://images.unsplash.com/photo-1460364157752-926555421a7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0fe3f0d99130ab847ace35f6abe06ac6",
-  "https://65.media.tumblr.com/133ef07714577016785ef9b0199ff5bf/tumblr_msg2owBM621qmkgojo1_500.jpg",
-  "https://66.media.tumblr.com/ac865b95e2f59e5223ba674904f8a268/tumblr_mhbqpqLGzO1r5h04to1_500.jpg",
-  "https://66.media.tumblr.com/d400e91fc8edb176535257b8ca45d2d4/tumblr_mpu917gc6H1raflu8o1_500.jpg",
-  "https://67.media.tumblr.com/1e824081868848eb5954a8ddbd581fcd/tumblr_mf010pvLjl1r34qiso1_500.jpg",
-  "https://66.media.tumblr.com/cb50f3b10bffc0e1dd074498cc2eafa9/tumblr_mlmfnyL8ib1qcz4s2o1_500.jpg",
-  "https://66.media.tumblr.com/tumblr_mau03a8A6X1rd5j8mo1_500.jpg",
-  "https://67.media.tumblr.com/9cd8b90515d1888da16abd2e7f22a2ee/tumblr_meslwoNxbM1rs8i79o1_500.png",
-  "https://66.media.tumblr.com/80b91c1d3278fc54493f48cfe53d788b/tumblr_mfg15gSWnC1r2s1lro1_500.jpg",
-  "https://67.media.tumblr.com/tumblr_ma3d6wfBGt1qez43mo1_500.jpg",
-  "https://65.media.tumblr.com/tumblr_mc5sqjsXjM1r2cjjao1_500.jpg",
-  "https://66.media.tumblr.com/tumblr_mcdfdbjjYZ1r95y9ro1_500.png",
-  "https://images.unsplash.com/photo-1430713976611-6c0b558c239e?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450"
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594978/Girl_bgftyw.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595013/tumblr_n3qp7rc66H1rr7g6fo1_500_iqodcz.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595041/Space_ggtjq3.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595068/Pink_Boutique_v7b8st.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595090/Swing_llabrx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595117/Snow_Leopard_yehngu.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595136/Underwater_xsp3zp.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595158/Night_Sky_nb0ggh.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595180/Love_wi1oqp.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595202/Cat1_bb53o3.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595223/Splash_x2oivi.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595246/White_Tiger_eyyzj0.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595267/Disneyland_zrb74l.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595289/Doggie_jfqpgx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595316/Girl_Gun_Tattoo_hfapkx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595346/Sunset_Kiss_hyxzfm.png",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595370/Expedition_f5ulom.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595390/America_flgpva.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595415/Japan_f7kn5o.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595444/Sunset_ynescs.png",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465595472/photo-1430713976611-6c0b558c239e_vrq2lx.jpg"
 ]
 
 GUEST_ALBUM_TITLES = [
@@ -157,16 +149,16 @@ GUEST_ALBUM_TITLES = [
 ]
 
 TRADITIONAL_URLS = [
-  "https://66.media.tumblr.com/68e3474fa34ad2eee142eb9cd0732e94/tumblr_n37n63Hyla1rnxcz2o1_500.jpg",
-  "https://67.media.tumblr.com/705ec0e2411b2f7b5b64b026236c8a44/tumblr_n0kx1fCqWr1t8svzpo1_500.jpg",
-  "https://67.media.tumblr.com/tumblr_mdfzxf3JkM1qegbl1o1_500.jpg",
-  "https://65.media.tumblr.com/tumblr_m358b5KlZr1rs0d62o1_500.jpg",
-  "https://66.media.tumblr.com/tumblr_lrj99xQgZs1qe8vh5o1_500.jpg",
-  "https://saimg-a.akamaihd.net/saatchi/519729/art/1962552/1083319-7.jpg",
-  "https://saimg-a.akamaihd.net/saatchi/519729/art/1980965/1099025-7.jpg",
-  "https://s-media-cache-ak0.pinimg.com/736x/58/8d/d0/588dd0255b767cbb24d72991d2be646c.jpg",
-  "https://pre11.deviantart.net/b7b8/th/pre/f/2013/270/0/2/purity__sold__by_mekhz-d68m9xx.jpg",
-  "https://s-media-cache-ak0.pinimg.com/564x/d2/f5/25/d2f5257d9d822424ffeb9b32cf069485.jpg"
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594500/tumblr_n37n63Hyla1rnxcz2o1_500_qlthqx.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594533/rose_skull_lady_gfzd0r.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594587/tumblr_mdfzxf3JkM1qegbl1o1_500_tjgeov.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594610/Lady_lzeuyz.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594629/Skull_qhpzvr.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594653/In_Your_Arms_uxjjqh.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594675/1099025-7_eax8v6.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594695/Ballerina_tow0sj.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594715/Sunflower_yr0tgd.jpg",
+  "https://res.cloudinary.com/kasperkuo/image/upload/v1465594744/Wolf_ldwcjr.jpg"
 ]
 
 TRADITIONAL_TITLES = [
