@@ -12,10 +12,10 @@ var ImageIndexItem = React.createClass({
 
   imageResized: function() {
     var imageUrl = this.props.photo.image_url;
-    var lol = /upload\S*(?:\s\S+)?/.exec(imageUrl);
-    var pop = /(?:\S+\s)?\S*upload/.exec(imageUrl);
-    if (pop) {
-      return pop[0] + "/c_scale,w_270" + lol[0].replace(/upload/,"");
+    var initialUrl = /upload\S*(?:\s\S+)?/.exec(imageUrl);
+    var endUrl = /(?:\S+\s)?\S*upload/.exec(imageUrl);
+    if (endUrl) {
+      return initialUrl[0] + "/c_scale,w_270" + endUrl[0].replace(/upload/,"");
     }
   },
 
