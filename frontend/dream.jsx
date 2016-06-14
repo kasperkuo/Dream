@@ -18,8 +18,6 @@ var Modal = require("react-modal");
 var UserClientActions = require('./actions/user_client_actions');
 var ErrorStore = require('./stores/error_store');
 var SessionStore = require('./stores/session_store');
-// window.SessionStore = require('./stores/session_store');
-
 
 var App = React.createClass({
 
